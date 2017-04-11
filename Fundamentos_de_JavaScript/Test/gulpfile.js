@@ -14,6 +14,4 @@ gulp.task('scripts', function () {
   .pipe(gulp.dest('public'));
 })
 
-gulp.task('default', function () {
-
-});
+gulp.task('default', ['scripts']]);
