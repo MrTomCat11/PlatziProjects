@@ -8,8 +8,7 @@ body{
   font-family: 'Montserrat',sans-serif;;
 }
 
-#main-container{
-  /* 30 pixeles arriba y abajo, y centrado a los lados*/
+.landing{
   margin: 30px auto;
 }
 
@@ -22,7 +21,8 @@ body{
   font-size: 12px;
 }
 
-.login-box,.signup-box{
+.login-box,
+.signup-box{
   background-color: white;
   border: 1px solid #edeeee;
   border-radius: 3px;
@@ -30,9 +30,10 @@ body{
   text-align: center;
 }
 
-.signup-box .platzigram{
-  font-family: 'Oleo Script', cursive;
+.platzigram{
+  font-family: 'Oleo Script', cursive ;
   font-size: 42px;
+  color: $secondary-color !important;
 }
 
 .signup-form {
@@ -56,4 +57,15 @@ body{
 
 .signup-form .btn.btn-signup{
   background-color: #125688;
+}
+
+.header {
+  background-color: white;
+  color: $secondary-color;
+  box-shadow: none;
+  border-bottom: 1px solid #edeeee;
+}
+
+.timeline {
+  padding: 30px 0;
 }

@@ -16,7 +16,8 @@
     "express": "^4.15.2",
     "materialize-css": "^0.98.1",
     "page": "^1.7.1",
-    "pug": "^2.0.0-beta11"
+    "pug": "^2.0.0-beta11",
+    "title": "^1.0.0"
   },
   "devDependencies": {
     "babelify": "^7.3.0",

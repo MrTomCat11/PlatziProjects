@@ -2476,6 +2476,29 @@ process.chdir = function (dir) {
 process.umask = function() { return 0; };
 
 },{}],14:[function(require,module,exports){
+
+var orig = document.title;
+
+exports = module.exports = set;
+
+function set(str) {
+  var i = 1;
+  var args = arguments;
+  document.title = str.replace(/%[os]/g, function(_){
+    switch (_) {
+      case '%o':
+        return orig;
+      case '%s':
+        return args[i++];
+    }
+  });
+}
+
+exports.reset = function(){
+  set(orig);
+};
+
+},{}],15:[function(require,module,exports){
 var bel = require('bel') // turns template tag into DOM elements
 var morphdom = require('morphdom') // efficiently diffs + morphs two DOM elements
 var defaultEvents = require('./update-events.js') // default events to be copied when dom elements update
@@ -2519,7 +2542,7 @@ module.exports.update = function (fromNode, toNode, opts) {
   }
 }
 
-},{"./update-events.js":15,"bel":1,"morphdom":9}],15:[function(require,module,exports){
+},{"./update-events.js":16,"bel":1,"morphdom":9}],16:[function(require,module,exports){
 module.exports = [
   // attribute events (can be set with attributes)
   'onclick',
@@ -2557,75 +2580,179 @@ module.exports = [
   'onfocusout'
 ]
 
-},{}],16:[function(require,module,exports){
-var page = require('page');
-
-page('/', function (ctx, next) {
-  var main = document.getElementById('main-container');
-  main.innerHTML = '<a href="/signup">Signup</a>';
-});
-
-},{"page":11}],17:[function(require,module,exports){
-var page = require('page');
-
-require('./homepage');
-require('./signup');
-
-page();
-
-},{"./homepage":16,"./signup":18,"page":11}],18:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 var page = require('page');
 var empty = require('empty-element');
 var template = require('./template');
+var title = require('title');
 
-page('/signup', function (ctx, next) {
+page('/', function (ctx, next) {
+  title('Platzigram');
   var main = document.getElementById('main-container');
   empty(main).appendChild(template);
 });
 
-},{"./template":19,"empty-element":3,"page":11}],19:[function(require,module,exports){
+},{"./template":18,"empty-element":3,"page":11,"title":14}],18:[function(require,module,exports){
+var yo = require('yo-yo');
+var layout = require('../layout');
+
+var template = yo`<div class="container timeline">
+  <div class="row">
+    <div class="col s12 m10 offset-m1 l6 offset-l3">
+      content
+    </div>
+</div>`;
+
+module.exports = layout(template);
+
+},{"../layout":21,"yo-yo":15}],19:[function(require,module,exports){
+var page = require('page');
+
+require('./homepage');
+require('./signup');
+require('./signin');
+
+page();
+
+},{"./homepage":17,"./signin":22,"./signup":24,"page":11}],20:[function(require,module,exports){
 var yo = require('yo-yo');
 
-module.exports = yo`<div class="container">
+module.exports = function landing(box) {
+  return yo`<div class="container landing">
       <div class="row">
         <div class="col s10 push-s1">
           <div class="row">
             <div class="col m5 hide-on-small-only">
               <img class="iphone" src="iphone.png" />
             </div>
-            <div class="col s12 m7">
-
-              <div class="row">
-                <div class="signup-box">
-                  <h1 class="platzigram">Platzigram</h1>
-                  <form class="signup-form">
-                    <h2>Registrate para ver fotos de tus amigos estudiando en Platzi</h2>
-                    <div class="section">
-                      <a class="btn btn-fb hide-on-small-only">Iniciar sesión con Facebook</a>
-                      <a class="btn btn-fb hide-on-med-and-up">Iniciar sesión</a>
-                    </div>
-                    <div class="divider"></div>
-                    <div class="section">
-                      <input type="email" name="email" placeholder="Correo electrónico"/>
-                      <input type="text" name="name" placeholder="Nombre completo"/>
-                      <input type="text" name="username" placeholder="Nombre de usuario"/>
-                      <input type="password" name="password" placeholder="Contraseña"/>
-                      <button class="btn waves-effect waves-light btn-signup" type="submit">Registrate</button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="login-box">
-                  ¿Tienes una cuenta? <a href="/signin">Entrar</a>
-                </div>
-              </div>
-
-            </div>
+            ${box}
           </div>
         </div>
       </div>
     </div>`;
+};
 
-},{"yo-yo":14}]},{},[17]);
+},{"yo-yo":15}],21:[function(require,module,exports){
+var yo = require('yo-yo');
+
+module.exports = function layout(content) {
+  return yo`<div>
+  <nav class="header">
+    <div class="nav-wrapper">
+      <div class="container">
+        <div class="row">
+          <div class="col s12 m6 offset-m1">
+            <a href="/" class="brand-logo platzigram">Platzigram</a>
+          </div>
+          <div class="col s2 m6 push-s10 push-m10">
+            <a href="#" class="btn btn-large btn-flat dropdown-button" data-activates="drop-user">
+              <i class="fa fa-user" aria-hidden="true"></i>
+            </a>
+            <ul id="drop-user" class="dropdown-content">
+              <li><a href="#">Salir</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="content">
+    ${content}
+  </div>
+  </div>`;
+};
+
+},{"yo-yo":15}],22:[function(require,module,exports){
+var page = require('page');
+var empty = require('empty-element');
+var template = require('./template');
+var title = require('title');
+
+page('/signin', function (ctx, next) {
+  title('Platzigram - Signin');
+  var main = document.getElementById('main-container');
+  empty(main).appendChild(template);
+});
+
+},{"./template":23,"empty-element":3,"page":11,"title":14}],23:[function(require,module,exports){
+var yo = require('yo-yo');
+var landing = require('../landing');
+var signinForm = yo`<div class="col s12 m7">
+
+  <div class="row">
+    <div class="signup-box">
+      <h1 class="platzigram">Platzigram</h1>
+      <form class="signup-form">
+        <div class="section">
+          <a class="btn btn-fb hide-on-small-only">Iniciar sesión con Facebook</a>
+          <a class="btn btn-fb hide-on-med-and-up"><i class="fa fa-facebook-official"></i>Iniciar sesión</a>
+        </div>
+        <div class="divider"></div>
+        <div class="section">
+          <input type="text" name="username" placeholder="Nombre de usuario"/>
+          <input type="password" name="password" placeholder="Contraseña"/>
+          <button class="btn waves-effect waves-light btn-signup" type="submit">Inicia sesión</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="login-box">
+      ¿No Tienes una cuenta? <a href="/signup">Registrate</a>
+    </div>
+  </div>
+
+</div>`;
+
+module.exports = landing(signinForm);
+
+},{"../landing":20,"yo-yo":15}],24:[function(require,module,exports){
+var page = require('page');
+var empty = require('empty-element');
+var template = require('./template');
+var title = require('title');
+
+page('/signup', function (ctx, next) {
+  title('Platzigram - Signup');
+  var main = document.getElementById('main-container');
+  empty(main).appendChild(template);
+});
+
+},{"./template":25,"empty-element":3,"page":11,"title":14}],25:[function(require,module,exports){
+var yo = require('yo-yo');
+var landing = require('../landing');
+
+var signupForm = yo`<div class="col s12 m7">
+  <div class="row">
+    <div class="signup-box">
+      <h1 class="platzigram">Platzigram</h1>
+      <form class="signup-form">
+        <h2>Registrate para ver fotos de tus amigos estudiando en Platzi</h2>
+        <div class="section">
+          <a class="btn btn-fb hide-on-small-only">Iniciar sesión con Facebook</a>
+          <a class="btn btn-fb hide-on-med-and-up"><i class="fa fa-facebook-official"></i> Iniciar sesión</a>
+        </div>
+        <div class="divider"></div>
+        <div class="section">
+          <input type="email" name="email" placeholder="Correo electrónico"/>
+          <input type="text" name="name" placeholder="Nombre completo"/>
+          <input type="text" name="username" placeholder="Nombre de usuario"/>
+          <input type="password" name="password" placeholder="Contraseña"/>
+          <button class="btn waves-effect waves-light btn-signup" type="submit">Registrate</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="login-box">
+      ¿Tienes una cuenta? <a href="/signin">Entrar</a>
+    </div>
+  </div>
+
+</div>`;
+
+module.exports = landing(signupForm);
+
+},{"../landing":20,"yo-yo":15}]},{},[19]);
