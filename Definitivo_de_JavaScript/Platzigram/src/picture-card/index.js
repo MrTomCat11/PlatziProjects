@@ -1,5 +1,4 @@
 var yo = require('yo-yo');
-var moment = require('moment');
 var translate = require('../translate');
 
 module.exports = function pictureCard(pic) {

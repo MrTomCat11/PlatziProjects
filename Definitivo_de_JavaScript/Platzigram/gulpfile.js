@@ -21,24 +21,25 @@ gulp.task('assets', function () {
 })
 
 function compile(watch) {
-  var bundle = watchify(browserify('./src/index.js'));
-
-  function rebundle() {
-    bundle
-      .transform(babel)
-      .bundle()
-      .on('error', function (err) { console.log(err); this.emit('end') })
-      .pipe(source('index.js'))
-      .pipe(rename('app.js'))
-      .pipe(gulp.dest('public'));
-  }
+  var bundle = browserify('./src/index.js', {debug: true});
 
   if(watch){
+    bundle = watchify(bundle);
     bundle.on('update', function () {
       console.log('--> Bundling...');
       rebundle();
     });
   }
+
+  function rebundle() {
+    bundle
+      .transform(babel, { presets: ['es2015'], plugins: ['syntax-async-functions','transform-regenerator']})
+      .bundle()
+      .on('error', function (err) { console.log(err); this.emit('end') })
+      .pipe(source('index.js'))
+      .pipe(rename('app.js'))
+      .pipe(gulp.dest('public'));
+  }  
 
   rebundle();
 }
