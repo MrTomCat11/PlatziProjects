@@ -1,0 +1,20 @@
+2017-05-04T11:18:43.878370971 0.143285s notice: Recursively removing directory /home/javier/Desktop/PlatziProjects/Profesional_de_Node.js_y_JavaScript/platzigram-db/rethinkdb_data/tmp
+2017-05-04T11:18:43.903006748 0.167920s notice: Initializing directory /home/javier/Desktop/PlatziProjects/Profesional_de_Node.js_y_JavaScript/platzigram-db/rethinkdb_data
+2017-05-04T11:18:43.903086633 0.167999s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/home/javier/Desktop/PlatziProjects/Profesional_de_Node.js_y_JavaScript/platzigram-db/rethinkdb_data' did not already exist or is empty.)
+2017-05-04T11:18:43.903109293 0.168022s notice: Running rethinkdb 2.3.5~0xenial (GCC 5.3.1)...
+2017-05-04T11:18:43.906312985 0.171228s notice: Running on Linux 4.4.0-72-generic x86_64
+2017-05-04T11:18:43.906533987 0.171447s notice: Loading data from directory /home/javier/Desktop/PlatziProjects/Profesional_de_Node.js_y_JavaScript/platzigram-db/rethinkdb_data
+2017-05-04T11:18:44.128759874 0.393673s info: Automatically using cache size of 1876 MB
+2017-05-04T11:18:44.129292892 0.394206s notice: Listening for intracluster connections on port 29015
+2017-05-04T11:18:44.130193851 0.395107s notice: Listening for client driver connections on port 28015
+2017-05-04T11:18:44.130353513 0.395266s notice: Listening for administrative HTTP connections on port 8080
+2017-05-04T11:18:44.130356186 0.395269s notice: Listening on cluster addresses: 127.0.0.1, 127.0.1.1, ::1
+2017-05-04T11:18:44.130359338 0.395272s notice: Listening on driver addresses: 127.0.0.1, 127.0.1.1, ::1
+2017-05-04T11:18:44.130361652 0.395274s notice: Listening on http addresses: 127.0.0.1, 127.0.1.1, ::1
+2017-05-04T11:18:44.130364714 0.395277s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2017-05-04T11:18:44.130367936 0.395280s notice: Server ready, "javier_S451LN_xk0" 66a0f457-0584-4045-98c2-6eea3be9bc08
+2017-05-04T11:30:21.835831243 698.100744s notice: Server got SIGINT from pid 0, uid 0; shutting down...
+2017-05-04T11:30:21.835921748 698.100834s notice: Shutting down client connections...
+2017-05-04T11:30:21.835991406 698.100904s notice: All client connections closed.
+2017-05-04T11:30:21.835994615 698.100907s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2017-05-04T11:30:21.836244956 698.101158s notice: Storage engine shut down.

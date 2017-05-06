@@ -1,0 +1,19 @@
+Para la ejecucion de un programa
+STDIN = 0
+STDOUT = 1
+STDERR = 2
+
+cat operaciones.bc | bc -q
+
+bc -q < operaciones.bc
+
+bc -q < operaciones.bc > resultado
+
+bc -q < operaciones.bc > resultado 2>&1
+
+// Para las expresiones regulares de GREP
+^ = Se usa para referir al inicio de linea
+$ = Se usa para fin de linea
+Cuando se busca con grep
+Si se busca por todos los archivos de cierta carpeta
+grep -r . -e “loquese quiere buscar”

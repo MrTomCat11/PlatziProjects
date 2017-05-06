@@ -1,0 +1,6 @@
+comando 
+comando -f 1 --banderas=1
+comando parametro.txt
+comando parametro_1.txt parametro_2.txt
+comando -b -h 1 parametro.txt
+
