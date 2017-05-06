@@ -24,5 +24,10 @@
     "ava": "^0.19.1",
     "babel-eslint": "^7.2.3",
     "standard": "^10.0.2"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "co": "^4.6.0",
+    "rethinkdb": "^2.3.3"
   }
 }
