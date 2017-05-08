@@ -1,0 +1,17 @@
+ls .l *txt NO ES BANDERA
+
+Para manda el STDOUT de commandX al STDIN de command Y, usaria
+
+NO ES commandX >> commandY
+
+
+Si quisiera enviar tanto el STDOUT como STDERR de command a file, ejecutaría:
+
+SI ES command > file 2>&1
+
+CRONTAB -l ES CORRECTO
+
+"command < XX" UN ARCHIVO ES CORRECTO
+
+$? NO ES EL STDOUT DEL COMMANDO ANTERIOR
+ ES el resultado de la última operación realizada en el sistema.

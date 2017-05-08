@@ -31,7 +31,7 @@ class Db {
       let conn = yield connection
 
       let dbList = yield r.dbList().run(conn)
-      if(dbList.indexOf() === -1) {
+      if(dbList.indexOf(db) === -1) {
         yield r.dbCreate(db).run(conn)
       }
 
@@ -46,11 +46,8 @@ class Db {
       return conn
     })
 
-
     return Promise.resolve(setup()).asCallback(callback)
   }
-
-
 }
 
 module.exports = Db
