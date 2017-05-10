@@ -3,6 +3,8 @@
 const r = require('rethinkdb')
 const co = require('co')
 const Promise = require('bluebird')
+const utils = require('./utils')
+const uuid = require('uuid-base62')
 
 const defaults = {
   host: 'localhost',
@@ -24,6 +26,8 @@ class Db {
       port: this.port
     })
 
+    this.connected = true
+
     let db = this.db
     let connection = this.connection
 
@@ -31,15 +35,15 @@ class Db {
       let conn = yield connection
 
       let dbList = yield r.dbList().run(conn)
-      if(dbList.indexOf(db) === -1) {
+      if (dbList.indexOf(db) === -1) {
         yield r.dbCreate(db).run(conn)
       }
 
       let dbTables = yield r.db(db).tableList().run(conn)
-      if (dbTables.indexOf('images') === -1){
+      if (dbTables.indexOf('images') === -1) {
         yield r.db(db).tableCreate('images').run(conn)
       }
-      if (dbTables.indexOf('users') === -1){
+      if (dbTables.indexOf('users') === -1) {
         yield r.db(db).tableCreate('users').run(conn)
       }
 
@@ -47,6 +51,49 @@ class Db {
     })
 
     return Promise.resolve(setup()).asCallback(callback)
+  }
+
+  disconnect (callback) {
+    if (!this.connected) {
+      return Promise.reject(new Error('not connecte')).asCallback(callback)
+    }
+
+    this.connected = false
+    return Promise.resolve(this.connection)
+      .then((conn) => conn.close())
+  }
+
+  saveImage (image, callback) {
+    if (!this.connected) {
+      return Promise.reject(new Error('not connecte')).asCallback(callback)
+    }
+
+    let connection = this.connection
+    let db = this.db
+
+    let tasks = co.wrap(function * () {
+      let conn = yield connection
+      image.createdAt = new Date()
+      image.tags = utils.extractTags(image.description)
+
+      let result = yield r.db(db).table('images').insert(image).run(conn)
+
+      if (result.errors > 0) {
+        return Promise.reject(new Error(result.first_error))
+      }
+
+      image.id = result.generated_keys[0]
+
+      yield r.db(db).table('images').get(image.id).update({
+        public_id: uuid.encode(image.id)
+      }).run(conn)
+
+      let created = yield r.db(db).table('images').get(image.id).run(conn)
+
+      return Promise.resolve(created)
+    })
+
+    return Promise.resolve(tasks()).asCallback(callback)
   }
 }
 

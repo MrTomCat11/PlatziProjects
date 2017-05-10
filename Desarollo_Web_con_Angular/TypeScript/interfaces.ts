@@ -4,16 +4,16 @@ interface MyPersona{
   twitter_account?:string;
 }
 
-let personaUno:MyPersona = {
+let pUno:MyPersona = {
   first_name:'Jorge',
   last_name: 'Cano',
   twitter_account: '@jorgeucano'
 }
 
-let personaDos:MyPersona = {
+let pDos:MyPersona = {
   first_name:'Pepe',
   last_name: 'Perez',
 }
 
-console.log(personaUno);
-console.log(personaDos);
+console.log(pUno);
+console.log(pDos);
