@@ -9,7 +9,7 @@ const fixtures = require('./fixtures')
 const dbName = `platzigram_${uuid.v4()}`
 const db = new Db({ db: dbName })
 
-test.before('setup database', async t => {
+test.beforeEach('setup database', async t => {
   await db.connect()
   t.true(db.connected, 'should be connected')
 })
@@ -39,4 +39,34 @@ test('save image', async t => {
   t.is(typeof created.id, 'string')
   t.is(created.public_id, uuid.encode(created.id))
   t.truthy(created.createdAt)
+})
+
+test('like image', async t => {
+  t.is(typeof db.likeImage, 'function', 'likeImage is a function')
+
+  let image = fixtures.getImage()
+  let created = await db.saveImage(image)
+  let result = await db.likeImage(created.public_id)
+
+  t.true(result.liked)
+  t.is(result.likes, image.likes + 1)
+})
+
+test('get image', async t => {
+  t.is(typeof db.getImage, 'function', 'getImage is a function')
+
+  let image = fixtures.getImage(3)
+  let created = await db.saveImage(image)
+  let result = await db.getImage(created.public_id)
+
+  t.deepEqual(created, result)
+})
+
+test('list all images', async t => {
+  let images = fixtures.getImages()
+  let saveImages = images.map(img => db.saveImage(img))
+  let created = await Promise.all(saveImages)
+  let result = await db.getImages()
+
+  t.is(created.length, result.length)
 })
