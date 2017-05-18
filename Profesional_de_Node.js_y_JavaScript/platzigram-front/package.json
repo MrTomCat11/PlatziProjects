@@ -13,8 +13,11 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.16.1",
+    "body-parser": "^1.17.1",
+    "cookie-parser": "^1.4.3",
     "empty-element": "^1.0.0",
     "express": "^4.15.2",
+    "express-session": "^1.15.2",
     "file-extension": "^3.1.2",
     "intl": "^1.2.5",
     "intl-messageformat": "^1.3.0",
@@ -22,6 +25,9 @@
     "materialize-css": "^0.98.1",
     "multer": "^1.3.0",
     "page": "^1.7.1",
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.1.1",
+    "passport-local": "^1.0.0",
     "pug": "^2.0.0-beta11",
     "superagent": "^3.5.2",
     "title": "^1.0.0"

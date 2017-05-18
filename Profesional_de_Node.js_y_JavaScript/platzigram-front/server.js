@@ -1,7 +1,34 @@
 var express = require('express');
+// var aws = require('aws-sdk')
 var multer = require('multer');
+// var multerS3 = require('multer-s3');
 var ext = require('file-extension');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var expressSession = require('express-session');
+var passport = require('passport');
+var config = require('./config');
+var port = process.env.PORT || 3000;
 
+/* Almacenamiento de imagenes en AMAZON S3
+var s3 = new aws.S3({
+  accessKeyId: config.aws.accessKey
+});
+
+var storage = multerS3({
+  s3: s3,
+  bucket: 'platzigram',
+  acl: 'public-read',
+  metadata: function (req, file, cb) {
+    cb(null, { fieldName: file.fieldname })
+  },
+  key: function (req, file, cb) {
+    cb(null, +Date.now() + '.' + ext(file.originalname))
+  }
+});
+*/
+
+// *** Arreglar con Amazon S3!! ***
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, './uploads')
@@ -11,9 +38,22 @@ var storage = multer.diskStorage({
     console.log(file.originalname)
   }
 })
+// *** Arreglar con Amazon S3!! ***
+
 var upload = multer({ storage: storage }).single('picture');
 
 var app = express();
+
+app.set(bodyParser.json());
+app.set(bodyParser.urlencoded({ extended: false }));
+app.set(cookieParser());
+app.use(expressSession({
+  secret: config.secret,
+  resave: false,
+  saveUnitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.set('view engine', 'pug');
 
