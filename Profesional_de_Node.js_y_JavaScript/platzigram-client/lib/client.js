@@ -6,7 +6,7 @@ const Promise = require('bluebird')
 class Client {
   constructor (options) {
     this.options = options || {
-      endpoint: {
+      endpoints: {
         pictures: 'http://api.platzigram.com/picture',
         users: 'http://api.platzigram.com/user',
         auth: 'http://api.platzigram.com/auth'

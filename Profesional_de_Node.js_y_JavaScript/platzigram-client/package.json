@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "bluebird": "^3.5.0",
+    "platzigram-db": "file:../platzigram-db",
     "request": "^2.81.0",
     "request-promise": "^4.2.1"
   }

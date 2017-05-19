@@ -83,7 +83,7 @@ test('likePicture', async t => {
   t.deepEqual(image, result)
 })
 
-test('listPicture', async t => {
+test('listPictures', async t => {
   const client = t.context.client
 
   let images = fixtures.getImages(3)

@@ -5,18 +5,18 @@ import HttpHash from 'http-hash'
 import Db from 'platzigram-db'
 import config from './config'
 import utils from './lib/utils'
-import DbStrub from './test/stub/db'
+import DbStub from './test/stub/db'
 
 const env = process.env.NODE_ENV || 'production'
 let db = new Db(config.db)
-
+/*
 if (env === 'test') {
-  db = new DbStrub()
+  db = new DbStub()
 }
-
+*/
 const hash = HttpHash()
 
-hash.set('POST /', async function authenticate (req, res, params) {
+hash.set('POST /', async function saveUser (req, res, params) {
   let credentials = await json(req)
   await db.connect()
   let auth = await db.authenticate(credentials.username, credentials.password)

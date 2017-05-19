@@ -5,15 +5,15 @@ import HttpHash from 'http-hash'
 import Db from 'platzigram-db'
 import config from './config'
 import utils from './lib/utils'
-import DbStrub from './test/stub/db'
+import DbStub from './test/stub/db'
 
 const env = process.env.NODE_ENV || 'production'
 let db = new Db(config.db)
-
+/*
 if (env === 'test') {
-  db = new DbStrub()
+  db = new DbStub()
 }
-
+*/
 const hash = HttpHash()
 
 hash.set('GET /tag/:tag', async function byTag (req, res, params) {
@@ -24,7 +24,7 @@ hash.set('GET /tag/:tag', async function byTag (req, res, params) {
   send(res, 200, images)
 })
 
-hash.set('GET /list', async function getPictures (req, res, params) {
+hash.set('GET /list', async function list (req, res, params) {
   await db.connect()
   let images = await db.getImages()
   await db.disconnect()
@@ -39,14 +39,14 @@ hash.set('GET /:id', async function getPicture (req, res, params) {
   send(res, 200, image)
 })
 
-hash.set('POST /', async function postPicture (req, res, params) {
+hash.set('POST /', async function postPicture (req, res) {
   let image = await json(req)
 
   try {
     let token = await utils.extractToken(req)
-    let encoded = await utils.verifyToken(token, config.secret)
+    let encoded = await utils.verifyToken(token, config.secret, {})
     if (encoded && encoded.userId !== image.userId) {
-      throw new Error('invalid token')
+      return send(res, 401, { error: 'invalid token' })
     }
   } catch (e) {
     return send(res, 401, { error: 'invalid token' })
