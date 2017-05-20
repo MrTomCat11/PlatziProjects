@@ -178,7 +178,9 @@ class Db {
 
     let tasks = co.wrap(function * () {
       let conn = yield connection
-      user.password = utils.encrypt(user.password)
+      if (!user.facebook) {
+      	user.password = utils.encrypt(user.password)
+      }
       user.createdAt = new Date()
 
       let result = yield r.db(db).table('users').insert(user).run(conn)

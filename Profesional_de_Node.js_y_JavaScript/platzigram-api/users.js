@@ -19,8 +19,7 @@ hash.set('POST /', async function saveUser (req, res, params) {
   let user = await json(req)
   await db.connect()
   let created = await db.saveUser(user)
-  await db.disconnect()
-
+  // para test await db.disconnect()
   delete created.email
   delete created.password
 
@@ -31,7 +30,7 @@ hash.set('GET /:username', async function getUser (req, res, params) {
   let username = params.username
   await db.connect()
   let user = await db.getUser(username)
-  await db.disconnect()
+  // para test await db.disconnect()
 
   delete user.email
   delete user.password

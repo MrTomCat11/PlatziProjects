@@ -11,7 +11,7 @@ var platzigram = require('platzigram-client');
 var auth = require('./auth');
 
 var config = require('./config');
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 5050;
 
 var client = platzigram.createClient(config.client);
 
@@ -68,6 +68,7 @@ app.set('view engine', 'pug');
 app.use(express.static('public'));
 
 passport.use(auth.localStrategy);
+passport.use(auth.facebookStrategy);
 passport.deserializeUser(auth.deserializeUser);
 passport.serializeUser(auth.serializeUser);
 
@@ -98,6 +99,19 @@ app.post('/login', passport.authenticate('local', {
   failureRedirect: '/signin'
 }));
 
+app.get('/logout', function (req, res) {
+  req.logout();
+
+  res.redirect('/');
+})
+
+app.get('/auth/facebook', passport.authenticate('facebook', { scope: 'email' }))
+
+app.get('/auth/facebook/callback', passport.authenticate('facebook', {
+  successRedirect: '/',
+  failureRedirect: '/signin'
+}))
+
 function ensureAuth (req, res, next) {
   if (req.isAuthenticated()) {
     return next()
@@ -105,6 +119,14 @@ function ensureAuth (req, res, next) {
 
   res.status(401).send({ error: 'not authenticated' })
 }
+
+app.get('/whoami', function (req, res) {
+  if (req.isAuthenticated()) {
+    return res.json(req.user);
+  }
+
+  res.json({ auth: false })
+});
 
 app.get('/api/pictures', function (req, res, next) {
 
@@ -139,16 +161,18 @@ app.get('/api/pictures', function (req, res, next) {
 app.post('/api/pictures', ensureAuth, function (req, res){
   upload(req, res, function(err){
     if (err){
-      return res.send(500, "Error uploading file");
+      return res.status(500).send(`Error uploading file ${err.message}`);
     }
 
-    // PUEDE ESTAR EL ERROR AQUI
-    res.send('File uploaded');
+    res.send(`File uploaded ${req.file.location}`);
   })
 })
 
 app.listen(port, function (err) {
-  if (err) return console.log('Hubo un error'), process.exit(1);
+  if (err) {
+    console.log('Hubo un error')
+    process.exit(1);
+  }
 
   console.log(`Platzigram escuchando en el puerto ${port}`);
 })
