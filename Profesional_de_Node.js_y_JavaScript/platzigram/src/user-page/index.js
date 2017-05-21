@@ -5,14 +5,14 @@ import empty from 'empty-element';
 import header from '../header';
 import utils from '../utils';
 
-page('/:username', loadUser, utils.loadAuth, header, function (ctx, next) {
+page('/:username', utils.loadAuth, loadUser, header, function (ctx, next) {
   var main = document.getElementById('main-container');
   title(`Platzigram - ${ctx.user.username}`);
   empty(main).appendChild(template(ctx.user));
   $('.modal-trigger').leanModal();
 });
 
-page('/:username/:id', loadUser, utils.loadAuth, header, function (ctx, next) {
+page('/:username/:id', utils.loadAuth, loadUser, header, function (ctx, next) {
   var main = document.getElementById('main-container');
   title(`Platzigram - ${ctx.user.username}`);
   empty(main).appendChild(template(ctx.user));

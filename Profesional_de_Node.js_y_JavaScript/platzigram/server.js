@@ -99,7 +99,6 @@ app.post('/login', passport.authenticate('local', {
 
 app.get('/logout', function (req, res) {
   req.logout();
-
   res.redirect('/');
 })
 
@@ -110,14 +109,6 @@ app.get('/auth/facebook/callback', passport.authenticate('facebook', {
   failureRedirect: '/signin'
 }))
 
-function ensureAuth (req, res, next) {
-  if (req.isAuthenticated()) {
-    return next()
-  }
-
-  res.status(401).send({ error: 'not authenticated' })
-}
-
 app.get('/whoami', function (req, res) {
   if (req.isAuthenticated()) {
     return res.json(req.user);
@@ -127,6 +118,13 @@ app.get('/whoami', function (req, res) {
 });
 
 app.get('/api/pictures', function (req, res, next) {
+  /* client.listPictures(function (err, pictures) {
+    if (err) return res.send([]);
+
+    res.send(pictures)
+  })
+
+  */
   var pictures = [
    {
      user:{
@@ -165,7 +163,7 @@ app.post('/api/pictures', ensureAuth, function (req, res){
 
 app.get('/api/user/:username', (req, res) => {
   const user = {
-    username: 'javi',
+    username: 'javialej',
     avatar: 'https://scontent-mia1-2.xx.fbcdn.net/v/t1.0-9/15740961_151129478706735_2819762631189393122_n.jpg?oh=fd82f23fc5e623afc013cd1a1abb76c2&oe=59823283',
     pictures: [
       {
@@ -211,6 +209,14 @@ app.get('/:username', function (req, res){
 app.get('/:username/:id', function (req, res){
   res.render('index', { title: `Platzigram - ${req.params.username}` })
 })
+
+function ensureAuth (req, res, next) {
+  if (req.isAuthenticated()) {
+    return next()
+  }
+
+  res.status(401).send({ error: 'not authenticated' })
+}
 
 app.listen(port, function (err) {
   if (err) {

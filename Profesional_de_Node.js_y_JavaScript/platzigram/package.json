@@ -50,6 +50,8 @@
   },
   "scripts": {
     "build": "gulp",
-    "start": "gulp watch & node server.js"
+    "watch": "gulp watch",
+    "postinstall": "npm run build",
+    "start": "node server.js"
   }
 }

@@ -10,7 +10,7 @@ async function loadAuth (ctx, next) {
     }
     next()
   } catch (err) {
-    console.log(err)
+    return console.log(err)
   }
 }
 

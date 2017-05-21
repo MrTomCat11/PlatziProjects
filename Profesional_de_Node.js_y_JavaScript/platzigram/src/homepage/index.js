@@ -5,8 +5,9 @@ var title = require('title');
 var request = require('superagent');
 var header = require('../header');
 var axios = require('axios');
+var utils = require('../utils');
 
-page('/', header, loading, asyncLoad, function (ctx, next) {
+page('/', utils.loadAuth, header, loading, asyncLoad, function (ctx, next) {
   title('Platzigram');
   var main = document.getElementById('main-container');
 

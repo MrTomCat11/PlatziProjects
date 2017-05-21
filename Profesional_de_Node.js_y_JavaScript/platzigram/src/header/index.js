@@ -48,6 +48,7 @@ var renderHeader = function(ctx){
 module.exports = function header(ctx, next){
   var container = document.getElementById('header-container');
   empty(container).appendChild(renderHeader(ctx));
+  $('.dropdown-button').dropdown();
   next();
 }
 
