@@ -1,5 +1,5 @@
-if(!window.Intl){
-  var Intl = require('intl');
+if (!window.Intl) {
+  window.Intl = require('intl');
   require('intl/locale-data/jsonp/en-US.js');
   require('intl/locale-data/jsonp/es.js');
 }
@@ -21,8 +21,8 @@ var locale = localStorage.locale || 'es';
 
 module.exports = {
   message: function (text, opts) {
-    opts = opts || {}
-    var msg = new IntlMessageFormat(MESSAGES[locale][text], locale, null) // (message, locale, format)
+    opts = opts || {};
+    var msg = new IntlMessageFormat(MESSAGES[locale][text], locale, null);
     return msg.format(opts);
   },
   date: new IntlRelativeFormat(locale)

@@ -3,6 +3,7 @@ var express = require('express');
 var multer = require('multer');
 // var multerS3 = require('multer-s3');
 var ext = require('file-extension');
+
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var expressSession = require('express-session');
@@ -41,13 +42,11 @@ var storage = multer.diskStorage({
   },
   filename: function (req, file, cb) {
     cb(null, +Date.now() + '.' + ext(file.originalname))
-    console.log(file.originalname)
   }
 })
 // *** Arreglar con Amazon S3!! ***
 
 var upload = multer({ storage: storage }).single('picture');
-
 var app = express();
 
 app.set(bodyParser.json());
@@ -63,7 +62,6 @@ app.use(passport.session());
 
 // Motor de render en el servidor
 app.set('view engine', 'pug');
-
 // Contenido estatico publico para el usuario
 app.use(express.static('public'));
 
@@ -74,7 +72,7 @@ passport.serializeUser(auth.serializeUser);
 
 // v v v v v Definición de rutas v v v v v
 app.get('/', function (req, res) {
-  res.render('index', { title: 'Platzigram'});
+  res.render('index', { title: 'Platzigram' });
 })
 
 app.get('/signup', function (req, res) {
@@ -129,11 +127,10 @@ app.get('/whoami', function (req, res) {
 });
 
 app.get('/api/pictures', function (req, res, next) {
-
   var pictures = [
    {
      user:{
-       username: 'mrtomcat11',
+       username: 'javialej',
        avatar: 'https://scontent-mia1-2.xx.fbcdn.net/v/t1.0-9/15740961_151129478706735_2819762631189393122_n.jpg?oh=fd82f23fc5e623afc013cd1a1abb76c2&oe=59823283'
      },
      url: 'http://materializecss.com/images/office.jpg',
@@ -143,7 +140,7 @@ app.get('/api/pictures', function (req, res, next) {
    },
    {
      user:{
-       username: 'mrtomcat11',
+       username: 'javialej',
        avatar: 'https://scontent-mia1-2.xx.fbcdn.net/v/t1.0-9/15740961_151129478706735_2819762631189393122_n.jpg?oh=fd82f23fc5e623afc013cd1a1abb76c2&oe=59823283'
      },
      url: 'http://materializecss.com/images/office.jpg',
@@ -153,9 +150,7 @@ app.get('/api/pictures', function (req, res, next) {
    }
   ];
 
-  setTimeout(function () {
-    res.send(pictures);
-  }, 2000)
+  setTimeout(() => res.send(pictures), 2000)
 });
 
 app.post('/api/pictures', ensureAuth, function (req, res){
@@ -164,8 +159,57 @@ app.post('/api/pictures', ensureAuth, function (req, res){
       return res.status(500).send(`Error uploading file ${err.message}`);
     }
 
-    res.send(`File uploaded ${req.file.location}`);
+    res.send('File uploaded');
   })
+})
+
+app.get('/api/user/:username', (req, res) => {
+  const user = {
+    username: 'javi',
+    avatar: 'https://scontent-mia1-2.xx.fbcdn.net/v/t1.0-9/15740961_151129478706735_2819762631189393122_n.jpg?oh=fd82f23fc5e623afc013cd1a1abb76c2&oe=59823283',
+    pictures: [
+      {
+        id: 1,
+        src: 'https://igcdn-photos-e-a.akamaihd.net/hphotos-ak-xaf1/t51.2885-15/s640x640/sh0.08/e35/c135.0.810.810/13129218_1692859530968044_751360067_n.jpg?ig_cache_key=MTI0MjIzMTY4MzQ5NzU1MTQxOQ%3D%3D.2.c',
+        likes: 3
+      },
+      {
+        id: 2,
+        src: 'https://igcdn-photos-d-a.akamaihd.net/hphotos-ak-xaf1/t51.2885-15/e35/13126768_259576907723683_861119732_n.jpg?ig_cache_key=MTIzODYzMjE4NDk1NDk3MTY5OQ%3D%3D.2',
+        likes: 1
+      },
+      {
+        id: 3,
+        src: 'https://igcdn-photos-d-a.akamaihd.net/hphotos-ak-xfa1/t51.2885-15/s640x640/sh0.08/e35/13118139_1705318183067891_1113349381_n.jpg?ig_cache_key=MTI0MTQwNzk1ODEyODc0ODQ5MQ%3D%3D.2',
+        likes: 10
+      },
+      {
+        id: 4,
+        src: 'https://igcdn-photos-g-a.akamaihd.net/hphotos-ak-xaf1/t51.2885-15/e35/12940327_1784772678421526_1500743370_n.jpg?ig_cache_key=MTIyMzQxODEwNTQ4MzE5MjE4OQ%3D%3D.2',
+        likes: 0
+      },
+      {
+        id: 5,
+        src: 'https://igcdn-photos-a-a.akamaihd.net/hphotos-ak-xpt1/t51.2885-15/e35/11934723_222119064823256_2005955609_n.jpg?ig_cache_key=MTIyMzQwOTg2OTkwODU2NzY1MA%3D%3D.2',
+        likes: 23
+      },
+      {
+        id: 6,
+        src: 'https://igcdn-photos-a-a.akamaihd.net/hphotos-ak-xaf1/t51.2885-15/e35/12904985_475045592684864_301128546_n.jpg?ig_cache_key=MTIyMzQwNjg2NDA5NDE2MDM5NA%3D%3D.2',
+        likes: 11
+      }
+    ]
+  }
+
+  res.send(user)
+})
+
+app.get('/:username', function (req, res){
+  res.render('index', { title: `Platzigram - ${req.params.username}` })
+})
+
+app.get('/:username/:id', function (req, res){
+  res.render('index', { title: `Platzigram - ${req.params.username}` })
 })
 
 app.listen(port, function (err) {
