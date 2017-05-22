@@ -4,14 +4,26 @@ var template = require('./template');
 var title = require('title');
 var request = require('superagent');
 var header = require('../header');
+var picture = require('../picture-card');
 var axios = require('axios');
-var utils = require('../utils');
+var io = require('socket.io-client')
+var utils = require('../utils')
 
-page('/', utils.loadAuth, header, loading, asyncLoad, function (ctx, next) {
+var socket = io.connect('http://localhost:5003') // use envify
+
+page('/', utils.loadAuth, header, loading, loadPicturesAxios, function (ctx, next) {
   title('Platzigram');
   var main = document.getElementById('main-container');
 
   empty(main).appendChild(template(ctx.pictures));
+})
+
+socket.on('image', function (image) {
+  console.log(image)
+  var picturesEl = document.getElementById('pictures-container')
+  var first = picturesEl.firstChild
+  var img = picture(image)
+  picturesEl.insertBefore(img, first)
 })
 
 function loading(ctx, next) {

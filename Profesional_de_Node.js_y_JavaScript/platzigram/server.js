@@ -118,13 +118,13 @@ app.get('/whoami', function (req, res) {
 });
 
 app.get('/api/pictures', function (req, res, next) {
-  /* client.listPictures(function (err, pictures) {
+  client.listPictures(function (err, pictures) {
     if (err) return res.send([]);
 
     res.send(pictures)
   })
 
-  */
+  /*
   var pictures = [
    {
      user:{
@@ -148,7 +148,7 @@ app.get('/api/pictures', function (req, res, next) {
    }
   ];
 
-  setTimeout(() => res.send(pictures), 2000)
+  setTimeout(() => res.send(pictures), 2000)*/
 });
 
 app.post('/api/pictures', ensureAuth, function (req, res){
@@ -157,12 +157,37 @@ app.post('/api/pictures', ensureAuth, function (req, res){
       return res.status(500).send(`Error uploading file ${err.message}`);
     }
 
-    res.send('File uploaded');
+    var user = req.user;
+    var token = req.user.token;
+    var username = req.user.username;
+    var src = req.file.location;
+
+    client.savePicture({
+      src: src,
+      userId: username,
+      user: {
+        username: username,
+        avatar: user.avatar,
+        name: user.name
+      }
+    }, token, function (err, img) {
+      if (err) return res.status(500).send(err.message);
+
+      res.send(`File uploaded`);
+    })
   })
 })
 
 app.get('/api/user/:username', (req, res) => {
-  const user = {
+  var username = req.params.username;
+
+  client.getUser(username, function (err, user) {
+    if (err) return res.status(404).send({ error: 'user not found' })
+
+    res.send(user);
+  })
+
+  /* const user = {
     username: 'javialej',
     avatar: 'https://scontent-mia1-2.xx.fbcdn.net/v/t1.0-9/15740961_151129478706735_2819762631189393122_n.jpg?oh=fd82f23fc5e623afc013cd1a1abb76c2&oe=59823283',
     pictures: [
@@ -199,7 +224,7 @@ app.get('/api/user/:username', (req, res) => {
     ]
   }
 
-  res.send(user)
+  res.send(user)*/
 })
 
 app.get('/:username', function (req, res){

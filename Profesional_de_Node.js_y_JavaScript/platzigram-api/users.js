@@ -34,6 +34,9 @@ hash.set('GET /:username', async function getUser (req, res, params) {
   // para test await db.disconnect()
   user.avatar = gravatar.url(user.email)
 
+  let images = await db.getImagesByUser(username)
+  user.pictures = images
+
   delete user.email
   delete user.password
 

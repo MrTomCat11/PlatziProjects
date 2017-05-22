@@ -50,7 +50,6 @@ module.exports = function (pictures) {
       .post('/api/pictures')
       .send(data)
       .end(function (err, res) {
-        console.log(arguments);
       })
   }
 
