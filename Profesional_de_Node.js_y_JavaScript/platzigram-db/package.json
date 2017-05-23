@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "lint": "standard",
-    "test": "npm run lint && ava"
+    "test": "npm run lint && ava",
+    "postinstall": "node setup.js"
   },
   "standard": {
     "parser": "babel-eslint"

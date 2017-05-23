@@ -37,8 +37,6 @@
     "ava": "^0.19.1",
     "babel-eslint": "^7.2.3",
     "babel-register": "^6.24.1",
-    "request": "^2.81.0",
-    "request-promise": "^4.2.1",
     "standard": "^10.0.2",
     "test-listen": "^1.0.2"
   },
@@ -52,6 +50,8 @@
     "jsonwebtoken": "^7.4.0",
     "micro": "^4.1.1",
     "platzigram-db": "file:../platzigram-db",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1",
     "token-extractor": "^0.1.6",
     "uuid-base62": "^0.1.0"
   }

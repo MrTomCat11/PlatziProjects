@@ -1,0 +1,61 @@
+{
+  "name": "platzigram-api",
+  "version": "1.0.0",
+  "description": "Platzigram REST API",
+  "scripts": {
+    "lint": "standard",
+    "test": "npm run lint && NODE_ENV=test ava test/**-test.js",
+    "pictures": "micro -p 5000 pictures.js",
+    "users": "micro -p 5001 users.js",
+    "auth": "micro -p 5002 auth.js"
+  },
+  "standard": {
+    "parser": "babel-eslint"
+  },
+  "ava": {
+    "require": [
+      "babel-register"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ],
+    "plugins": [
+      "transform-runtime",
+      "transform-async-to-generator"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/javialej/platzigram-api.git"
+  },
+  "author": "Javier Alejandro Pérez Fernández <ja.perezf11@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/javialej/platzigram-api/issues"
+  },
+  "homepage": "https://github.com/javialej/platzigram-api#readme",
+  "devDependencies": {
+    "ava": "^0.19.1",
+    "babel-eslint": "^7.2.3",
+    "babel-register": "^6.24.1",
+    "standard": "^10.0.2",
+    "test-listen": "^1.0.2"
+  },
+  "dependencies": {
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-runtime": "^6.23.0",
+    "gravatar": "^1.6.0",
+    "http-hash": "^2.0.0",
+    "jsonwebtoken": "^7.4.0",
+    "micro": "^4.1.1",
+    "platzigram-db": "file:../platzigram-db",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1",
+    "token-extractor": "^0.1.6",
+    "uuid-base62": "^0.1.0"
+  }
+}
