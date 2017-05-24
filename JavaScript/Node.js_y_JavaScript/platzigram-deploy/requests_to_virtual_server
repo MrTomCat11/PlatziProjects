@@ -1,0 +1,5 @@
+curl http://localhost:8000 -H Host:platzigram.com
+curl http://localhost:8000/socket.io/socket.io -H Host:ws.platzigram.com
+curl http://localhost:8000/picture/1 -H Host:api.platzigram.com
+curl http://localhost:8000/user/1 -H Host:api.platzigram.com
+curl http://localhost:8000/auth/1 -H Host:api.platzigram.com
