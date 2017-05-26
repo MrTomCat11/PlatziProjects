@@ -1,0 +1,7 @@
+Tipos de replicacción :
+  - Unico modo
+  - Replica set
+  - Sharding
+
+Es recomendable tener tres nodos, ya que cabe la posibilidad de que  uno solo nodo se caiga.
+Pero es difícil que un segundo o tercero lo hagan.

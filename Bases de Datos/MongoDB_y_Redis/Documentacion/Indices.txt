@@ -1,0 +1,18 @@
+Indices
+  Permiten tomar ciertos valores y estructurarlos y mantenerlos en memoria
+  para poder tener acceso a ellos de manera mas rápido.
+
+Tipos de indice
+  - Btree:
+      utilizado por defecto por MongoDB - tipo árbol
+  - Hashed
+  - Full text:
+      Permite hacer indexar los datos
+  - Geoespaciales:
+      Utilizan binary tree, pero cambian como leen los datos.
+      Utilizados para buscar coordenadas, poligonos.
+  - Compound:
+      Utiliza varios incides
+  - Multikey:
+      Permite la utilización de varias llaves a la vez y hacer una intersección 
+      y evitar leer multiples documentos.

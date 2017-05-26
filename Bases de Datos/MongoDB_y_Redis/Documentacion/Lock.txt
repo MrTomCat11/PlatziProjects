@@ -1,0 +1,3 @@
+Lock:
+  Todas las operaciones de escritura en MongoDB son atómicas debido al lock.
+  Puede existir muchos lectores pero solo un escritor.

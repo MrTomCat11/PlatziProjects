@@ -1,0 +1,45 @@
+Operaciones:
+
+Create crea una tabla.
+
+Alter altera la tabla. Agrega columnas, por ejemplo. Siempre, en las bases de datos relacionales, todos los registros tienen que tener un dato ahí.
+
+Drop elimina columnas o tablas.
+
+Delete elimina registros.
+
+Truncate vacía la tabla.
+
+Select filtra la información de la tabla o entre diferentes tablas (en toda la base de datos).
+
+Insert inserta un nuevo campo. Es necesario llenar todas las columnas.
+
+Update cambia uno o muchos registros.
+
+Integridad referencial - relación entre varias tablas dentro de una base de datos. Hay motores que no tienen integridad referencial, esto permite borrar datos sin perder información.
+
+_________________________
+
+DML
+
+DML is abbreviation of Data Manipulation Language. It is used to retrieve, store, modify, delete, insert and update data in database.
+
+Examples: SELECT, UPDATE, INSERT statements
+
+DDL
+
+DDL is abbreviation of Data Definition Language. It is used to create and modify the structure of database objects in database.
+
+Examples: CREATE, ALTER, DROP statements
+
+DCL
+
+DCL is abbreviation of Data Control Language. It is used to create roles, permissions, and referential integrity as well it is used to control access to database by securing it.
+
+Examples: GRANT, REVOKE statements
+
+TCL
+
+TCL is abbreviation of Transactional Control Language. It is used to manage different transactions occurring within a database.
+
+Examples: COMMIT, ROLLBACK statements
