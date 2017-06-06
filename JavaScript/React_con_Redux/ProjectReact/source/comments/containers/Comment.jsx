@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { FormattedHTMLMessage } from 'react-intl';
 
 import styles from './Comment.css';
 
@@ -10,7 +11,14 @@ function Comment(props) {
       </p>
 
       <div className={styles.meta}>
-        By: <a href={`mailto:${props.email}`}>{props.name}</a>
+        <FormattedHTMLMessage
+          id="comment.meta.autor"
+          values={{
+            email: props.email,
+            name: props.name,
+          }}
+        />
+
       </div>
     </article>
   );

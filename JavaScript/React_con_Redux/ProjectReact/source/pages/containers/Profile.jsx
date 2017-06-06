@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { FormattedMessage } from 'react-intl';
 
 import Post from '../../posts/containers/Post';
 import Loading from '../../shared/components/Loading';
@@ -7,7 +8,6 @@ import Title from '../../shared/components/Title';
 import styles from './Page.css';
 
 import api from '../../api';
-
 
 class Profile extends Component {
   constructor(props) {
@@ -46,14 +46,19 @@ class Profile extends Component {
     }
 
     return (
-      <section name="home">
+      <section name="home" className={styles.section}>
         <Title>
-          Profile of {this.state.user.name}
+          <FormattedMessage
+            id="title.profile"
+            values={{
+              name: this.state.user.name,
+            }}
+          />
         </Title>
 
         <section id="profile" className={styles.main}>
           <fieldset className={styles.field}>
-            <legend>Basic info</legend>
+            <FormattedMessage id="profile.field.basic" tagName="legend" />
             <label htmlFor="email">Email:</label>
             <input
               type="email"
@@ -64,7 +69,7 @@ class Profile extends Component {
           </fieldset>
 
           <fieldset className={styles.field}>
-            <legend>Address</legend>
+            <FormattedMessage id="profile.field.address" tagName="legend" />
             <address>
               {this.state.user.address.street}<br />
               {this.state.user.address.suite}<br />
