@@ -1,0 +1,39 @@
+## File-Type First (FTF)
+
+  Hecho por Ruby on Rails, se trata de organizar por
+  tipo de archivo.
+
+ # Ventajas
+    1. Facil de organizar inicialmente.
+    2. No hay dudas sobre donde colocar cada archivo.
+    3. Archivos que importan otros del mismo tipo solo tienen que buscar
+       en su propia carpeta.
+    4. Si usas un sistema de carga automática se vuelve mas fácil de esta forma.
+
+
+
+## Feature First (Pods)
+
+  Hecho por Ember.js y popularizado en Front-End, consiste en separar por
+  caracteristicas de la aplicacion. Tenemos una carpeta por cada Feature, y un
+  Routes para enrutar.
+
+ # Ventajas
+    1. Es fácil nombrar features.
+    2. Independiente de frameworks, cada feature podría usar internamente
+       su propia organizacion dependiendo del framework o libreria usada.
+    3. El punto de entrada es obvio para cada feature y para la aplicación
+    4. Hacer code-splitting es trivial
+
+
+
+## Apps of Apps
+
+  Tienes una carpeta para toda tu aplicacion y por cada aplicacion.
+  Cada aplicacion a su vez está separada por cada feature.
+  Cada feature internamente se divide por tipo de archivo.
+
+ # Ventajas
+    1. Es fácil cargar aplicacion de forma individual.
+    2. Internamente cada aplicacion puede usar FTF o pods.
+    3. Cada aplicacion puede tener su propio framework o librerias.

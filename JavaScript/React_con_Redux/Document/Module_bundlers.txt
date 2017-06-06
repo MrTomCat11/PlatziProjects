@@ -1,0 +1,38 @@
+¿Que son los module bundlers?
+
+  Herramientas para leer codigo JavaScript escrito con modulos
+  y empaquetarlo en un unico archivo para que se ejecute
+  en un navegador o servidor.
+
+¿Cuales existen?
+
+  - Require.js:
+    * Utiliza AMD (Asynchronous module definition, le mandamos
+      un modulo inicial y los demas se van cargando a medida
+      que se van necesitando).
+    * No empaqueta los modulos de la aplicación.
+    * Hace una peticion HTTP por cada modulo.
+
+  - Browserify:
+    * Utiliza CommonJS (el sistema nativo de Node.js)
+    * Permite usar los modulos de npm
+    * Genera un solo archivo final
+    Ejemplo:
+
+      const React = require('react')
+      const ReactDOM = require('react-dom')
+      const App = require('./containers/App.js')
+
+      return ReactDOM.render(
+        React.createElement(App, null),
+        document.getElementById('app')
+      )
+
+  - Webpack
+    * Utiliza CommonJS y AMD
+    * Permite usar los modulos de npm
+    * Permite carga asincrona
+    * Permite multiples funciones extras
+      (HMR, DLL, Hashing, servidor de estaticos)
+
+  - Otros mas... : jspm.io, bruch,....
