@@ -9,7 +9,9 @@ import layout from './layout.html';
 
 import messages from './messages.json';
 
-const domain = process.env.NODE_ENV === 'production'
+const IS_PRODUCTION = process.env.NODE_ENV === 'production';
+
+const domain = IS_PRODUCTION
   ? 'https://javialej-react-sfs.now.sh'
   : 'http://localhost:3001';
 
@@ -31,7 +33,7 @@ function requestHandler(request, response) {
     response.writeHead(301, {
       Location: context.url,
     });
-    response.end();
+    return response.end();
   }
 
   if (context.url) {

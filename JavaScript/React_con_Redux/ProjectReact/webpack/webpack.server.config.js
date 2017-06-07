@@ -17,28 +17,29 @@ const config = {
     filename: 'index.js',
     path: path.resolve(__dirname, '../built/server'),
     publicPath: process.env.NODE_ENV === 'production'
-      ? 'https://javialej-react-sfs.now.sh'
+      ? 'https://javialej-react-sfs.now.sh/'
       : 'http://localhost:3001/',
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
-        loader: 'eslint-loader',
+        use: 'eslint-loader',
         exclude: /(node_modules)/,
         enforce: 'pre',
       },
       {
         test: /\.html?$/,
-        loader: 'babel-loader',
-        options: {
-          plugins: ['transform-es2015-template-literals'],
-        },
         exclude: /(node_modules)/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['es2015'],
+            plugins: ['transform-es2015-template-literals'],
+          },
+        },
         enforce: 'post',
       },
-    ],
-    rules: [
       {
         test: /\.html$/,
         use: 'template-string-loader',
@@ -49,23 +50,21 @@ const config = {
       },
       {
         test: /\.jsx?$/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: ['latest-minimal', 'react'],
-              env: {
-                production: {
-                  plugins: ['transform-regenerator', 'transform-runtime'],
-                  presets: ['es2015'],
-                },
-                development: {
-                  presets: ['latest-minimal'],
-                },
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['latest-minimal', 'react'],
+            env: {
+              production: {
+                plugins: ['transform-regenerator', 'transform-runtime'],
+                presets: ['es2015'],
+              },
+              development: {
+                presets: ['latest-minimal'],
               },
             },
           },
-        ],
+        },
         exclude: /(node_modules)/,
       },
       {

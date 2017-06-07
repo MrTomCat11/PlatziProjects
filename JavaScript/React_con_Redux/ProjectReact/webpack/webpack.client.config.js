@@ -12,39 +12,35 @@ const config = {
       : 'http://localhost:3001',
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
-        loader: 'eslint-loader',
+        use: 'eslint-loader',
         exclude: /(node_modules)/,
         enforce: 'pre',
       },
-    ],
-    rules: [
       {
         test: /\.json$/,
         use: 'json-loader',
       },
       {
         test: /\.jsx?$/,
-        use: [
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: ['es2016', 'es2017', 'react'],
-              plugins: ['transform-es2015-modules-commonjs'],
-              env: {
-                production: {
-                  plugins: ['transform-regenerator', 'transform-runtime'],
-                  presets: ['es2015'],
-                },
-                development: {
-                  plugins: ['transform-es2015-modules-commonjs'],
-                },
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['es2016', 'es2017', 'react'],
+            plugins: ['transform-es2015-modules-commonjs'],
+            env: {
+              production: {
+                plugins: ['transform-regenerator', 'transform-runtime'],
+                presets: ['es2015'],
+              },
+              development: {
+                plugins: ['transform-es2015-modules-commonjs'],
               },
             },
           },
-        ],
+        },
         exclude: /(node_modules)/,
       },
       {
