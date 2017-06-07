@@ -18,7 +18,6 @@ function Comment(props) {
             name: props.name,
           }}
         />
-
       </div>
     </article>
   );

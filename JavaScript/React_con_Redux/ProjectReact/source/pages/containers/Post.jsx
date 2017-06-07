@@ -29,8 +29,8 @@ class Post extends Component {
       post,
       comments,
     ] = await Promise.all([
-      api.posts.getSingle(this.props.params.id),
-      api.posts.getComments(this.props.params.id),
+      api.posts.getSingle(this.props.match.params.id),
+      api.posts.getComments(this.props.match.params.id),
     ]);
 
     const user = await api.users.getSingle(post.userId);
@@ -70,13 +70,19 @@ class Post extends Component {
 }
 
 Post.propTypes = {
-  params: PropTypes.shape({
-    id: PropTypes.string,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }),
   }),
 };
 
 Post.defaultProps = {
-  params: '',
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }),
+  }),
 };
 
 export default Post;

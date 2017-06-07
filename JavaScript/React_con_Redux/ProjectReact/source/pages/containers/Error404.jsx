@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
+import { FormattedMessage } from 'react-intl';
 
 import Title from '../../shared/components/Title';
 
@@ -10,7 +11,7 @@ function Error404() {
         Error 404
       </Title>
       <Link to="/">
-        Go back to home
+        <FormattedMessage id="error.404" />
       </Link>
     </section>
   );

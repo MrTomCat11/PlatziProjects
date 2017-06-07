@@ -29,8 +29,8 @@ class Profile extends Component {
       user,
       posts,
     ] = await Promise.all([
-      api.users.getSingle(this.props.params.id),
-      api.users.getPosts(this.props.params.id),
+      api.users.getSingle(this.props.match.params.id),
+      api.users.getPosts(this.props.match.params.id),
     ]);
 
     this.setState({
@@ -89,13 +89,19 @@ class Profile extends Component {
 }
 
 Profile.propTypes = {
-  params: PropTypes.shape({
-    id: PropTypes.string,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }),
   }),
 };
 
 Profile.defaultProps = {
-  params: '',
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }),
+  }),
 };
 
 export default Profile;

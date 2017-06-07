@@ -1,5 +1,5 @@
 import React from 'react';
-import { Match, Miss } from 'react-router';
+import { Route, Switch } from 'react-router-dom';
 
 import Home from './Home';
 import Post from './Post';
@@ -11,28 +11,29 @@ import Header from '../components/Header';
 function Pages() {
   return (
     <main role="application">
-      {Header}
-
-      {/* Lista de articulos */}
-      <Match
-        pattern="/"
-        exactly
-        component={Home}
-      />
-      {/* Detalle de articulo */}
-      <Match
-        pattern="/post/:id"
-        exactly
-        component={Post}
-      />
-      {/* Perfil de usuario */}
-      <Match
-        pattern="/user/:id"
-        exactly
-        component={Profile}
-      />
-      {/* Error 404 */}
-      <Miss component={Error404} />
+      <Header />
+      <Switch>
+        {/* Lista de articulos */}
+        <Route
+          path="/"
+          exact
+          component={Home}
+        />
+        {/* Detalle de articulo */}
+        <Route
+          path="/post/:id"
+          exact
+          component={Post}
+        />
+        {/* Perfil de usuario */}
+        <Route
+          path="/user/:id"
+          exact
+          component={Profile}
+        />
+        {/* Error 404 */}
+        <Route component={Error404} />
+      </Switch>
     </main>
   );
 }

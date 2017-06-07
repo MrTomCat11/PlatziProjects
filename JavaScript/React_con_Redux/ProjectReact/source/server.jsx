@@ -1,54 +1,55 @@
 import http from 'http';
 import React from 'react';
-import { renderToString, renderToStaticMarkup } from 'react-dom/server';
-import { ServerRouter, createServerRenderContext } from 'react-router';
+import { renderToString } from 'react-dom/server';
+import { StaticRouter } from 'react-router-dom';
 import { IntlProvider } from 'react-intl';
 
 import Pages from './pages/index';
-import Layout from './pages/components/Layout';
+import layout from './layout.html';
 
 import messages from './messages.json';
 
+const domain = process.env.NODE_ENV === 'production'
+  ? 'https://javialej-react-sfs.now.sh'
+  : 'http://localhost:3001';
+
 function requestHandler(request, response) {
   const locale = request.headers['accept-language'].indexOf('es') >= 0 ? 'es' : 'en';
-  const context = createServerRenderContext();
+  const context = {};
 
   let html = renderToString(
     <IntlProvider locale={locale} messages={messages[locale]}>
-      <ServerRouter location={request.url} context={context}>
+      <StaticRouter location={request.url} context={context}>
         <Pages />
-      </ServerRouter>
+      </StaticRouter>
     </IntlProvider>,
   );
 
-  const result = context.getResult();
-
   response.setHeader('Content-Type', 'text/html');
 
-  if (result.redirect) {
+  if (context.url) {
     response.writeHead(301, {
-      Location: result.redirect.pathname,
+      Location: context.url,
     });
-    return response.end();
+    response.end();
   }
 
-  if (result.missed) {
+  if (context.url) {
     response.writeHead(404);
 
     html = renderToString(
       <IntlProvider locale={locale} messages={messages[locale]}>
-        <ServerRouter location={request.url} context={context}>
+        <StaticRouter location={request.url} context={context}>
           <Pages />
-        </ServerRouter>
+        </StaticRouter>
       </IntlProvider>,
     );
   }
 
   response.write(
-    `<!DOCTYPE html> ${renderToStaticMarkup(
-      <Layout title="Aplicación" content={html} />,
-    )}`,
+    layout({ content: html, title: 'Aplicación', domain }),
   );
+
   return response.end();
 }
 
