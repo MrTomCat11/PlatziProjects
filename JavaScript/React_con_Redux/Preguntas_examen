@@ -1,0 +1,149 @@
+1. ¿Quien creo React?
+	Facebook
+
+2. ¿Como crear un componente puro sin ciclo de vida? 
+	NO ES Extendiendo React.PureComponent
+
+3. ¿Cual es la mejor forma de crear un componente con estado(container)?
+	SI ES! Extendiendo React.Component
+
+4. ¿Como ejecutar codigo luego de que se monta un componente en el DOM?
+	SI ES componentDidMount()
+
+5. ¿Como validar si un componente se deberia actualizar?
+	SI ES shouldComponentUpdate
+
+6. ¿Como escuchar eventos del DOM?
+	SI ES Pasando el event handler como propiedad al elemento al crearlo
+
+7. ¿Que son los props de un componente?
+	SI ES Datos inmutables que recibe el componente al instanciarse
+
+8. ¿Que es el state de un componente?
+	SI ES Datos mutables del componente que se pueden modificar
+
+9. ¿Para que sirve el contexto de React?
+	*** No es para componentes hijos. Creo que es para global para toda la app
+
+10.¿Como definir que datos agregar al contexto de React?
+	Agregando la propiedad MyComponent.childContextTypes y el metodo getChildcontext
+
+11.¿Que es el Virtual DOM?
+	SI ES Es como React internamente maneja el DOM y sus actualizaciones.
+
+12.¿Que es Redux?
+	SI ES Es un contenedor predecible del estado de una aplicacion
+
+13.¿Que es Programación Funcional?
+	SI ES Es un paradigma de programacion
+
+14.¿Para que sirven los middlewares en Redux?
+	SI ES Es para hacer acciones asincronas. ## Son funciones con side-effects, extienden la funcionalidad del Store (logging, error handlers, analytics, soporte a promesas u observables)
+	SI ES Permiten extender Redux para realizar tareas asincronas antes de un cambio de estado
+
+15.¿Que hacen las acciones en Redux?
+	SI ES Indican que cambio y con que datos realizar sobre el estado
+
+16.¿Para que se usa connect en Redux?
+	SI ES Para conectar React con Redux
+
+17.¿Que es server-render en aplicaciones de React?
+	SI ES Genera un HTML con contenido en el servidor para enviarlo al navegador.
+
+18.¿De que forma podemos compartir funcionalidades entre componentes?
+	SI ES Todas las anteriores. (Componentes de alto orden, mixins, y haciendo funciones utilitarias)
+
+19.¿Que es Babel.js?
+	SI ES Es un transpilador de codigo
+
+20.¿Que es Webpack?
+	Una herramienta para procesar nuestros archivos estaticos y generar bundles listos para el navegador	
+	Es el que genera un Bundle de mi App
+
+21.¿Para que se usan los componentes puros?
+	SI ES Para componentizar partes de nuestra UI
+
+22.¿Para que se usan los componentes containers?
+	No es componentizar la UI
+*	Para manejar el estado de nuestra aplicación
+*	SI ES Para conectarse al estado de Redux
+
+23.¿De que forma le indicamos a Webpack como manejar los distintos tipos de archivos?
+	SI ES En los loaders
+
+24.¿Para que se usan los pluguins en Webpack?
+	SI ES Para añadir funciones como Uglify
+
+25.¿Que cosas transpila Babel por defecto?
+	SI ES Nada
+
+26.¿Como le configuramos a Babel que cosas Transpilar?
+	SI ES Plugins y Presets
+
+27.¿Cual es el mejor lugar para realizar peticiones AJAX en un componente?
+	componentDidMount()
+
+28.¿Como modificar un Store en Flux?
+	SI ES Enviando una accion al Dispatcher
+
+29.¿En que lenguaje de programacion se basa la arquitectura de Redux?
+	SI ES en Elm
+
+30.¿Como crear un elemento de React sin usar JSX?
+	SI ES React.createElement()
+
+31.¿En que tipo de componentes se pueden usar Componentes de Alto Orden?
+	SI ES En todos los tipos de componentes.
+
+32.¿Donde ejecutar codigo luego de que un componente se actualice?
+	SI ES En componentDidUpdate()
+
+33.¿Para que sirve renderizar una aplicacion de React en el servidor?
+	SI ES Todas las demas opciones (Para mejorar el SEO de nuestra app, para mejorar la UX de nuestra app, Para que funcione sin necesidad de JS)
+
+34.¿Donde dejar de escuchar eventos de window, document o WebSockets?
+	SI ES En componentWillUnmount
+
+35.¿Como se puede acceder al contexto de componentes puros?
+	Elegí, No se puede acceder
+
+36.¿Que forma de crear componente va a ser eliminada de React a futuro?
+	NO ES Elegí, Usar una funcion pura
+
+37.¿Para que sirven los reducers en Redux?
+	SI ES Actualizan el store
+	Funcion usada para actualizar el estado con base a una accion.
+
+38.¿Para que sirve el Dispatcher en la arquitectura Flux?
+	SI ES Recibe acciones y actualiza el Store
+
+39.¿Para que sirven los linter de codigos?
+	SI ES Todas las demas opciones (Arreglan bugs comunes nuestro codigo automaticamente, nos ayudan a detectar estilo en nuestro codigo, nos permiten encontrar bugs antes de que se vayan a produccion)
+
+40.¿En que tipo de componentes se pueden usar mixins?
+	NO ES En componentes creados con funciones puras
+
+41.¿Dónde ejecutar código antes de que un componente se actualice?
+	SI ES En componentWillUpdate
+
+42.¿Qué es un Elemento de React?
+	SI ES Elegí es el resultado de usar React.createElement con un componente o elemento del DOM
+
+44.¿Como se accede al contexto en un componente puro sin ciclo de vida
+	SI ES  Definiendo en la propiedad MyComponent.contextTypes los datos a recibir y recibiendolos como segundo argumento de la funciónC
+
+45.¿Cuál es el nombre de la arquitectura manejada por Redux?
+	Model-View-Updater
+
+46.¿Como crear un componente puro con ciclo de vida?
+	NO ES Extendiendo React.Component
+
+47.¿Que es JSX?
+	SI ES Una extension a JS para usar XML dentro de nuestro codigo
+
+48.¿Que es Flux?
+	SI ES Es una arquitectura para aplicaciones del lado del cliente
+
+49.¿Cuál es el nombre de la arquitectura manejada por Redux?
+	SI ES Model-View-Updater
+

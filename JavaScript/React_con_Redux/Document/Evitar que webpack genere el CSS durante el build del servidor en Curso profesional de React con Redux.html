@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<!-- saved from url=(0121)https://platzi.com/clases/react/concepto/contenido-bonus3872/evitar-que-webpack-genere-el-css-durante-el-build-/material/ -->
+<html lang="en" data-cast-api-enabled="true"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style class="vjs-styles-defaults">
+      .video-js {
+        width: 300px;
+        height: 150px;
+      }
+
+      .vjs-fluid {
+        padding-top: 56.25%
+      }
+    </style><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"><link rel="shortcut icon" href="https://static.platzi.com/static/images/logos/platzi_favicon.01ca534ca7d3.png"><link rel="icon" sizes="192x192" href="https://static.platzi.com/static/images/logos/platzi_favicon.01ca534ca7d3.png"><meta name="theme-color" content="#283C48"><meta name="description" content="Aprende desde cero a crear el futuro de la web. Cursos de Desarrollo, Diseño, Marketing, y Negocios."><meta name="apple-itunes-app" content="app-id=1106678260"><!-- og tags Facebook --><meta property="fb:admins" content="1030603473"><meta property="og:description" content="Aprende desde cero a crear el futuro de la web. Cursos de programación, diseño, marketing, web, frontend, backend, móvil, UX, usabilidad. Con clases en vivo, diploma de certificación y maestros de la industria."><meta property="og:title" content="Platzi: Cursos online profesionales de tecnología"><meta property="og:type" content="website"><meta property="og:url" content="https://platzi.com"><meta property="og:image" content="https://static.platzi.com/static/website/v2/images/social/social.a0407ac580e4.jpg"><meta property="og:site_name" content="platzi.com"><!-- og tags Google+ --><meta itemprop="description" content="Aprende desde cero a crear el futuro de la web. Cursos de programación, diseño, marketing, web, frontend, backend, móvil, UX, usabilidad. Con clases en vivo, diploma de certificación y maestros de la industria."><!-- Twitter Cards --><meta property="twitter:account_id" content="4503599630205252"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@Platzi"><meta name="twitter:title" content="Platzi: Cursos online profesionales de tecnología"><meta name="twitter:description" content="Aprende desde cero a crear el futuro de la web. Cursos de programación, diseño, marketing, web, frontend, backend, móvil, UX, usabilidad. Con clases en vivo, diploma de certificación y maestros de la industria."><meta name="twitter:creator" content="@Platzi"><meta name="twitter:image:src" content="https://static.platzi.com/static/website/v2/images/social/social.a0407ac580e4.jpg"><meta name="twitter:domain" content="platzi.com"><!-- SEO --><link rel="canonical" href="https://platzi.com/clases/react/concepto/contenido-bonus3872/evitar-que-webpack-genere-el-css-durante-el-build-/material/"><title>
+  Evitar que webpack genere el CSS durante el build del servidor en Curso profesional de React con Redux
+</title><link rel="shortcut icon" href="https://static.platzi.com/media/favicons/platzi_favicon.png"><link href="./Evitar que webpack genere el CSS durante el build del servidor en Curso profesional de React con Redux_files/css" rel="stylesheet" type="text/css"><link href="./Evitar que webpack genere el CSS durante el build del servidor en Curso profesional de React con Redux_files/css(1)" rel="stylesheet" type="text/css"><link type="text/css" href="./Evitar que webpack genere el CSS durante el build del servidor en Curso profesional de React con Redux_files/header.013d3979b18196d4da31.css" rel="stylesheet"><!-- Start of Segment Code --><script async="" src="./Evitar que webpack genere el CSS durante el build del servidor en Curso profesional de React con Redux_files/gtm.js"></script><script src="./Evitar que webpack genere el CSS durante el build del servidor en Curso profesional de React con Redux_files/2642.js" async="" type="text/javascript"></script><script src="./Evitar que webpack genere el CSS durante el build del servidor en Curso profesional de React con Redux_files/1545967215651797" async=""></script><script async="" src="./Evitar que webpack genere el CSS durante el build del servidor en Curso profesional de React con Redux_files/fbevents.js"></script><script async="" src="./Evitar que webpack genere el CSS durante el build del servidor en Curso profesional de React con Redux_files/analytics.js"></script><script type="text/javascript" async="" src="./Evitar que webpack genere el CSS durante el build del servidor en Curso profesional de React con Redux_files/analytics.min.js"></script><script>
+        var SEGMENT_KEY = "0a8VbteMgh6wQlyHSy2ojHajq5eC8GOb";
+       !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
+        analytics.load(SEGMENT_KEY);
+          }}();
+        </script><!-- End of Segment Code --><script>
+    var email = "ja.perezf11@gmail.com";
+    if(email !== ""){
+      analytics.identify(email, {
+        email: email
+      }, {}, {
+        integrations: {
+          'All': false,
+          'Intercom': false,
+          'Woopra': true,
+        }
+      });
+
+      analytics.page({}, {
+        integrations:  {
+          'All': false,
+          'Intercom': false,
+          'Woopra': true,
+        }
+      });
+
+    }
+  </script><script type="text/javascript" src="./Evitar que webpack genere el CSS durante el build del servidor en Curso profesional de React con Redux_files/cast_sender.js"></script><script src="chrome-extension://pkedcjkdefgpdelpbcmbmeomcjbeemfm/cast_sender.js"></script><!-- Google Analytics Platzi --><script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      
+        
+            ga('create', 'UA-76863-15', 'javialej');
+        
+      
+
+      ga('send', 'pageview');
+
+    </script><!-- End Google Analytics Platzi --><!-- Facebook Pixel Code --><script>
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+        document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+        fbq('init', '1545967215651797');
+        fbq('track', "PageView");</script><noscript>&lt;img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=1545967215651797&amp;ev=PageView&amp;noscript=1"/&gt;</noscript><!-- End Facebook Pixel Code --><!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/5.18.3/video.min.js"></script> --><!--  --><!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.3.3/videojs-contrib-hls.min.js"></script> --><!-- <script src="https://cdn.jsdelivr.net/hls.js/latest/hls.min.js"></script> --><link type="text/css" href="./Evitar que webpack genere el CSS durante el build del servidor en Curso profesional de React con Redux_files/materials.1cd452d657a0f1a7007c.css" rel="stylesheet"><link type="text/css" href="./Evitar que webpack genere el CSS durante el build del servidor en Curso profesional de React con Redux_files/comments.013d3979b18196d4da31.css" rel="stylesheet"><link rel="stylesheet" href="./Evitar que webpack genere el CSS durante el build del servidor en Curso profesional de React con Redux_files/monokai.min.css"><!-- BF data --><script type="application/json" id="bf-data">
+    {
+      "currency": {
+        "flag": "https://static.platzi.com/media/flags/CO.png",
+        "price": "$736.900",
+        "fullPrice": "$819.000"
+      },
+      "endDate": "2016-11-26T03:00:00-05:00"
+    }
+    </script><!-- script to load browser based polyfills --><script src="./Evitar que webpack genere el CSS durante el build del servidor en Curso profesional de React con Redux_files/polyfill.min.js"></script><script>
+        // display a warning in the console
+        console.log('%cStop!', 'color: red;font-size:2.5rem;font-weight:bold;');
+        console.log('%cThis is a browser feature intended for developers. If someone told you to copy-paste something here to enable a Platzi feature or "hack" someone\'s account, it is a scam and will give them access to your Platzi account.', 'font-size:1.25rem;line-height:1.1;margin-top:.5em');
+    </script><script async="" src="./Evitar que webpack genere el CSS durante el build del servidor en Curso profesional de React con Redux_files/hotjar-430680.js"></script><script async="" src="./Evitar que webpack genere el CSS durante el build del servidor en Curso profesional de React con Redux_files/modules-99e156707e4f41b8ac95cbab3673a480.js"></script><style type="text/css">iframe#_hjRemoteVarsFrame {display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;}</style></head><body class="prettify-desert" ontouchstart=""><header class="AppHeader" id="banner-top"><div class="AppHeader-container"><div class="AppHeader-left"><figure class="AppHeader-logo"><a href="https://platzi.com/clases/" title="platzi.com"><img src="./Evitar que webpack genere el CSS durante el build del servidor en Curso profesional de React con Redux_files/platzilogo.png" srcset="https://static.platzi.com/media/organizations/platzilogo.png 1x, https://static.platzi.com/media/organizations/platzilogox2.png 2x" alt="Platzi.com" height="26"></a></figure></div><div class="AppHeader-right"><ul class="AppHeader-option"><li class="Header-option LanguageSelect"><input type="checkbox" id="languaje-change" class="LanguageSelect-check"><label class="LanguageSelect-option LanguageSelect-selected" for="languaje-change"><img src="./Evitar que webpack genere el CSS durante el build del servidor en Curso profesional de React con Redux_files/colombia.jpg" srcset="https://static.platzi.com/static/images/languajes/colombia@2x.jpg 2x" alt="Español" width="16" height="16"><span>ES</span></label><label class="LanguageSelect-change icon-arrow-down" for="languaje-change"></label><ul class="LanguageSelect-list"><a for="languaje" class="LanguageSelect-option" href="https://courses.platzi.com/classes/"><img src="./Evitar que webpack genere el CSS durante el build del servidor en Curso profesional de React con Redux_files/united-states.jpg" srcset="https://static.platzi.com/static/images/languajes/united-states@2x.jpg 2x" alt="English" width="16" height="16"><span>EN</span></a></ul></li></ul><nav class="AppHeader-option MainMenu_A u-lg"><ul class="container-menu"><!-- only spanish --><li><a href="https://platzi.com/empleos/" title="Empleos" class="MainMenu_A-item"><span class="MainMenu_A-text">
+                Empleos
+                </span></a></li><!-- only logged --><li><a href="https://platzi.com/clases/" title="Mis Cursos" class="MainMenu_A-item"><span class="MainMenu_A-text">
+              Mis Cursos
+              </span></a></li><li><a href="https://platzi.com/blog/" title="Blog" class="MainMenu_A-item"><span class="MainMenu_A-text">
+              Blog
+              </span></a></li><li><a href="https://platzi.com/agenda/" title="Agenda" class="MainMenu_A-item"><span class="MainMenu_A-text">
+                Agenda
+                </span></a></li><!-- only logged --><li><a href="https://platzi.com/direct-messages/" title="Ver mensajes directos" class="MainMenu_A-item show-direct-messages"><span class="MainMenu_A-icon  icon-cloud"></span><span class="MainMenu_A-count count"></span></a></li><!-- only logged --><li class=""><label for="notifications-check" title="Ver notificaciones" class="MainMenu_A-item NotiBox-label is-noPropagate"><span class="MainMenu_A-icon icon-bell"></span><span class="MainMenu_A-count" id="notibox-count"></span></label><input type="checkbox" id="notifications-check" class="NotiBox-check"><div class="NotiBox" id="react-notibox" data-notification-url="/clases/notificaciones/"><div data-reactroot="" class="Notibox"><div class="NotiBox-empty">Estás al día</div><div class="NotiBox-options"><a href="https://platzi.com/clases/notificaciones/" class="NotiBox-option icon-clock"><span>Ver historial</span></a></div></div></div></li><li><form action="https://platzi.com/search/" method="get"><span class="AppHeader-searcher"><span class="AppHeader-searcherIcon icon-search"></span><input name="search" type="text" placeholder="Buscar en Platzi" value=""></span></form></li></ul></nav><!-- only logged --><div class="AppHeader-option is-noPropagate"><input type="checkbox" id="app-header-dropdown" name="app-header-dropdown" class="AppMenuDrop-check"><label class="AppHeader-user u-lg" for="app-header-dropdown"><span class="leftuser header_avatar"><img src="./Evitar que webpack genere el CSS durante el build del servidor en Curso profesional de React con Redux_files/MrTomCat_5d7a8f9b-c6eb-4c78-b60f-eecc98d17f22.jpg" alt="" width="30" height="30"></span><span class="AppMenuDrop-icon icon-arrow-down u-lg"></span></label><ul class="AppMenuDrop"><div><li class="u-md"><a href="https://platzi.com/empleos/" title="Empleos" class="icon-platzi">Empleos</a></li><li class="u-md"><a href="https://platzi.com/clases/" title="Mis Cursos" class="icon-platzi">Mis Cursos</a></li><li class="u-md"><a href="https://platzi.com/agenda/" title="Agenda" class="icon-platzi">Agenda</a></li><li class="u-md"><a href="https://platzi.com/clases/notifications/" class="icon-bell" title="Notificaciones">Notificaciones</a></li></div><li><a href="https://platzi.com/@javialej/" class="icon-user_A">
+              Mi Perfil (javialej)
+            </a></li><li><a href="https://platzi.com/direct-messages/" class="show-direct-messages icon-cloud">Mensajes Directos  <span class="MainMenu_A-count count"></span></a></li><li><a href="https://platzi.com/direct-messages/u/soporte-platzi" class="send_message icon-cloud_A" data-user="soporte-platzi">Contacta a soporte</a></li><li><a href="https://platzi.com/mi-suscripcion/" class="icon-platzi">Mi suscripción</a></li><li><a href="https://platzi.com/logout/" class="icon-exit">Salir</a></li></ul></div><label class="AppHeader-displayMenu btn-icon icon-menu u-md" id="display-app-header-menu" for="app-header-dropdown"></label></div></div></header><div class="BuzzNotifications" id="buzz-notifications"><div data-reactroot=""><span></span></div></div><div class="overlay"></div><input type="hidden" name="csrfmiddlewaretoken" value="eJnthRXJS0UwyO8lK9Z2JbMe4pitwZuO"><section class="DiscusionDetail"><div id="timeline-content" class="TimelineNav-lectures"><span data-reactroot="" data-reactid="1" data-react-checksum="-703615970"><aside class="TimelineNav" data-reactid="2"><!-- react-empty: 3 --><section class="TimelineNav-unfolded" data-reactid="4"><div class="TimelineNav-button icon-arrow-right_A" data-reactid="5"></div><div class="TimelineNav-materials" data-reactid="6"><a href="https://platzi.com/clases/react/concepto/contenido-bonus1131/implementar-redux-en-perfil-de-usuario-y-detalle-d/material/" class="TimelineNav-material" alt="platzi" data-reactid="7">46</a><a href="https://platzi.com/clases/react/concepto/contenido-bonus1131/cargar-datos-iniciales-en-el-servidor/material/" class="TimelineNav-material" alt="platzi" data-reactid="8">47</a><a href="https://platzi.com/clases/react/concepto/contenido-bonus1131/desafio-especial/material/" class="TimelineNav-material" alt="platzi" data-reactid="9">48</a><a href="https://platzi.com/clases/react/concepto/contenido-bonus3872/glosario6336/material/" class="TimelineNav-material" alt="platzi" data-reactid="10">49</a><a href="https://platzi.com/clases/react/concepto/contenido-bonus3872/evitar-que-webpack-genere-el-css-durante-el-build-/material/" class="TimelineNav-material is-active" alt="platzi" data-reactid="11">50</a><a href="https://platzi.com/clases/react/concepto/contenido-bonus3872/lazyload-de-imagenes/material/" class="TimelineNav-material" alt="platzi" data-reactid="12">51</a><a href="https://platzi.com/clases/react/concepto/contenido-bonus3872/animaciones-con-reactcsstransitiongroup/material/" class="TimelineNav-material" alt="platzi" data-reactid="13">52</a><a href="https://platzi.com/clases/react/concepto/contenido-bonus3872/server-render-con-nextjs/material/" class="TimelineNav-material" alt="platzi" data-reactid="14">53</a><a href="https://platzi.com/clases/react/concepto/contenido-bonus3872/aplicaciones-universalesisomorficas/material/" class="TimelineNav-material" alt="platzi" data-reactid="15">54</a><a href="https://platzi.com/clases/react/concepto/contenido-bonus3872/iniciar-proyectos-con-create-react-app/material/" class="TimelineNav-material" alt="platzi" data-reactid="16">55</a></div></section></aside></span></div><!-- HEADER  --><section class="DiscusionDetail-header material"><div class="DiscusionDetail-grayPart"><div class="u-wrapper"><!-- Breadcrumbs --><aside class="Breadcrumbs"><a class="Breadcrumbs-course" href="https://platzi.com/clases/react/"><figure class="Breadcrumbs-courseBadge"><img height="30" width="30" src="./Evitar que webpack genere el CSS durante el build del servidor en Curso profesional de React con Redux_files/react.png" alt="Curso profesional de React con Redux"></figure><span>
+                        Curso profesional de React con Redux
+                      </span></a></aside><!-- End Breadcrumbs --></div></div><section class="Discussion level-1"><div class="DiscusionDetail-grayPart"><div class="u-wrapper"><!-- Discussion --><div class="Discussion-body material"><h1 class="Discussion-title"><small class="Discussion-titleType">Artículo</small> Evitar que webpack genere el CSS durante el build del servidor
+                        </h1><!-- DiscussionInfo --><article class="DiscussionInfo level-1"><div class="DiscussionInfo-content"><div class="DiscussionInfo-user"><figure class="DiscussionInfo-avatar"><img height="40" width="40" src="./Evitar que webpack genere el CSS durante el build del servidor en Curso profesional de React con Redux_files/sergiodxa_793f0995-d049-47ca-8eed-2e3b42ea8f13.jpg" alt="Curso profesional de React con Redux"></figure><a href="https://platzi.com/@sergiodxa" target="_blank">Sergio Daniel Xalambrí</a></div><p class="DiscussionInfo-score">
+                                  23 PlatziRank
+                                </p><p class="DiscussionInfo-time"><span class="icon-clock_A"></span>
+                                  Dic. 16, 2016
+                                </p></div></article><!-- End DiscussionInfo --></div><!-- End Discussion --></div></div><div class="u-wrapper"><article class="Discussion-content material" id="content"><div><p>Durante el desarrollo del proyecto del curso usamos webpack tanto para los archivos del cliente como para el servidor. Sin embargo seguro notaste que se esta generando dos archivos CSS.</p>
+<p>Esto ocurre porque cuando hacemos el bundle necesitamos que webpack agregue los nombres de clases que generan mediante <strong>CSS Modules</strong>, de esa forma al cargar el CSS se van a aplicar correctamente los estilos y cuando React se renderice en el navegador no van a existir diferencias entre lo que se renderiza en el servidor y en el cliente.</p>
+<p>Resulta que existe una forma de indicarle a nuestro <em>loader</em> de CSS que genere estos nombres de clases únicos, pero que no genere un archivo <code>.css</code>. Para esto debemos tomar nuestra configuración para el servidor y modificar donde agreguemos nuestro <em>loader</em>.</p>
+<pre><code class="language-js hljs javascript">{
+	test: <span class="hljs-regexp"><span class="hljs-regexp">/\.css$/</span></span>,
+	loader: ExtractTextPlugin.extract(<span class="hljs-string"><span class="hljs-string">'style'</span></span>, <span class="hljs-string"><span class="hljs-string">'css?modules'</span></span>),
+}
+</code></pre>
+<p>Simplemente hay que cambiar el valor de <code>loader</code> para dejar de usar <code>ExtractTextPlugin.extract</code> y el loader <code>style</code> y dejar solo <code>css?modules</code> pero modificándolo de la siguiente forma.</p>
+<pre><code class="language-js hljs javascript">{
+	test: <span class="hljs-regexp"><span class="hljs-regexp">/\.css$/</span></span>,
+	loader: <span class="hljs-string"><span class="hljs-string">'css-loader/locals?modules'</span></span>,
+}
+</code></pre>
+<p>Al usar <code>css-loader/locales?modules</code> le estamos diciendo que genere los nombres de clases para <strong>CSS Modules</strong>, pero que no haga nada más con el CSS, de esta forma no es necesario crear dos archivos <code>.css</code> y todavía va a funcionar hacer el <em>server render</em> y que luego se apliquen estilos sin problemas.</p>
+</div></article></div></section></section><div class="MaterialLecture-nav"><div class="MaterialNav u-clearfix is-fixed"><div class="MaterialNav-left u-left"><img class="MaterialNav-badge" src="./Evitar que webpack genere el CSS durante el build del servidor en Curso profesional de React con Redux_files/react.png" alt="Curso profesional de React con Redux" width="25" height="25"><a href="https://platzi.com/clases/react/" class="MaterialNav-course">Curso profesional de React con Redux</a><!-- <span>- Dic. 16, 2016</span> --></div><div class="MaterialNav-right"><!-- <a href="/clases/react/concepto/contenido-bonus3872/glosario6336/material/" class="MaterialNav-buttonLeft icon-arrow-left_A">Glosario </a> --><a href="https://platzi.com/clases/react/concepto/contenido-bonus3872/lazyload-de-imagenes/material/" class="MaterialNav-nextLink"><div class="MaterialNav-nextMaterial"><div class="MaterialNav-data">
+                    Sigue con:
+                    <div class="MaterialNav-title">
+                        LazyLoad de imágenes
+                    </div></div><div class="MaterialNav-arrow"><div class="icon-arrow-right_A"></div></div></div></a><!-- <a href="/clases/react/concepto/contenido-bonus3872/lazyload-de-imagenes/material/" class="MaterialNav-buttonRight icon-arrow-right_A">LazyLoad de imágenes</a> --></div></div></div><!-- END HEADER  --><div id="comments-container" class="u-wrapper"><section data-reactroot="" class="CommentApp"><!-- react-empty: 2 --><form><div class="PulseEditor false"><div class="PulseEditor-toolbar false"><div class="PulseEditor-toolbar-left"><div class="PulseEditor-buttonGroup"><button class="PulseEditor-button" name="bold" type="button"><span title="Negrita [CMD+B]" class="icon-bold"></span></button><button class="PulseEditor-button" name="italic" type="button"><span title="Cursiva [CMD+I]" class="icon-italic"></span></button><button class="PulseEditor-button" name="underline" type="button"><span title="Subrayado [CMD+U]" aria-label="Subrayado [CMD+U]" class="icon-underline"></span></button></div><div class="PulseEditor-buttonGroup"><button class="PulseEditor-button" name="code" type="button"><span title="Insertar código [CMD+SHIFT+K]"><i class="icon-code"></i><!-- react-text: 18 -->Insertar código<!-- /react-text --></span></button><button class="PulseEditor-button" name="link" type="button"><span title="Enlace [CMD+K]"><i class="icon-link"></i><!-- react-text: 22 -->Enlace<!-- /react-text --></span></button><button class="PulseEditor-button" name="image" type="button"><span title="Imagen [CMD+SHIFT+I]"><i class="icon-image"></i><!-- react-text: 26 -->Imagen<!-- /react-text --></span></button></div><div class="PulseEditor-buttonGroup"><button class="PulseEditor-button" name="list" type="button"><span title="Lista desordenada [CMD+L]" class="icon-list"></span></button><button class="PulseEditor-button" name="listOrdered" type="button"><span title="Lista ordenada" class="icon-list-ol"></span></button></div></div><div class="PulseEditor-toolbar-right"><div class="PulseEditor-buttonGroup"><button class="PulseEditor-button is-expand" name="expand" type="button"><span title="Expandir [CMD+E]" aria-label="Expandir [CMD+E]" class="icon-expand_A"></span></button></div></div></div><textarea class="PulseEditor-field" name="content" id="textarea-cj3onx5o40000336xhvsfso1f" style="height: 51px;"></textarea></div><div class="PulseEditor-submit"><span><span><button class="btn-Sky" type="submit">Suma tu comentario</button></span></span></div></form><section class="CommentList"><article class="Comment"><div class="CommentStar"><span class="CommentStar-icon icon-thumbs-up"></span><span class="CommentStar-amount">1</span></div><div class="Comment-wrapper"><div class="CommentMeta"><div class="CommentAuthor-container"><div class="CommentAuthor"><figure class="CommentAuthor-avatar"><img alt="bryamrr" src="./Evitar que webpack genere el CSS durante el build del servidor en Curso profesional de React con Redux_files/bryamrr_24f2ef87-499a-4eee-853c-7e78c652fbcb.png" height="30" width="30"></figure><a href="https://platzi.com/@bryamrr" target="_blank" class="CommentAuthor-name">bryamrr</a></div><div class="CommentAuthor-rank"><!-- react-text: 53 -->5<!-- /react-text --><!-- react-text: 54 --> <!-- /react-text --><!-- react-text: 55 -->Puntos<!-- /react-text --></div></div><div class="CommentMeta-container"><div class="CommentMeta-date"><span class="icon-clock_A"></span><span>15 días</span></div><!-- react-empty: 60 --></div></div><div class="Comment-body"><div id="container" class="CommentContent-text"><p>Genial, justo tenía la duda de por qué se generaba otro archivo de .css</p></div><div class="CommentActions"><div class="CommentActions-reply">Responder</div></div></div></div></article></section></section></div></section><!-- <script src="https://live.platzi.com/socket.io/socket.io.js" type="text/javascript"></script> --><script type="text/javascript">
+            window.nodeServer = "https://live.platzi.com/";
+            window.publicaws = "https://static.platzi.com/";
+        </script><!-- <script src="https://static.platzi.com/static/js/libs/jquery-2.1.1.min.e40ec2161fe7.js"></script> --><script>
+    var lang = "es";
+    var NOTIFICATION_URL = "https://tinkerbell.platzi.com";
+  </script><script type="text/javascript">
+    setTimeout(function(){var a=document.createElement("script");
+    var b=document.getElementsByTagName("script")[0];
+    a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0037/2642.js?"+Math.floor(new Date().getTime()/3600000);
+    a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+  </script><script>
+  var None = false;
+  window.user = {
+    'role': 'student' || 'student',
+  };
+  window.urlUpload = "/clases/upload-archives/";
+  window.data = {
+    files : {"type": "folder", "childNodes": {}, "zip_url": "", "id": "/", "name": "/"},
+    links : false,
+    sidebar_menu : {"slug":"react","concepts":[{"materials":[{"index_material":1,"name":"Bienvenido al curso de React","is_active":false,"link":"/clases/react/concepto/bienvenido-al-curso0858/bienvenido-al-curso-de-react/material/","seen":true,"id":5817}],"id":878,"title":"Bienvenido al curso"},{"materials":[{"index_material":2,"name":"¿Qué es React?","is_active":false,"link":"/clases/react/concepto/fundamentos2306/que-es-react/material/","seen":true,"id":5818},{"index_material":3,"name":"Hola Mundo con React","is_active":false,"link":"/clases/react/concepto/fundamentos2306/hola-mundo-con-react/material/","seen":true,"id":5819},{"index_material":4,"name":"¿Qué es y cómo funciona el Virtual DOM?","is_active":false,"link":"/clases/react/concepto/fundamentos2306/que-es-y-como-funciona-el-virtual-dom/material/","seen":true,"id":5820},{"index_material":5,"name":"Introducción a JSX","is_active":false,"link":"/clases/react/concepto/fundamentos2306/introduccion-a-jsx/material/","seen":true,"id":5821},{"index_material":6,"name":"Creación de componentes","is_active":false,"link":"/clases/react/concepto/fundamentos2306/creacion-de-componentes/material/","seen":true,"id":5822},{"index_material":7,"name":"Componentes Puros vs de Estado","is_active":false,"link":"/clases/react/concepto/fundamentos2306/componentes-puros-vs-de-estado/material/","seen":true,"id":5823},{"index_material":8,"name":"Ciclo de vida de un componente","is_active":false,"link":"/clases/react/concepto/fundamentos2306/ciclo-de-vida-de-un-componente/material/","seen":true,"id":5824},{"index_material":9,"name":"Ciclo de vida de componentes","is_active":false,"link":"/clases/react/concepto/fundamentos2306/ciclo-de-vida-de-componentes/material/","seen":true,"id":5908},{"index_material":10,"name":"Manejo de eventos del DOM ","is_active":false,"link":"/clases/react/concepto/fundamentos2306/manejo-de-eventos-del-dom/material/","seen":true,"id":5825},{"index_material":11,"name":"Event handlers con parámetros personalizados","is_active":false,"link":"/clases/react/concepto/fundamentos2306/event-handlers-con-parametros-personalizados/material/","seen":true,"id":6201},{"index_material":12,"name":"Contexto de la aplicación","is_active":false,"link":"/clases/react/concepto/fundamentos2306/contexto-de-la-aplicacion/material/","seen":true,"id":5826},{"index_material":13,"name":"Componentes de Alto Orden (HOC) y Mixins","is_active":false,"link":"/clases/react/concepto/fundamentos2306/componentes-de-alto-orden-hoc-y-mixins/material/","seen":true,"id":5827}],"id":880,"title":"Fundamentos"},{"materials":[{"index_material":14,"name":"Presentación del proyecto","is_active":false,"link":"/clases/react/concepto/creacion-del-proyecto/presentacion-del-proyecto8448/material/","seen":true,"id":5828},{"index_material":15,"name":"Instalación de Node.js y usando npm","is_active":false,"link":"/clases/react/concepto/creacion-del-proyecto/instalacion-de-nodejs-y-usando-npm/material/","seen":true,"id":5829},{"index_material":16,"name":"Estructura de archivos","is_active":false,"link":"/clases/react/concepto/creacion-del-proyecto/estructura-de-archivos/material/","seen":true,"id":5830},{"index_material":17,"name":"Iniciar un servidor de render básico - Render en Server","is_active":false,"link":"/clases/react/concepto/creacion-del-proyecto/iniciar-un-servidor-de-render-basico-render-en-ser/material/","seen":true,"id":5832},{"index_material":18,"name":"Module bundlers en JavaScript","is_active":false,"link":"/clases/react/concepto/creacion-del-proyecto/module-bundlers-en-javascript/material/","seen":true,"id":5833},{"index_material":19,"name":"Configurar Webpack para el servidor de render","is_active":false,"link":"/clases/react/concepto/creacion-del-proyecto/configurar-webpack-para-el-servidor-de-render/material/","seen":true,"id":5834},{"index_material":20,"name":"Manejo de rutas en el servidor con React Router","is_active":false,"link":"/clases/react/concepto/creacion-del-proyecto/manejo-de-rutas-en-el-servidor-con-react-router/material/","seen":true,"id":5835},{"index_material":21,"name":"Crear cliente para consumir el API","is_active":false,"link":"/clases/react/concepto/creacion-del-proyecto/crear-cliente-para-consumir-el-api/material/","seen":true,"id":5836},{"index_material":22,"name":"Iniciar la app en el navegador y configurar Webpack para producción","is_active":false,"link":"/clases/react/concepto/creacion-del-proyecto/iniciar-la-app-en-el-navegador-y-configurar-webpac/material/","seen":true,"id":5837},{"index_material":23,"name":"Iniciar un servidor de estáticos con zeit/list","is_active":false,"link":"/clases/react/concepto/creacion-del-proyecto/iniciar-un-servidor-de-estaticos-con-zeitlist/material/","seen":true,"id":5839},{"index_material":24,"name":"Herramientas de desarrollo de React","is_active":false,"link":"/clases/react/concepto/creacion-del-proyecto/herramientas-de-desarrollo-de-react/material/","seen":true,"id":5840},{"index_material":25,"name":"Consumir el API y mostrar datos en la home","is_active":false,"link":"/clases/react/concepto/creacion-del-proyecto/consumir-el-api-y-mostrar-datos-en-la-home/material/","seen":true,"id":5841},{"index_material":26,"name":"Perfil de usuarios","is_active":false,"link":"/clases/react/concepto/creacion-del-proyecto/perfil-de-usuarios7821/material/","seen":true,"id":5844},{"index_material":27,"name":"Estado de cargando y detalle de post","is_active":false,"link":"/clases/react/concepto/creacion-del-proyecto/estado-de-cargando-y-detalle-de-post/material/","seen":true,"id":5845},{"index_material":28,"name":"Paginación de posts mediante scroll infinito","is_active":false,"link":"/clases/react/concepto/creacion-del-proyecto/paginacion-de-posts-mediante-scroll-infinito9888/material/","seen":true,"id":5847},{"index_material":29,"name":"Mostrar listado de comentarios en cada post","is_active":false,"link":"/clases/react/concepto/creacion-del-proyecto/mostrar-listado-de-comentarios-en-cada-post/material/","seen":true,"id":5848},{"index_material":30,"name":"Estilizar componentes con CSS Modules","is_active":false,"link":"/clases/react/concepto/creacion-del-proyecto/estilizar-componentes-con-css-modules/material/","seen":true,"id":5849},{"index_material":31,"name":"Linter y buenas prácticas con ESLint","is_active":false,"link":"/clases/react/concepto/creacion-del-proyecto/linter-y-buenas-practicas-con-eslint7562/material/","seen":true,"id":5851},{"index_material":32,"name":"Internacionalización con React Intl","is_active":false,"link":"/clases/react/concepto/creacion-del-proyecto/internacionalizacion-con-react-intl4162/material/","seen":true,"id":5853},{"index_material":33,"name":"Deploy a producción","is_active":false,"link":"/clases/react/concepto/creacion-del-proyecto/deploy-a-produccion/material/","seen":true,"id":5854}],"id":881,"title":"Creación del proyecto"},{"materials":[{"index_material":34,"name":"Patrones de arquitectura de aplicaciones Frontend","is_active":false,"link":"/clases/react/concepto/implementacion-de-redux/patrones-de-arquitectura-de-aplicaciones-frontend/material/","seen":true,"id":5855},{"index_material":35,"name":"Implementación inicial con Redux para los posts","is_active":false,"link":"/clases/react/concepto/implementacion-de-redux/implementacion-inicial-con-redux-para-los-posts/material/","seen":true,"id":5856},{"index_material":36,"name":"Uso de middlewares","is_active":false,"link":"/clases/react/concepto/implementacion-de-redux/uso-de-middlewares/material/","seen":true,"id":5857},{"index_material":37,"name":"Acciones asíncronas","is_active":false,"link":"/clases/react/concepto/implementacion-de-redux/acciones-asincronas/material/","seen":true,"id":5859},{"index_material":38,"name":"Dividir el reducer en funciones más pequeñas y combinarlas","is_active":false,"link":"/clases/react/concepto/implementacion-de-redux/dividir-el-reducer-en-funciones-mas-pequenas-y-com/material/","seen":true,"id":5861},{"index_material":39,"name":"Datos inmutables con Immutable.js","is_active":false,"link":"/clases/react/concepto/implementacion-de-redux/datos-inmutables-con-immutablejs/material/","seen":true,"id":5862},{"index_material":40,"name":"Herramientas de desarrollo","is_active":false,"link":"/clases/react/concepto/implementacion-de-redux/herramientas-de-desarrollo/material/","seen":true,"id":5863},{"index_material":41,"name":"Conclusiones","is_active":false,"link":"/clases/react/concepto/implementacion-de-redux/conclusiones1499/material/","seen":true,"id":5864},{"index_material":42,"name":"Pruebas automatizadas de reducers","is_active":false,"link":"/clases/react/concepto/implementacion-de-redux/pruebas-automatizadas-de-reducers/material/","seen":true,"id":6013},{"index_material":43,"name":"Pruebas de componentes de React","is_active":false,"link":"/clases/react/concepto/implementacion-de-redux/pruebas-de-componentes-de-react/material/","seen":true,"id":6138},{"index_material":44,"name":"Actualizando a la última versión de React Router","is_active":false,"link":"/clases/react/concepto/implementacion-de-redux/actualizando-a-la-ultima-version-de-react-router/material/","seen":true,"id":6326}],"id":882,"title":"Implementación de Redux"},{"materials":[{"index_material":45,"name":"Cambiar el título de la página dependiendo de la ruta (en el servidor y cliente)","is_active":false,"link":"/clases/react/concepto/contenido-bonus1131/cambiar-el-titulo-de-la-pagina-dependiendo-de-la-r/material/","seen":true,"id":5865},{"index_material":46,"name":"Implementar Redux en perfíl de usuario y detalle de un post","is_active":false,"link":"/clases/react/concepto/contenido-bonus1131/implementar-redux-en-perfil-de-usuario-y-detalle-d/material/","seen":true,"id":5868},{"index_material":47,"name":"Cargar datos iniciales en el servidor","is_active":false,"link":"/clases/react/concepto/contenido-bonus1131/cargar-datos-iniciales-en-el-servidor/material/","seen":true,"id":5873},{"index_material":48,"name":"Desafío especial","is_active":false,"link":"/clases/react/concepto/contenido-bonus1131/desafio-especial/material/","seen":true,"id":5988}],"id":883,"title":"Desafíos"},{"materials":[{"index_material":49,"name":"Glosario","is_active":false,"link":"/clases/react/concepto/contenido-bonus3872/glosario6336/material/","seen":true,"id":6629},{"index_material":51,"name":"Evitar que webpack genere el CSS durante el build del servidor","is_active":true,"link":"/clases/react/concepto/contenido-bonus3872/evitar-que-webpack-genere-el-css-durante-el-build-/material/","seen":true,"id":5983},{"index_material":52,"name":"LazyLoad de imágenes","is_active":false,"link":"/clases/react/concepto/contenido-bonus3872/lazyload-de-imagenes/material/","seen":false,"id":5870},{"index_material":53,"name":"Animaciones con ReactCSSTransitionGroup","is_active":false,"link":"/clases/react/concepto/contenido-bonus3872/animaciones-con-reactcsstransitiongroup/material/","seen":false,"id":5869},{"index_material":54,"name":"Server render con Next.js","is_active":false,"link":"/clases/react/concepto/contenido-bonus3872/server-render-con-nextjs/material/","seen":false,"id":5871},{"index_material":55,"name":"Aplicaciones universales/isomórficas","is_active":false,"link":"/clases/react/concepto/contenido-bonus3872/aplicaciones-universalesisomorficas/material/","seen":false,"id":5984},{"index_material":56,"name":"Iniciar proyectos con create-react-app","is_active":false,"link":"/clases/react/concepto/contenido-bonus3872/iniciar-proyectos-con-create-react-app/material/","seen":false,"id":5872},{"index_material":57,"name":"Diplomado de desarrollo de aplicaciones con ReactJS","is_active":false,"link":"/clases/react/concepto/contenido-bonus3872/diplomado-de-desarrollo-de-aplicaciones-con-reactj/material/","seen":false,"id":6692}],"id":884,"title":"Contenido bonus"}],"id":1079,"title":"Curso profesional de React con Redux"},
+    total_materials: 56,
+    material_active_index: 50,
+    next_course: {"badge": "https://static.platzi.com/media/achievements/badge-react-native.png", "has_next_course": true, "link": "/clases/react-native/", "title": "Curso de React Native"},
+    locales: 'es',
+    course : {
+      slug : 'react',
+      url: "/clases/react/",
+      id: '1079',
+      badge: 'https://static.platzi.com/media/achievements/react.png',
+      name: 'Curso profesional de React con Redux'
+    },
+    react_data: {
+      course_badge: 'https://static.platzi.com/media/achievements/react.png',
+      course_title: 'Curso profesional de React con Redux'
+    },
+    discussions : {
+      hash : '',
+    },
+    user : {
+      name : 'javialej',
+    },
+    intlURL: 'https://static.platzi.com/static/organizations/js/vendors/Intl.complete.d98a203c6328.js',
+    organization : {
+      slug : 'clases'
+    },
+    notes : false,
+  };
+  window.vzaar_id = '' || "401491";
+  window.folders = {"type": "folder", "childNodes": {}, "zip_url": "", "id": "/", "name": "/"};
+  window.fileType = 'drag_and_drop';
+  window.client_data = {"initialProps": {"features": {"discussions": true, "dm": true, "subscription": true}, "messages": {"form": {"buttons": {"cancel": "Cancelar", "sending": "Enviando", "send": "Enviar"}, "helpbar": {"preview": "Vista previa", "markdown": "Markdown"}, "placeholder": "Deja tu comentario", "editor": {"code": "Insertar c\u00f3digo", "bold": "Negrita", "edit": "Editar", "quote": "Cita", "image": "Imagen", "uploading": "Subiendo imagen", "youtube": "Youtube", "contract": "Contraer", "heading": "Encabezado", "unorderedList": "Lista desordenada", "link": "Enlace", "italic": "Cursiva", "preview": "Vista previa", "orderedList": "Lista ordenada", "underline": "Subrayado", "expand": "Expandir"}, "bottom": {"title": "T\u00edtulo"}}, "player.error.message": "Ups, ocurri\u00f3 un error muy extra\u00f1o y no podemos recuperarnos <strong>\u00bfPor qu\u00e9 no pruebas recargando?</strong> No te preocupes, <strong>guardamos tu progreso en el v\u00eddeo</strong> :)", "player.autoplay.timer": "La siguiente clase empieza en <time>{timer, plural, =0 {instantes} one {1 segundo} other {{timer} segundos}}</time>", "course": {"files": "Archivos", "description": "Descripci\u00f3n", "links": "Enlaces", "next": "Siguiente", "write_your_comment": "Escribe tu comentario", "downloadAll": "Descargar todo", "contributions": "Aportes"}, "modal.thanks.title": "\u00a1Genial!", "menuOptions": {"profile": "Mi Perfil", "notifications": "Notificaciones", "job": "Empleos", "dm": "Mensajes Directos", "logout": "Salir", "courses": "Mis Cursos", "notes": "Mis Notas", "support": "Contacta a soporte", "subscription": "Mi suscripci\u00f3n"}, "modal.thanks.button": "Seguir estudiando", "player.autoplay.cancel": "Volver a ver", "player.error.reload": "Recargar", "comments": {"getMore": "Ver todas las respuestas", "bestAnswer": "Mejor respuesta", "points": "Puntos", "viewMore": "Ver m\u00e1s", "replyDisabled": "Ocultar", "reply": "Responder", "top": "Top", "new": "Nuevas", "delete": "Eliminar"}, "modal.thanks.description": "Has aprendido un mont\u00f3n."}, "disabledComments": false, "objectData": {"objectId": 5983, "objectType": "material"}, "user": {"isOrganizer": false, "id": 374652, "name": "javialej"}, "locales": "es"}, "initialState": {"comments": {"data": {"171075": {"id": 171075, "created_at": "2017-05-24T16:47:10.381427Z", "content": "<p>Genial, justo ten\u00eda la duda de por qu\u00e9 se generaba otro archivo de .css</p>", "n_stars": 1, "n_responses": 0, "author_id": 5609, "parent_id": null, "deep": 0, "comments": []}}, "pagination": {"current": 1, "total": 1}, "list": [171075], "likes": []}, "authors": {"5609": {"username": "bryamrr", "score": 5, "id": 5609, "name": "C\u00e9sar Bryam Rodriguez Aybar", "avatar": "https://static.platzi.com/media/avatars/bryamrr_24f2ef87-499a-4eee-853c-7e78c652fbcb.png"}}}};
+
+  window.material_data = {
+    castId: "54028100",
+    modalState: '',
+    header: {
+      title: "Curso profesional de React con Redux",
+      url: "/clases/",
+      logo: {
+        x1: 'https://static.platzi.com/media/organizations/platzilogo.png',
+        x2: 'https://static.platzi.com/media/organizations/platzilogox2.png',
+      },
+      badge: "https://static.platzi.com/media/achievements/react.png",
+      courseUrl: "/clases/react/",
+    },
+    description: {
+      teacher: {
+        name: "Sergio Daniel Xalambrí",
+        avatar: "https://static.platzi.com/media/avatars/sergiodxa_793f0995-d049-47ca-8eed-2e3b42ea8f13.jpg",
+        twitter: '',
+        position: '',
+      },
+      title: "Evitar que webpack genere el CSS durante el build del servidor",
+      description: "<p>Durante el desarrollo del proyecto del curso usamos webpack tanto para los archivos del cliente como para el servidor. Sin embargo seguro notaste que se esta generando dos archivos CSS.</p><p>Esto ocurre porque cuando hacemos el bundle necesitamos que webpack agregue los nombres de clases que generan mediante <strong>CSS Modules</strong>, de esa forma al cargar el CSS se van a aplicar correctamente los estilos y cuando React se renderice en el navegador no van a existir diferencias entre lo que se renderiza en el servidor y en el cliente.</p><p>Resulta que existe una forma de indicarle a nuestro <em>loader</em> de CSS que genere estos nombres de clases únicos, pero que no genere un archivo <code>.css</code>. Para esto debemos tomar nuestra configuración para el servidor y modificar donde agreguemos nuestro <em>loader</em>.</p><pre><code class=\"language-js\">{  	test: <span class=\"hljs-regexp\">/\.css$/</span>,  	loader: ExtractTextPlugin.extract(<span class=\"hljs-string\">\'style\'</span>, <span class=\"hljs-string\">\'css?modules\'</span>),  }  </code></pre><p>Simplemente hay que cambiar el valor de <code>loader</code> para dejar de usar <code>ExtractTextPlugin.extract</code> y el loader <code>style</code> y dejar solo <code>css?modules</code> pero modificándolo de la siguiente forma.</p><pre><code class=\"language-js\">{  	test: <span class=\"hljs-regexp\">/\.css$/</span>,  	loader: <span class=\"hljs-string\">\'css-loader/locals?modules\'</span>,  }  </code></pre><p>Al usar <code>css-loader/locales?modules</code> le estamos diciendo que genere los nombres de clases para <strong>CSS Modules</strong>, pero que no haga nada más con el CSS, de esta forma no es necesario crear dos archivos <code>.css</code> y todavía va a funcionar hacer el <em>server render</em> y que luego se apliquen estilos sin problemas.</p>  ",
+    },
+    concept:"Contenido bonus",
+    files: {"type": "folder", "childNodes": {}, "zip_url": "", "id": "/", "name": "/"},
+    links: false,
+    iframes: [],
+    videos: {},
+    subtitles: JSON.stringify({}) === '{}'
+      ? []
+      : {},
+    movin: {
+      player: false,
+      
+      dash: "",
+      drm: {},
+      textTracks: {},
+    },
+    nextMaterial: {
+      url: "/clases/react/concepto/contenido-bonus3872/lazyload-de-imagenes/material/",
+      name: "LazyLoad de imágenes"
+    },
+    prevMaterial: {
+      url: "/clases/react/concepto/contenido-bonus3872/glosario6336/material/"
+    },
+    user_avatar: "https://static.platzi.com/media/avatars/MrTomCat_5d7a8f9b-c6eb-4c78-b60f-eecc98d17f22.jpg",
+    is_organizer: false,
+    material_id: 5983,
+    currency: '$76.900',
+    user_type: 'subscription',
+    locales: 'es',
+    isLast: false,
+    skills: {},
+  };
+  
+    window.dropdown = {
+      'username': 'javialej',
+      'usertype': 'monthly_subscription',
+      'avatar': 'https://static.platzi.com/media/avatars/MrTomCat_5d7a8f9b-c6eb-4c78-b60f-eecc98d17f22.jpg',
+      'jobboardUrl': "/empleos/",
+      'notesUrl': "/clases/notas/",
+      'coursesUrl': "/clases/",
+      'lang': 'es',
+      'notificationsUrl': "/clases/notifications/" ,
+      'profileUrl': "/@javialej/",
+      'dmUrl': "/direct-messages/",
+      'supportUrl': "/direct-messages/u/soporte-platzi",
+      'subscriptionUrl': "/mi-suscripcion/",
+      'logoutUrl': "/logout/",
+    };
+  
+</script><script defer="" src="./Evitar que webpack genere el CSS durante el build del servidor en Curso profesional de React con Redux_files/client.js" type="text/javascript"></script><script>
+content_html = document.getElementById('content');
+content_html.innerHTML = '<div>' + JSON.parse(atob('IjxwPkR1cmFudGUgZWwgZGVzYXJyb2xsbyBkZWwgcHJveWVjdG8gZGVsIGN1cnNvIHVzYW1vcyB3ZWJwYWNrIHRhbnRvIHBhcmEgbG9zIGFyY2hpdm9zIGRlbCBjbGllbnRlIGNvbW8gcGFyYSBlbCBzZXJ2aWRvci4gU2luIGVtYmFyZ28gc2VndXJvIG5vdGFzdGUgcXVlIHNlIGVzdGEgZ2VuZXJhbmRvIGRvcyBhcmNoaXZvcyBDU1MuPC9wPlxyXG48cD5Fc3RvIG9jdXJyZSBwb3JxdWUgY3VhbmRvIGhhY2Vtb3MgZWwgYnVuZGxlIG5lY2VzaXRhbW9zIHF1ZSB3ZWJwYWNrIGFncmVndWUgbG9zIG5vbWJyZXMgZGUgY2xhc2VzIHF1ZSBnZW5lcmFuIG1lZGlhbnRlIDxzdHJvbmc+Q1NTIE1vZHVsZXM8L3N0cm9uZz4sIGRlIGVzYSBmb3JtYSBhbCBjYXJnYXIgZWwgQ1NTIHNlIHZhbiBhIGFwbGljYXIgY29ycmVjdGFtZW50ZSBsb3MgZXN0aWxvcyB5IGN1YW5kbyBSZWFjdCBzZSByZW5kZXJpY2UgZW4gZWwgbmF2ZWdhZG9yIG5vIHZhbiBhIGV4aXN0aXIgZGlmZXJlbmNpYXMgZW50cmUgbG8gcXVlIHNlIHJlbmRlcml6YSBlbiBlbCBzZXJ2aWRvciB5IGVuIGVsIGNsaWVudGUuPC9wPlxyXG48cD5SZXN1bHRhIHF1ZSBleGlzdGUgdW5hIGZvcm1hIGRlIGluZGljYXJsZSBhIG51ZXN0cm8gPGVtPmxvYWRlcjwvZW0+IGRlIENTUyBxdWUgZ2VuZXJlIGVzdG9zIG5vbWJyZXMgZGUgY2xhc2VzIFx1MDBmYW5pY29zLCBwZXJvIHF1ZSBubyBnZW5lcmUgdW4gYXJjaGl2byA8Y29kZT4uY3NzPC9jb2RlPi4gUGFyYSBlc3RvIGRlYmVtb3MgdG9tYXIgbnVlc3RyYSBjb25maWd1cmFjaVx1MDBmM24gcGFyYSBlbCBzZXJ2aWRvciB5IG1vZGlmaWNhciBkb25kZSBhZ3JlZ3VlbW9zIG51ZXN0cm8gPGVtPmxvYWRlcjwvZW0+LjwvcD5cclxuPHByZT48Y29kZSBjbGFzcz1cImxhbmd1YWdlLWpzXCI+e1xyXG5cdHRlc3Q6IDxzcGFuIGNsYXNzPVwiaGxqcy1yZWdleHBcIj4vXFwuY3NzJC88L3NwYW4+LFxyXG5cdGxvYWRlcjogRXh0cmFjdFRleHRQbHVnaW4uZXh0cmFjdCg8c3BhbiBjbGFzcz1cImhsanMtc3RyaW5nXCI+J3N0eWxlJzwvc3Bhbj4sIDxzcGFuIGNsYXNzPVwiaGxqcy1zdHJpbmdcIj4nY3NzP21vZHVsZXMnPC9zcGFuPiksXHJcbn1cclxuPC9jb2RlPjwvcHJlPlxyXG48cD5TaW1wbGVtZW50ZSBoYXkgcXVlIGNhbWJpYXIgZWwgdmFsb3IgZGUgPGNvZGU+bG9hZGVyPC9jb2RlPiBwYXJhIGRlamFyIGRlIHVzYXIgPGNvZGU+RXh0cmFjdFRleHRQbHVnaW4uZXh0cmFjdDwvY29kZT4geSBlbCBsb2FkZXIgPGNvZGU+c3R5bGU8L2NvZGU+IHkgZGVqYXIgc29sbyA8Y29kZT5jc3M/bW9kdWxlczwvY29kZT4gcGVybyBtb2RpZmljXHUwMGUxbmRvbG8gZGUgbGEgc2lndWllbnRlIGZvcm1hLjwvcD5cclxuPHByZT48Y29kZSBjbGFzcz1cImxhbmd1YWdlLWpzXCI+e1xyXG5cdHRlc3Q6IDxzcGFuIGNsYXNzPVwiaGxqcy1yZWdleHBcIj4vXFwuY3NzJC88L3NwYW4+LFxyXG5cdGxvYWRlcjogPHNwYW4gY2xhc3M9XCJobGpzLXN0cmluZ1wiPidjc3MtbG9hZGVyL2xvY2Fscz9tb2R1bGVzJzwvc3Bhbj4sXHJcbn1cclxuPC9jb2RlPjwvcHJlPlxyXG48cD5BbCB1c2FyIDxjb2RlPmNzcy1sb2FkZXIvbG9jYWxlcz9tb2R1bGVzPC9jb2RlPiBsZSBlc3RhbW9zIGRpY2llbmRvIHF1ZSBnZW5lcmUgbG9zIG5vbWJyZXMgZGUgY2xhc2VzIHBhcmEgPHN0cm9uZz5DU1MgTW9kdWxlczwvc3Ryb25nPiwgcGVybyBxdWUgbm8gaGFnYSBuYWRhIG1cdTAwZTFzIGNvbiBlbCBDU1MsIGRlIGVzdGEgZm9ybWEgbm8gZXMgbmVjZXNhcmlvIGNyZWFyIGRvcyBhcmNoaXZvcyA8Y29kZT4uY3NzPC9jb2RlPiB5IHRvZGF2XHUwMGVkYSB2YSBhIGZ1bmNpb25hciBoYWNlciBlbCA8ZW0+c2VydmVyIHJlbmRlcjwvZW0+IHkgcXVlIGx1ZWdvIHNlIGFwbGlxdWVuIGVzdGlsb3Mgc2luIHByb2JsZW1hcy48L3A+XHJcbiI=')) + '</div>';
+</script><script type="text/javascript" src="./Evitar que webpack genere el CSS durante el build del servidor en Curso profesional de React con Redux_files/modules.186ec02217a1c5606520.js"></script><script type="text/javascript" src="./Evitar que webpack genere el CSS durante el build del servidor en Curso profesional de React con Redux_files/vendor.1cd452d657a0f1a7007c.js"></script><script type="text/javascript" src="./Evitar que webpack genere el CSS durante el build del servidor en Curso profesional de React con Redux_files/materials.1cd452d657a0f1a7007c.js"></script><script type="text/javascript" src="./Evitar que webpack genere el CSS durante el build del servidor en Curso profesional de React con Redux_files/comments.013d3979b18196d4da31.js"></script><textarea style="letter-spacing:normal;line-height:21px;padding-top:14px;padding-bottom:14px;font-family:Arial;font-weight:normal;font-size:14px;text-rendering:auto;text-transform:none;width:820px;text-indent:0px;padding-left:14px;padding-right:14px;border-width:1px;box-sizing:border-box;
+  min-height:0 !important;
+  max-height:none !important;
+  height:0 !important;
+  visibility:hidden !important;
+  overflow:hidden !important;
+  position:absolute !important;
+  z-index:-1000 !important;
+  top:0 !important;
+  right:0 !important
+"></textarea><script async="" src="./Evitar que webpack genere el CSS durante el build del servidor en Curso profesional de React con Redux_files/2370170429.js"></script><!-- Hotjar Tracking Code for www.platzi.com --><script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:430680,hjsv:5};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+  </script><!-- Google Rich Card --><script type="application/ld+json">
+            {
+                "@context": "http://schema.org",
+                "@type": "Organization",
+                "name": "Platzi",
+                "url": "https://platzi.com/",
+                "description": "Aprende de expertos en programación, diseño, marketing, startups, video y web. Suscríbete hoy.",
+                "foundingDate": "2013-01-01",
+                "founders": [
+                    {
+                        "@type": "Person",
+                        "name": "John Freddy Vega"
+                    },
+                    {
+                        "@type": "Person",
+                        "name": "Christian Van Der Henst"
+                    }
+                ],
+                "sameAs": [
+                    "https://www.facebook.com/platzi/",
+                    "https://twitter.com/Platzi",
+                    "https://www.youtube.com/channel/UC55-mxUj5Nj3niXFReG44OQ",
+                    "https://www.linkedin.com/school/2822346"
+                ]
+            }
+        </script><!-- Google Tag Manager --><noscript>&lt;iframe src="//www.googletagmanager.com/ns.html?id=GTM-KFRRSV" height="0" width="0" style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;</noscript><script>
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-KFRRSV');
+        </script><!-- End Google Tag Manager -->
+<iframe name="_hjRemoteVarsFrame" title="_hjRemoteVarsFrame" id="_hjRemoteVarsFrame" src="./Evitar que webpack genere el CSS durante el build del servidor en Curso profesional de React con Redux_files/rcj-99d43ead6bdf30da8ed5ffcb4f17100c.html" style="display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;"></iframe><script type="text/javascript" id="" src="https://platform.twitter.com/oct.js"></script><div id="ads"></div></body></html>
