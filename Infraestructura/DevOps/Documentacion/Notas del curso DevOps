@@ -1,0 +1,22 @@
+## ¿Que es DevOps?
+
+DevOps es la unión entre Developers y Operations.
+Históricamente estos equipos trabajan independientemente uno del otro.
+Operadores vivían en bash y developers hacían producto en algún lenguaje sin saber qué hacían los operadores y vice-versa.
+Eventualmente esta separación llegó a un tope donde no podía escalar más. Tanto developers y _operadores _empezaron a sentir frustración y empezaron a comunicarse, colaborar e integrarse unos con otros.
+Como efecto secundario de dicha unión, las metas se alinean y el ciclo/proceso de desarrollo, prueba y deployment se vuelve más sencillo y corto.
+¿Qué no es DevOps?
+Una persona nueva en el equipo.
+Una herramienta.
+Un nuevo equipo.
+Un unicornio mágico que hace que todo sepa a cerveza.
+¿Qué es DevOps?
+DevOps es un cambio en la cultura de los equipos y el deseo de mejorar sus procesos. Usualmente es orgánico.
+El movimiento de DevOps promueve las siguientes iniciativas:
+Cultura - el deseo en ambos equipos en colaborar.
+Automatización - poder reproducir infraestructura como reproducimos bugs.
+Medidas - saber cuánto tomaron nuestras metas en común.
+Sharing - mejores herramientas internas compartidas por todos los equipos.
+Como resultado de aprovechar las iniciativas de DevOps, muchos equipos han reportado que ven menos errores en producción, y cuando ven errores críticos logran revertir el daño con velocidad. Eso se convierte en Operadores que pueden dormir tranquilos, Developers que pueden seguir mejorando el producto y armonía entre todos en la empresa.
+
+## Razones para aceptar DevOps

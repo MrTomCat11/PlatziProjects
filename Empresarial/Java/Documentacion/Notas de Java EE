@@ -1,0 +1,473 @@
+## OBJETIVO DEL CURSO JAVA EE
+
+Retomaremos lo que vimos en el curso básico de Java y llevaremos este conocimiento a construir aplicaciones empresariales con Java EE.
+Aprenderemos MVC en Java EE, conoceremos qué es Hibernate y cómo integrarlo con Spring Framework, para tener como resultado nuestro proyecto final un API Rest que puedas implementar en cualquiera de tus proyectos.
+
+## Java EE vs Java SE
+
+En el curso básico de java aprendimos las bases del lenguaje Java, en este curso construiremos aplicaciones empresariales, es decir lleva a la práctica todo lo anterior.
+Java EE y Java SE no tienen una rivalidad en sí, son más bien complementos que deben llevarse a modo de niveles de complejidad para entender uno u otro. Idealmente debemos comenzar aprendiendo Java SE y luego Java EE.
+Si partiéramos de un MVC (modelo vista controlador) en Java SE solo vimos dos componentes nuestros modelos y controladores, mientras que en Java EE veremos la última parte, la vista, y aprenderemos que tenemos muchas formas de presentar la información.
+
+## ¿Como funcionan las aplicaciones Java EE?
+
+Las aplicaciones Java EE nacen debido a que necesitamos aplicaciones distribuídas, aplicaciones con muchos componentes que funcionen en entornos separados y al mismo tiempo puedan estar conectados mediante una red.
+Es por ello que necesitaremos una mente central que una estos componentes, este será un servidor, que tenga todos los recursos de velocidad, seguridad y confiabilidad, este debe estar idealmente dedicado a nuestra aplicación.
+En Java EE siempre necesitaremos un servidor, ya sea de pago o gratuito.
+Algunos servidores de aplicaciones famosos son GlassFish, WildFly, Apache etc. Existe otro conocido que no es considerado servidor de aplicaciones sino más bien contenedor de aplicaciones me refiero a Apache Tomcat, el cual esta diseñado para contener aplicaciones Java solamente.
+
+## Hola Mundo usando JSP
+
+Utilizaremos el IDE Eclipse para hacer nuestro primer Hola Mundo usando JSP.
+Iremos al menú File -> New -> Dynamic Web Project
+Colocaremos el nombre de nuestro proyecto HolaMundo
+Damos click en Finish
+Ahora para crear un archivo jsp
+Iremos a la carpeta WebContent click derecho New -> JSP File
+Colocaremos en nombre de nuestro archivo index.jsp
+Damos Next dejamos todo como está y damos click en Finish
+Este archivo jsp será nuestra vista en nuestra arquitectura MVC de Java EE.
+Un jsp significa Java Server Pages, y está diseñado para crear páginas web dinámicas
+
+## Corriendo nuestra aplicación en Apache Tomcat
+
+Configuraremos Apache Tomcat en un Servidor para correr nuestra aplicación.
+Si te falta agregar una Runtime sigue los siguientes pasos:
+Da click derecho en el proyecto y selecciona Properties
+Después Project Facets y luego ve a la sección de Runtime, selecciona New
+En la ventana que se abre selecciona la versión 8 de Tomcat ya que es la más estable hasta ahora.
+Iremos al sitio web de Tomcat para descargar los archivos de instalación
+tomcat.apache.org y seleccionamos la versión 8
+Descargamos el archivo zip, lo descomprimimos y ponemos en un lugar seguro.
+Regresamos a nuestro IDE y en la opción Tomcat Installation directory seleccionamos nuestro directorio descargado.
+Ahora crearemos un servidor:
+En la pestaña Servers crea un nuevo servidor dando click en el mensaje que aparece.
+Escoge la versión 8 y selecciona la Runtime que creamos antes.
+
+## Java Servlets
+
+Hemos creado la vista del proyecto nuestro archivo jsp, ahora crearemos un archivo que controle la visata y el acceso al proyecto, un controlador que aquí lo conoceremos como Servlet.
+Un Servlet es una clase de java con super poderes pues hereda de la clase HttpServlet a partir de la cual podemos sobreescribir los métodos doGet y doPost.
+Veremos cómo funciona un Servlet en un control de acceso a un sistema, un Login.
+
+## Java Beans
+
+En el curso anterior entendimos qué es un POJO o un modelo de datos hecho clase.
+Los Beans son similares a los POJO’s solo que tienen la peculiaridad de que debe implementar la interfaz Serializable, siempre. Dado que tenemos un proyecto de Java EE y trabajamos sobre una red, necesitamos serializar los objetos para generar transferencias de datos.
+
+## MVC en nuestra aplicación
+
+Crearemos el método autenticación para verificar que la contraseña sea válida.
+Sobreescrbiremos el método doPost que indicamos en el formulario del archivo jsp.
+Recuperaremos los datos name y password del formulario a partir del objeto request.
+Si la autenticación es exitosa llevaremos al usuario a la página welcome.jsp pero si falla lo debe llevar a error.jsp, esto lo hacemos con ayuda del objeto dispatcher que será el disparador de las respuestas.
+
+## Archivos War empaquetados y su estructura
+
+Crearemos un archivo ejecutable de nuestro proyecto, es decir, haremos un empaquetado del proyecto que estará comprimido en un archivo con extensión .war (Web application ARchive)
+Para generar un war de nuestro proyecto daremos click derecho en el proyecto seleccionamos Export -> War File colocamos el nombre del proyecto y destino del archivo war.
+El archivo war. almacenará todos los recursos de la aplicación como archivos jsp, js, css etc. y en cuánto al código sólo almacenará los archivos de bytecode agregando una capa de seguridad.
+
+## Asistentes Inteligentes Maven
+
+Si pensamos en todo lo que hemos hecho hasta ahora podemos decir:
+Creamos un proyecto Web y debemos la mayoría de archivos desde cero
+Generamos un archivo war
+Si queremos integrar librerías debemos hacerlo dando click derecho en el proyecto Properties -> Java Build Path -> Libraries y seleccionar la librería previamente descargada
+Esto de repente se vuelve repetitivo y cansado, tenemos asistentes inteligentes en Java que nos ayudan a resolver lo anterior y principalmente:
+Crear Proyectos basados en plantillas
+Descargar librerías de terceros jar
+Crear todos los componentes y archivos ejecutales
+Tenemos un Asistente muy importante su nombre es Maven y nos ayuda esencialmente a ejecutar las acciones que describimos, a través de un archivo de configuración pom.xml
+
+## Gradle
+
+Gradle también es un asistente inteligente, está basado en Groovy un lenguaje de programación que usa Domain Specified Language que es una forma de analizar la información, modelandola en objetos JSON.
+La información de configuración del proyecto la encontraremos en un archivo llamado build.gradle la cuál estará en forma de objetos JSON.
+
+## Aplicaciones Orientadas a Presentación vs. Servicios
+
+Aplicaciones Orientadas a Presentación son todas esas aplicaciones enfocadas a generar vistas que pueda leer un navegador, vistas HTML, es decir Sitios Web Dinámicos.
+Aplicaciones Orientadas a Servicios son aplicaciones que se enfocan en el backend y la vista la presentan en formato JSON.
+En nuestro proyecto dejaremos de mostrar la información en formato HTML en cambio lo haremos en formato JSON.
+
+## IDE Spring Tool Suite
+
+Para nuestro proyecto usaremos como IDE Spring Tool Suite.
+Lo puedes descargar de http://spring.io/tools
+Este IDE:
+Esta basado en Eclipse
+Fue creado por la comunidad SpringSource
+Nos ayuda a crear plantillas de proyectos basados en Spring
+Maven ya viene integrado
+
+## Análisis del Problema [Nuestro Proyecto]
+
+Nuestro proyecto será un catálogo de Teachers y Courses.
+Analizando el Problema tendremos las siguientes relaciones:
+La relación entre Teacher y Course será de 1:M (1 teacher puede tener muchos courses pero 1 course solo puede ser dado por 1 teacher)
+Por ejemplo:
+Teacher Anahí Salgado solo puede dar el curso de Java EE (nuestro caso particular ???? )
+La relación entre Teacher y SocialMedia será M:M (1 Teacher puede tener muchas Social Medias y una Social Media puede estar vinculada a muchos Teachers)
+Por ejemplo:
+Teacher Anahí puede tener la Social Media Facebook, Twitter y Linkedin pero la Social Media Facebook puede tener muchos Teachers de Platzi.
+Por esta razón separaremos la relación generando una entidad más: TeacherSocialMedia que reúna las relaciones de las tablas anteriores, ahí encontraremos la vinculación del teacher contra el tipo de red social y su respectivo nickname
+
+## Diagramas Entidad Relación y UML
+
+IMAGENES DEL DIAGRAMA E-R y UML
+
+## Creando la Base de Datos
+
+Nuestra base de datos será construída con el motor MySQL.
+Operaremos MySQL a partir de PhpMyAdmin que lo tendremos disponible a partir de XAMPP.
+Puedes descargar XAMPP en este enlace: https://www.apachefriends.org/es/index.html y lo tendrás disponible para Windows, Linux y MacOS.
+No importa cual es tu sistema operativo asegurate de tener iniciados los siguientes como mínimo:
+MySQL Database
+Apache Web Server o Apache solamente
+
+Cuando los tengas iniciados entra a http://localhost/phpmyadmin para tener acceso a la administración de la base de datos.
+Ve a la pestaña de Cuentas de Usuarios y crea uno platziprofesores
+En nombre del host selecciona Local
+La contraseña que manejaremos será la misma platziprofesores (solo con fines didácticos)
+Selecciona el Check Crear una Base de Datos con el mismo nombre y otorgar todos los privilegios
+Damos click en Continuar y del lado izquierdo veremos nuestra base de datos creada.
+Mira en la sección archivos para obtener el query completo de la creación de las tablas.
+
+## Poniendo Relaciones en nuestra Base de Datos
+
+Terminaremos nuestra base de datos con las tablas social_media y teacher_social_media
+En el video anterior te compartimos el script completo de la base de datos si no lo tienes o algo salió mal cuando estabas creando tu base puedes usar el script que se encuentra en la sección de archivos, este es el mismo que el del video anterior.
+
+## Creando un proyecto de Java que se conecta a la base de datos
+
+En el video anterior creamos nuestra base de datos, en este trabajaremos con nuestro diagrama UML.
+Abriremos Spring Tool Suite y crearemos un nuevo proyecto basado en Maven:
+Damos Click derecho New->Other->Maven->Maven Project
+Damos Next -> Next -> Next
+Escribimos el Group Id (nuestro package): com.platzi
+Ponemos el Artifact Id (nombre proyecto): hibernate
+Damos click en Finish
+Abrimos nuestro archivo pom.xml para integrar la dependencia de MySQL
+Puedes obtener dependecias del sitio: https://mvnrepository.com/
+Buscaremos MySQL y seleccionamos la versión 5.1.21
+En el resultado copiamos la correspondiente a Maven:
+<dependency>
+<groupId>mysql</groupId>
+<artifactId>mysql-connector-java</artifactId>
+<version>5.1.21</version>
+</dependency>
+
+## ¿Qué es Hibernate?
+
+Hibernate es un ORM (Object Relational Mapping)
+Es una herramienta que nos permite mapear una base de datos
+Hibernate esta diseñado para trabajar con bases de datos relacionales.
+La idea de Hiberante es tener una clase equivalente a una tabla de base de datos incluyendo los campos.
+Podremos operar los datos operando no sobre tablas sino sobre objetos
+Busca solucionar el problema de la diferencia entre dos modelos de datos coexistentes en una aplicación
+Podemos definir tipos de datos
+Generar sentencias SQL
+Hibernate permite conectarnos a una base de datos a partir de un archivo de configuración llamado hibernate.cfg.xml.
+Mapearemos las tablas y campos de una base de datos a partir de Anotaciónes @ en las clases
+
+## Configurando Hibernate en Spring Tool Suite
+
+Integraremos un Plugin de Hibernate en Spring Tool Suite para tener accesos rápidos a archivos de configuración de Hibernate.
+Para integrarlo debemos ir a nuestro IDE Spring Tool Suite:
+Help -> Install New Software
+Click en Add y colocar un nombre que nos permita identificar el software del Plugin, puede ser Hibernate
+Iremos al sitio http://download.jboss.org/jbosstools/updates/stable/ para buscar la versión de eclipse en la que está basado nuestro Spring Tool Suite (revisa en la sección de Acerca De o About del IDE)
+Una vez que seleccionamos la versión de eclipse, entramos a ella y en la parte inferior copiaremos el enlace que se antepone la leyenda “Content has moved to” para nuestro caso es este: https://download.jboss.org/jbosstools/neon/stable/updates/
+Este enlace lo pegamos en el campo que dejamos pendiente cuando dimos Click en Add y damos click en OK
+Descargará los paquetes y dentro de JBoss Web and Java EE Development seleccionamos Hibernate Tools y damos click en Siguiente.
+Descargará el paquete seleccionado, aceptamos los términos y damos click en Finish.
+En algún punto de la descarga te pedirá permiso de instalar software de terceros e decimos que sí.
+Se reiniciará el IDE y quedará listo.
+
+## Integrando Hibernate al proyecto y conectando a la base de datos
+
+Crearemos una carpeta llamada resources esta contendrá el archivo de configuración cfg.hbm de hibernate.
+Desde nuestro File Explorer vamos al workspace del proyecto
+Entramos a nuestro proyecto hibernate -> src -> main
+Dentro crearemos la carpeta resources
+Regresamos al IDE damos click derecho en el proyecto Properties -> Java Build Path -> Source
+Damos click en Add Folder
+Buscamos resources la seleccionamos y damos Ok y Apply
+Cerramos la ventana dando Ok
+Aparecerá nuestra carpeta, la seleccionamos y le damos click derecho New -> Other -> Hibernate -> Hibernate Configuration File (cfg.xml)
+Nos aparecerá una ventana solicitando los datos de conexión a la base de datos. Llenaremos lo siguiente:
+Driver class: com.mysql.jdbc.Driver
+Connection URL: jdbc:mysql//localhost:3306/platziprofesores
+Username: platziprofesores
+Password: platziprofesores
+Como resultado tendremos un archivo hibernate.cfg.xml con los datos que ingresamos en formato XML.
+Por último integraremos la dependecia de Hibernate:
+<dependency>
+<groupId>org.hibernate</groupId>
+<artifactId>hibernate-core</artifactId>
+<version>5.2.6.Final</version>
+</dependency>
+
+## Mapeo y Anotaciones con Hibernate JPA
+
+Para cada tabla de la base de datos que queramos persistir en el proyecto debemos hacer un mapeo.
+Los Mapeos los haremos a partir de Annotations @ de Java
+@Entity: Se aplica a la clase e indica que esta clase es una entidad a persistir.
+@Table: Se aplica a la clase indica el nombre de la tabla de la base de datos.
+@Column: Se aplica a una propiedad Java e indica el nombre de la columna de la tabla.
+@Id: Se aplica a una propiedad de la clase e indica que es la clave primaria.
+@GeneratedValue: Indica que Hibernate deberá generar el valor de la clave primaria
+
+## Mapeando nuestro proyecto con Hibernate JPA
+
+Haremos el mapeo de nuestros beans SocialMedia, Teacher, Course, TeacherSocialMedia. Todas las anotaciones las traeremos del paquete javax.persistence.*
+Primero colocaremos nuestra etiqueta @Entity arriba del nombre de la clase y posteriormente @Table(name=“nombre_tabla_base_datos”) para indicar el nombre de la tabla.
+Para los campos usaremos @Column(name=“columna_base_datos”) y en el campo que referencía al identificador colocaremos @Id seguido de @GeneratedValue(strategy=GenerationType.IDENTITY) que indica que se autogenere el identificador.
+
+## Anotaciones básicas en nuestro proyecto
+
+Al tener una tabla de llaves que adicionalmente tiene un campo tenemos que mapear también la tabla para mapear el campo, normalmente no sería necesario pues Hibernate se encargaría de generar la relación.
+La forma de modelar las relaciones a muchos en Java es manejando colecciones de Objetos
+Podemos usar la Colección Set, List, Vector, HashMap, etc.
+
+## Relaciones o Asociaciones en Hibernate [One To One, One To Many y Many to Many]
+
+En Hibernate podemos manejar las relaciones que existen en la base de datos, tenemos las siguientes:
+One to One (Unidireccional): Un objeto tiene una referencia de otro objeto.
+One to One (Bidireccional): Los dos objetos tienen referencias uno de otro.
+One to Many: Un objeto tenga una lista de otros objetos
+Many to Many: Un objeto A tenga una lista de otros objetos B y también que el objeto B a su vez tenga la lista de objetos A
+Adicional conoceremos la anotación @JoinColumn que nos idicará el nombre de la columna que une las tablas
+
+## Mapeando Relaciones a nuestro proyecto
+
+En el Proyecto trabajaremos las siguientes relaciones:
+- One to Many - Uno a muchos
+La clase Teacher tiene una colección de Cursos
+La clase Curso tiene una referencia de Curso
+Nuestra clase Padre (Owner) será Teacher
+La clase Hijo (No Owner) Courses
+Por lo tanto en la clase Teacher donde tenemos nuestra colección de Cursos colocaremos la anotación: @OnetoMany(mappedBy=“teacher”)
+Mientras que en la clase Course donde tenemos la referencia de Teacher colocaremos la anotación: @ManyToOne(optional=true, fetch=FetchType.EAGER) y además @JoinColumn(name=“id_teacher”) aquí se especifica el nombre del campo de la tabla que tiene la llave foránea
+- Many to Many - Muchos a muchos
+La relación de Teacher hacia TeacherSocialMedia va de Uno a muchos
+La relación de SocialMedia hacia TeacherSocialMedia va de Uno a muchos
+Dicho lo anterior la clase Teacher tiene una colección de TeacherSocialMedias y
+la clase SocialMedia también
+Por lo tanto en la clase Teacher donde tenemos la colección TeacherSocialMedia colocaremos la siguiente anotación: @OneToMany(cascade=CascadeType.ALL) y @JoinColumn(name=“id_teacher”) donde se especifica el nombre del campo de la tabla que tiene la llave foránea
+Ahora en la clase SocialMedia haremos algo similar vamos a la colección TeacherSocialMedia colocamos: @OneToMany y @JoinColumn(name=“id_social_media”) que especifica el nombre del campo de la tabla que tiene la llave foránea.
+Por último en la clase TeacherSocialMedia vamos a la referencia de Teacher y SocialMedia y ponemos: @ManyToOne(fetch=FetchType.EAGER) junto con @JoinColumn(name=“id_teacher”) para teacher y @JoinColumn(name=“id_social_media”) para socialMedia los cuales indican el campos que tienen la llave foránea.
+
+## Queries a la base de datos usando Hibernate
+
+Para poder utilizar todos los mapeos y configuraciones que hemos hecho al proyecto es necesario utilizar las siguientes clases:
+SessionFactory
+Configuration
+Session
+Ellos nos dan acceso a nuestra base de datos leyendo nuestro archivo de configuración que tiene los parámetros de conexión y las clases mapeadas que fungirán como entidades.
+Una vez obtenido nuestro objeto session si queremos ejecutar un query en Hibernate debemos iniciar una transacción, posteriormente declarar el query y finalmente ejecutar la transacción con commit.
+
+## ¿Qué es un DAO?
+
+DAO significa Data Access Object
+El cuál es un patrón de diseño que nos permite crear un API de un Objeto específico.
+Un APi significará crear todas las acciones que se pueden realizar hacia un objeto.
+Por ejemplo un CRUD:
+Create
+Read
+Update
+Delete
+Generaremos un DAO de cada entidad para ello debemos crear una Interfaz donde se declaren los métodos de API y una clase que implemente la interfaz.
+
+## Manejo de Session en Hibernate
+
+Para crear un objeto sesión que sea reutilizable en nuestra clase PlatziSession crearemos un constructor y dentro implementaremos todo el código de conexión a base de datos y apertura del objeto session.
+Por último crearemos el método getSession() para estar recuperando el objeto.
+A a partir de esto puedo llamar al objeto en los métodos DAO por ejemplo si quiero guardar un teacher lo haría así:
+  platziSession.getSession.persist(teacher);
+  platziSession.getSession.getTransaction().commit();
+
+Hql en Hibernate
+Hql significa Hibernate Query Language el cual es completamente orientado a objetos.
+Si quisieramos ejecutar un query SELECT podemos hacer lo siguiente:
+  platziSession.getSession().createQuery("fromTeacher").list();
+
+## ¿Qué es un Framework?
+
+Librería: conjunto de clases, métodos etc. que son invocadas por el flujo del programa y que posteriormente devuelven el control a este.
+Framework: Un framework controla el flujo del código, él decide cuándo llamar nuestro código.
+Librería - Programación secuencial.
+Framework - Programación por eventos.
+Inversión de Flujo o de control
+Se da cuando el programador deja de tener el control del flujo del código y en su lugar el framework toma el control del programa, llamando al código cuando suceda un evento específico.
+
+## ¿Qué es Spring Framework?
+
+Spring usa inversión de control, específicamente controlará la creación y destrucción de objetos.
+Un programa tradicional de java tendrá en su método main todas las llamadas a los objetos secuencialmente.
+Con Spring framework tendremos las llamadas a los objetos se concentrarán en un contenedor y de este se encargará Spring.
+Podemos decir que la clase A para ser llamada y convertirse en objeto, depende de la clase Principal (la que contiene el método main) la llame. Entonces si se implementa el contenedor de Spring en la clase Principal decimos que Spring está inyectando el objeto A, es decir Spring está inyectando la dependencia.
+Tenemos lo siguiente:
+Clase Vehículo - A
+Clase Motor - B
+En el ejemplo la clase Vehículo inyecta directa y explícitamente la clase Motor, la clase A inyecta la clase B.
+Debemos evitar que la clase B decida qué objetos crear.
+La forma de desacoplar esta dependencia directa es creando una clase más genérica, nos referimos a una interfaz que tenga métodos que puedan ser implementados en varias clases, esta Interfaz será la indicada a inyectar en la clase A (Vehículo) pues al ser genérica se puede crear no solo un tipo de objeto sino varios.
+Recuerda que cuando sobreescribimos métodos y le damos diferente comportamiento a ese comportamiento le llamamos Polimorfismo
+
+## Spring Bean Factory
+
+Los objetos que son la columna vertebral de tu aplicación y que son administrados por el contenedor Spring se denominan beans.
+Un bean en Spring será un objeto que tenga consigo un CRUD de acciones
+Los DAO’s son Beans, pero usaremos su interfaz pues es el elemento más abstracto y reutilizable.
+También tendremos objetos de servicio y objetos que nos permitan conectarnos con otras partes del sistema como Bases de Datos.
+Cuando nuestra interfaz implementa solo a una clase usaremos la anotación @Autowired
+Cuando la interfaz implementa a varias clases usaremos la anotación @Configuration y @Bean
+
+## Composicion de Spring, Spring MVC y Spring Boot
+
+IMAGENES EN ADJUNTO Y TAMBIEN LA PRESENTACION
+
+## Integrando Spring al proyecto
+
+Abriremos Spring Tool Suite y daremos click derecho New > Other > Spring > Spring Starter Project
+Name > ProfesoresPlatzi
+Type > Seleccionamos Maven
+Versión de Java > 1.8
+Packaging > Jar
+Group > com.platzi
+Artifact > profesoresplatzi
+Descrption > Descripción del proyecto
+Package > com.platzi.profesoresplatzi
+Presionamos Next
+Spring Boot Version > 1.5.2
+Dependencias:
+SQL > MySQL y JPA
+Web > Web
+Presionamos Next
+Dejamos todo como esta y damos click en Finish
+
+## Componentes de un proyecto en Spring Boot
+
+Capas de nuestra aplicación
+Repositories: Se encarga de conectar y traer datos de la base de datos
+Services: Coordina las fuentes de datos
+Controllers: Coordina las entradas y salidas de información
+Json - FrontEnd: Es lo que el usuario visualiza, los datos en formato json
+Para trabajar estas capas necesitaremos las siguientes anotaciones
+@Repository > Se enfoca en los DAO’s
+@Service > Servicios, Llama a los DAO’s
+@Controller > Trabaja con la capa de presentación
+
+## Configurando Hibernate con Spring
+
+Crearemos nuestra clase DataBaseConfiguration.java esta reemplazará al archivo hibernate.cfg.xml haremos la instanciación de esta clase a partir de Spring Framework.
+Para que Spring pueda hacer su trabajo de inyección de dependecias es necesario indicar con la anotación @Configuration que será una clase de configuraciones de beans. Por lo tanto también usaremos la anotación @Bean.
+Esta clase también gestionará la sesión de conexión a la base de datos.
+
+## Configurando DAO's con Spring y Filtros con HQL Hibernate
+
+Los archivos del modelo que teníamos en el proyecto hibernate los copiaremos y pegaremos en nuestro proyecto ProfesoresPlatzi.
+Crearemos nuestro paquete dao y copiaremos la clase TeacherDaoImpl y la interfaz TeacherDao.
+Crearemos una clase abstracta llamada a AbstractSession la cual se encargará de llamar a la sesión que gestionamos en el archivo de configuración. Estaremos heredando de esta clase en todos nuestros DAO’s.
+HQL Hibernate Query Language
+Si queremos ejecutar un SELECT hacemos:
+getSession().createQuery("from Teacher").list();
+Si queremos ejecutar un UPDATE hacemos:
+getSession().update(teacher);
+Si queremos encontrar un Teacher a partir de un Id:
+getSession().get(Teacher.class, idTeacher);
+Si queremos encontrar un Teacher a partir de un nombre:
+(Teacher) getSession().createQuery("from Teacher where name = :name").setParameter("name", name).uniqueResult();
+Si queremos ejecutar un DELETE hacemos:
+getSession().delete(teacher);
+
+## Resolviendo el reto de CRUD y más de HQL
+
+HQL Hibernate Query Language
+Si queremos ejecutar JOIN entre tablas:
+(List<Course>) getSession().createQuery("from Course c join c.teacher t where t.idTeacher = :idTeacher").setParameter("idTeacher", idTeacher).list();
+
+## Hibernate HQL Joins
+
+Para crear Joins en HQL es importante mantener los elementos como objetos con sus propiedades respectivas.
+Por ejemplo, si tienes la clase:
+Gato
+nombre
+color
+raza
+Si quisieras ejecutar un query debes poner algo como esto:
+from Gato g
+Donde g es un alias para acceder a la clase Gato
+Ahora supongamos que existe la clase Persona y esta puede tener una colección de mascotas gatitos que son de tipo Gato.
+Persona
+nombre
+gatitos
+Si quisieras saber los nombres de los gatitos de una persona podrías poner algo así:
+from Persona p join p.gatitos g
+Por último si quisieras ejecutar un filtro, es decir, obtener los gatitos de esa persona que se llamen kitty, podríamos hacer algo como:
+from Persona p join p.gatitos g where g.nombre = :nombre_gatito
+Recuerda que :nombre_gatito es la sintáxis para indicar que es ese parámetro es una variable que será inyectada con la instrucción: setParameter.
+Nota: no olvides poner : (dos puntos) antes del nombre de la variable
+
+## ¿Qué es y cómo funciona API Rest?
+
+Compilemos el proyecto con Maven, para ello:
+Daremos Click derecho en el proyecto Run As
+Seleccionamos 6 Maven Build…
+En la ventana que abra verifica que estes en la pestaña Main
+En la opción Goals colocaremos clean install
+Damos click en Run
+Después corremos el proyecto:
+Daremos Click derecho en el proyecto Run As
+Spring Boot App
+API Rest
+REST REpresentational State Transfer, lo que significa que cada vez que se envíe o reciban datos estos serán representados por un estado en particular.
+En el Blog de Platzi tenemos la siguiente nota: https://platzi.com/blog/como-crear-apis/
+Un API será un conjunto de métodos o acciones que se enfocan en un objeto en particular.
+Si unimos todo lo que acabamos de aprender, un API Rest significará un conjunto de métodos/acciones que se pueden aplicar a un objeto representadas por un estado en particular.
+Para definir las URI’s debemos usar sustantivos, objetos, en vez de verbos.
+
+## Configurando Service
+
+La capa Service se enfocará en la lógica de negocio.
+Esta se ecargará de coordinar las fuentes de datos.
+Haremos un paquete llamado service ahí crearemos las clases e interfaces que tienen que ver con esta capa.
+Copiaremos todos los métodos de las interfaces DAO y las pegaremos en las de Service
+
+## Creando Controller API Rest por Entidad
+
+Controller trabajará con la capa de presentación
+Recibirá las solicitudes, las procesarlás, llamar a los servicios ejecutar una acción y devolver una respuesta.
+Idealmente debe existir un controlador por cada entidad, para tener separados y ordenados los recursos.
+Tendremos la etiqueta @RequestMapping que recibirá la localización del recurso
+Para la respuesta podemos manejar:
+@ResponseBody quien devolverá la respuesta. A la par debe usarse @ResponseStatus que devuelve el codigo de status de la respuesta
+@ResponseEntity devolverá la respuesta y al mismo tiempo el código de status.
+Postman
+Podemos usar Postman para ejecutar nuestros endpoints más fácilmente.
+Lo puedes descargar de aquí: https://www.getpostman.com/
+
+## Definiendo métodos, Get y Post
+
+Para trabajar con los métodos de estado en un API Rest podemos realizar lo siguente:
+Para el método GET
+Dentro de la etiqueta RequestMaping colocaremos la propiedad method= seguido de la constante RequestMethod.GET recuerda que estas constantes las traemos de la librería:
+org.springframework.web.bind.annotation.RequestMethod;
+La línea completa de código quedaría así:
+@RequestMapping(value="/socialMedias", method = RequestMethod.GET, headers = "Accept=application/json")
+Para el método GET que recibe un parámetro en la URL
+Colocaremos el parámetro de encerrado con llaves de la siguiente forma /socialMedias/{id}
+La línea completa de código quedaría así:
+@RequestMapping(value="/socialMedias/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
+Con la etiqueta @PathVariable(“id”) Long idSocialMedia recibimos el dato id, el cual debe tener el mismo nombre que colocamos en la url, posteriormente, lo está asignando a la variable Long idSocialMedia.
+Para el método POST que nos permitirá crear un recurso
+Usaremos la constante: RequestMethod.POST
+La línea completa de código quedaría así:
+@RequestMapping(value="/socialMedias", method = RequestMethod.POST, headers = "Accept=application/json")
+
+## Manejo de Patch y Delete
+## Manejando Mensajes de Error Personalizados
+
+##

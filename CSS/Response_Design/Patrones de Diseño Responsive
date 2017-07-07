@@ -1,0 +1,11 @@
+Patrones de diseño:
+
+1. Mostly fluid. Cuadricula fluida autoajustable al tamaño de la pantalla
+
+2. Column drop. Colocación de columnas de forma vertical
+
+3. Layout shifter. Reajuste del diseño del sitio de acuerdo al ancho de la pantalla
+
+4. Tiny tweaks. Pequeños cambios en el diseño, como ajustar el tamaño de la fuente, cambiar el tamaño de las imágenes o desplazar el contenido de diferentes maneras.
+
+5. Off canvas. El contenido menos usado se coloca fuera de la pantalla y solo se muestra cuando el tamaño de la pantalla es lo suficientemente grande; en las pantallas más pequeñas, el contenido está solo a un clic de distancia.

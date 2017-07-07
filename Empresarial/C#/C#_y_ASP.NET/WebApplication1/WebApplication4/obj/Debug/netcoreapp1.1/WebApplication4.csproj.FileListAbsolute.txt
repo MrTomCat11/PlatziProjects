@@ -1,0 +1,9 @@
+c:\users\javieralejandro\documents\visual studio 2017\Projects\WebApplication1\WebApplication4\bin\Debug\netcoreapp1.1\WebApplication4.deps.json
+c:\users\javieralejandro\documents\visual studio 2017\Projects\WebApplication1\WebApplication4\bin\Debug\netcoreapp1.1\WebApplication4.runtimeconfig.json
+c:\users\javieralejandro\documents\visual studio 2017\Projects\WebApplication1\WebApplication4\bin\Debug\netcoreapp1.1\WebApplication4.runtimeconfig.dev.json
+c:\users\javieralejandro\documents\visual studio 2017\Projects\WebApplication1\WebApplication4\bin\Debug\netcoreapp1.1\WebApplication4.dll
+c:\users\javieralejandro\documents\visual studio 2017\Projects\WebApplication1\WebApplication4\bin\Debug\netcoreapp1.1\WebApplication4.pdb
+c:\users\javieralejandro\documents\visual studio 2017\Projects\WebApplication1\WebApplication4\obj\Debug\netcoreapp1.1\WebApplication4.csprojResolveAssemblyReference.cache
+c:\users\javieralejandro\documents\visual studio 2017\Projects\WebApplication1\WebApplication4\obj\Debug\netcoreapp1.1\WebApplication4.AssemblyInfo.cs
+c:\users\javieralejandro\documents\visual studio 2017\Projects\WebApplication1\WebApplication4\obj\Debug\netcoreapp1.1\WebApplication4.dll
+c:\users\javieralejandro\documents\visual studio 2017\Projects\WebApplication1\WebApplication4\obj\Debug\netcoreapp1.1\WebApplication4.pdb
