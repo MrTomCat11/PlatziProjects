@@ -143,6 +143,10 @@ Existen herramientas que nos ayudan a automatizar nuestro proceso, y se llama Pa
 Esta herramienta nos permite crear imágenes en diferentes proveedores usando un file en común. Mirando la documentación podemos ver que hay dos partes fundamentales.
 Los “builders” donde podemos indicar los proveedores cloud donde queremos crear nuestras imágenes. Luego tenemos los “provisiones” los cuales ejecutan comandos contra la imagen siendo creada. Esta herramienta es muy poderosa ya que nos permite automatizar un proceso en múltiples proveedores con tan solo un poco de configuración.
 
+se crea un archivo template.json y se corren los siguientes comandos:
+
+--> packer build template.json
+
 Para asignar un nombre al snapshot se usa la variable snapshot_name dentro de builders
 
 "builders": [
@@ -159,6 +163,16 @@ El nombre de del snapshot debe cambiar para cada deploy y con esto poder regresa
 
 ## Qué es Infraestructure as Code
 
+npm install -g now
+echo "Deploying..."
+URL=$(now --docker -t $NOW_TOKEN)
+echo "Running acceptance on $URL"
+curl --silent -L URL
+npm install -g now
+echo "Deploying..."
+URL=$(now --docker -t $NOW_TOKEN)
+echo "Running acceptance on $URL"
+curl --silent -L URL
 Previamente definimos a través de código como el CI debe comportarse, como nuestros servicios deben configurarse y la creación de una imagen, nuestra infraestructura no es nada diferente.
 Queremos poder reproducirla en cualquier momento y entender cómo todo está conectado. Poder manipular y mutar el estado de infraestructura de una manera segura es crucial. Cualquier error en estas operaciones puede costar horas en arreglar.
 En el evento de un catástrofe en nuestro proveedor, este nivel de automatización podría salvar muchas horas de trabajo.
@@ -172,3 +186,22 @@ cloud-config implementa una sintaxis para las configuraciones comunes del sistem
 --> terraform apply: aplica los cambios en la infraestructura
 
 ## Automatizando el Proceso de Añadir Nuestras Instancias al LoadBalancer
+
+Añade un resource a main.tf
+
+## Preparándonos para Automatizar el Flujo Completo
+
+## Automatizando la Creación de Imágenes
+
+## Haciendo un Despliegue Inmutable
+
+TF_VAR_image_id = .....
+
+## Finalizando nuestro Flujo de Entrega Continua
+
+Para generar una nueva key ssh pueden usar este tutorial que es el que muestra el profesor en el curso https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
+
+## Conclusiones
+
+DevOps no es un trabajo como tal, es una filosofía de trabajo muy poderosa.
+Acelera el flujo de desarrollo, asegura que tu aplicación siempre esté corriendo, y aprende cómo mantener tus servidores de forma eficiente y balancear el tráfico para tener una página web siempre disponible.
