@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<!-- saved from url=(0142)https://platzi.com/clases/devops/concepto/manejo-de-servidores-desde-el-punto-de-vista-de-de/introduccion-a-configuration-management/material/ -->
+<html lang="en" data-cast-api-enabled="true"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style class="vjs-styles-defaults">
+      .video-js {
+        width: 300px;
+        height: 150px;
+      }
+
+      .vjs-fluid {
+        padding-top: 56.25%
+      }
+    </style><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"><link rel="shortcut icon" href="https://static.platzi.com/static/images/logos/platzi_favicon.01ca534ca7d3.png"><link rel="icon" sizes="192x192" href="https://static.platzi.com/static/images/logos/platzi_favicon.01ca534ca7d3.png"><meta name="theme-color" content="#283C48"><meta name="description" content="Aprende desde cero a crear el futuro de la web. Cursos de Desarrollo, Diseño, Marketing, y Negocios."><meta name="apple-itunes-app" content="app-id=1106678260"><!-- og tags Facebook --><meta property="fb:admins" content="1030603473"><meta property="og:description" content="Aprende desde cero a crear el futuro de la web. Cursos de programación, diseño, marketing, web, frontend, backend, móvil, UX, usabilidad. Con clases en vivo, diploma de certificación y maestros de la industria."><meta property="og:title" content="Platzi: Cursos online profesionales de tecnología"><meta property="og:type" content="website"><meta property="og:url" content="https://platzi.com"><meta property="og:image" content="https://static.platzi.com/static/website/v2/images/social/social.a0407ac580e4.jpg"><meta property="og:site_name" content="platzi.com"><!-- og tags Google+ --><meta itemprop="description" content="Aprende desde cero a crear el futuro de la web. Cursos de programación, diseño, marketing, web, frontend, backend, móvil, UX, usabilidad. Con clases en vivo, diploma de certificación y maestros de la industria."><!-- Twitter Cards --><meta property="twitter:account_id" content="4503599630205252"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@Platzi"><meta name="twitter:title" content="Platzi: Cursos online profesionales de tecnología"><meta name="twitter:description" content="Aprende desde cero a crear el futuro de la web. Cursos de programación, diseño, marketing, web, frontend, backend, móvil, UX, usabilidad. Con clases en vivo, diploma de certificación y maestros de la industria."><meta name="twitter:creator" content="@Platzi"><meta name="twitter:image:src" content="https://static.platzi.com/static/website/v2/images/social/social.a0407ac580e4.jpg"><meta name="twitter:domain" content="platzi.com"><!-- SEO --><link rel="canonical" href="https://platzi.com/clases/devops/concepto/manejo-de-servidores-desde-el-punto-de-vista-de-de/introduccion-a-configuration-management/material/"><title>
+  Introducción a Configuration Management en Curso Profesional de DevOps
+</title><link rel="shortcut icon" href="https://static.platzi.com/media/favicons/platzi_favicon.png"><link href="./Introducción a Configuration Management en Curso Profesional de DevOps_files/css" rel="stylesheet" type="text/css"><link href="./Introducción a Configuration Management en Curso Profesional de DevOps_files/css(1)" rel="stylesheet" type="text/css"><link type="text/css" href="./Introducción a Configuration Management en Curso Profesional de DevOps_files/header.c7c169686e4a87f2fd47.css" rel="stylesheet"><!-- Start of Segment Code --><script src="./Introducción a Configuration Management en Curso Profesional de DevOps_files/2642.js" async="" type="text/javascript"></script><script async="" src="./Introducción a Configuration Management en Curso Profesional de DevOps_files/gtm.js"></script><script src="./Introducción a Configuration Management en Curso Profesional de DevOps_files/1545967215651797" async=""></script><script async="" src="./Introducción a Configuration Management en Curso Profesional de DevOps_files/fbevents.js"></script><script async="" src="./Introducción a Configuration Management en Curso Profesional de DevOps_files/analytics.js"></script><script type="text/javascript" async="" src="./Introducción a Configuration Management en Curso Profesional de DevOps_files/analytics.min.js"></script><script>
+        var SEGMENT_KEY = "0a8VbteMgh6wQlyHSy2ojHajq5eC8GOb";
+       !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
+        analytics.load(SEGMENT_KEY);
+          }}();
+        </script><!-- End of Segment Code --><script>
+    var email = "ja.perezf11@gmail.com";
+    if(email !== ""){
+      analytics.identify(email, {
+        email: email
+      }, {}, {
+        integrations: {
+          'All': false,
+          'Intercom': false,
+          'Woopra': true,
+        }
+      });
+
+      analytics.page({}, {
+        integrations:  {
+          'All': false,
+          'Intercom': false,
+          'Woopra': true,
+        }
+      });
+
+    }
+  </script><script type="text/javascript" src="./Introducción a Configuration Management en Curso Profesional de DevOps_files/cast_sender.js"></script><script src="chrome-extension://pkedcjkdefgpdelpbcmbmeomcjbeemfm/cast_sender.js"></script><!-- Google Analytics Platzi --><script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      
+      
+        
+            ga('create', 'UA-76863-15', 'javialej');
+        
+      
+      
+      ga('send', 'pageview');
+
+    </script><!-- End Google Analytics Platzi --><!-- Facebook Pixel Code --><script>
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+        document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+        fbq('init', '1545967215651797');
+        fbq('track', "PageView");</script><noscript>&lt;img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=1545967215651797&amp;ev=PageView&amp;noscript=1"/&gt;</noscript><!-- End Facebook Pixel Code --><!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/video.js/5.18.3/video.min.js"></script> --><!--  --><!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-contrib-hls/5.3.3/videojs-contrib-hls.min.js"></script> --><!-- <script src="https://cdn.jsdelivr.net/hls.js/latest/hls.min.js"></script> --><link type="text/css" href="./Introducción a Configuration Management en Curso Profesional de DevOps_files/materials.6782d69427d36780bf4c.css" rel="stylesheet"><link type="text/css" href="./Introducción a Configuration Management en Curso Profesional de DevOps_files/comments.c7c169686e4a87f2fd47.css" rel="stylesheet"><link rel="stylesheet" href="./Introducción a Configuration Management en Curso Profesional de DevOps_files/monokai.min.css"><!-- script to load browser based polyfills --><script src="./Introducción a Configuration Management en Curso Profesional de DevOps_files/polyfill.min.js"></script><script>
+        // display a warning in the console
+        console.log('%cStop!', 'color: red;font-size:2.5rem;font-weight:bold;');
+        console.log('%cThis is a browser feature intended for developers. If someone told you to copy-paste something here to enable a Platzi feature or "hack" someone\'s account, it is a scam and will give them access to your Platzi account.', 'font-size:1.25rem;line-height:1.1;margin-top:.5em');
+    </script><script async="" src="./Introducción a Configuration Management en Curso Profesional de DevOps_files/hotjar-430680.js"></script><script async="" src="./Introducción a Configuration Management en Curso Profesional de DevOps_files/modules-d93ae92f100ad51d83eb65a631dd6b61.js"></script><style type="text/css">iframe#_hjRemoteVarsFrame {display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;}</style></head><body class="prettify-desert" ontouchstart=""><header class="AppHeader" id="banner-top"><div class="AppHeader-container"><div class="AppHeader-left"><figure class="AppHeader-logo"><a href="https://platzi.com/clases/" title="platzi.com"><img src="./Introducción a Configuration Management en Curso Profesional de DevOps_files/platzilogo.png" srcset="https://static.platzi.com/media/organizations/platzilogo.png 1x, https://static.platzi.com/media/organizations/platzilogox2.png 2x" alt="Platzi.com" height="26"></a></figure></div><div class="AppHeader-right"><ul class="AppHeader-option"><li class="Header-option LanguageSelect"><input type="checkbox" id="languaje-change" class="LanguageSelect-check"><label class="LanguageSelect-option LanguageSelect-selected" for="languaje-change"><img src="./Introducción a Configuration Management en Curso Profesional de DevOps_files/colombia.jpg" srcset="https://static.platzi.com/static/images/languajes/colombia@2x.jpg 2x" alt="Español" width="16" height="16"><span>ES</span></label><label class="LanguageSelect-change icon-arrow-down" for="languaje-change"></label><ul class="LanguageSelect-list"><a for="languaje" class="LanguageSelect-option" href="https://courses.platzi.com/classes/"><img src="./Introducción a Configuration Management en Curso Profesional de DevOps_files/united-states.jpg" srcset="https://static.platzi.com/static/images/languajes/united-states@2x.jpg 2x" alt="English" width="16" height="16"><span>EN</span></a></ul></li></ul><nav class="AppHeader-option MainMenu_A u-lg"><ul class="container-menu"><!-- only spanish --><li><a href="https://platzi.com/empleos/" title="Empleos" class="MainMenu_A-item"><span class="MainMenu_A-text">
+                Empleos
+                </span></a></li><!-- only logged --><li><a href="https://platzi.com/clases/" title="Mis Cursos" class="MainMenu_A-item"><span class="MainMenu_A-text">
+              Mis Cursos
+              </span></a></li><li><a href="https://platzi.com/blog/" title="Blog" class="MainMenu_A-item"><span class="MainMenu_A-text">
+              Blog
+              </span></a></li><li><a href="https://platzi.com/agenda/" title="Agenda" class="MainMenu_A-item"><span class="MainMenu_A-text">
+                Agenda
+                </span></a></li><!-- only logged --><li><a href="https://platzi.com/direct-messages/" title="Ver mensajes directos" class="MainMenu_A-item show-direct-messages"><span class="MainMenu_A-icon  icon-cloud"></span><span class="MainMenu_A-count count"></span></a></li><!-- only logged --><li class=""><label for="notifications-check" title="Ver notificaciones" class="MainMenu_A-item NotiBox-label is-noPropagate"><span class="MainMenu_A-icon icon-bell"></span><span class="MainMenu_A-count" id="notibox-count"></span></label><input type="checkbox" id="notifications-check" class="NotiBox-check"><div class="NotiBox" id="react-notibox" data-notification-url="/clases/notificaciones/"><div data-reactroot="" class="Notibox"><div class="NotiBox-empty">Estás al día</div><div class="NotiBox-options"><a href="https://platzi.com/clases/notificaciones/" class="NotiBox-option icon-clock"><span>Ver historial</span></a></div></div></div></li><li><form action="https://platzi.com/search/" method="get"><span class="AppHeader-searcher"><span class="AppHeader-searcherIcon icon-search"></span><input name="search" type="text" placeholder="Buscar en Platzi" value=""></span></form></li></ul></nav><!-- only logged --><div class="AppHeader-option is-noPropagate"><input type="checkbox" id="app-header-dropdown" name="app-header-dropdown" class="AppMenuDrop-check"><label class="AppHeader-user u-lg" for="app-header-dropdown"><span class="leftuser header_avatar"><img src="./Introducción a Configuration Management en Curso Profesional de DevOps_files/MrTomCat_5d7a8f9b-c6eb-4c78-b60f-eecc98d17f22.jpg" alt="" width="30" height="30"></span><span class="AppMenuDrop-icon icon-arrow-down u-lg"></span></label><ul class="AppMenuDrop"><div><li class="u-md"><a href="https://platzi.com/empleos/" title="Empleos" class="icon-platzi">Empleos</a></li><li class="u-md"><a href="https://platzi.com/clases/" title="Mis Cursos" class="icon-platzi">Mis Cursos</a></li><li class="u-md"><a href="https://platzi.com/agenda/" title="Agenda" class="icon-platzi">Agenda</a></li><li class="u-md"><a href="https://platzi.com/clases/notifications/" class="icon-bell" title="Notificaciones">Notificaciones</a></li></div><li><a href="https://platzi.com/@javialej/" class="icon-user_A">
+              Mi Perfil (javialej)
+            </a></li><li><a href="https://platzi.com/direct-messages/" class="show-direct-messages icon-cloud">Mensajes Directos  <span class="MainMenu_A-count count"></span></a></li><li><a href="https://platzi.com/direct-messages/u/soporte-platzi" class="send_message icon-cloud_A" data-user="soporte-platzi">Contacta a soporte</a></li><li><a href="https://platzi.com/mi-suscripcion/" class="icon-platzi">Mi suscripción</a></li><li><a href="https://platzi.com/logout/" class="icon-exit">Salir</a></li></ul></div><label class="AppHeader-displayMenu btn-icon icon-menu u-md" id="display-app-header-menu" for="app-header-dropdown"></label></div></div></header><div class="BuzzNotifications" id="buzz-notifications"><div data-reactroot=""><span></span></div></div><div class="overlay"></div><input type="hidden" name="csrfmiddlewaretoken" value="Tb1lxizVCjZsRYDSuE9gweZEBAgHRREq"><section class="DiscusionDetail"><div id="timeline-content" class="TimelineNav-lectures"><span data-reactroot="" data-reactid="1" data-react-checksum="-85715184"><aside class="TimelineNav" data-reactid="2"><!-- react-empty: 3 --><section class="TimelineNav-unfolded" data-reactid="4"><div class="TimelineNav-button icon-arrow-right_A" data-reactid="5"></div><div class="TimelineNav-materials" data-reactid="6"><a href="https://platzi.com/clases/devops/concepto/digitalocean-instancias-y-loadbalancers/introduccion-a-digitalocean/material/" class="TimelineNav-material" alt="platzi" data-reactid="7">15</a><a href="https://platzi.com/clases/devops/concepto/digitalocean-instancias-y-loadbalancers/instancias/material/" class="TimelineNav-material" alt="platzi" data-reactid="8">16</a><a href="https://platzi.com/clases/devops/concepto/digitalocean-instancias-y-loadbalancers/loadbalancers/material/" class="TimelineNav-material" alt="platzi" data-reactid="9">17</a><a href="https://platzi.com/clases/devops/concepto/digitalocean-instancias-y-loadbalancers/que-sigue1394/material/" class="TimelineNav-material" alt="platzi" data-reactid="10">18</a><a href="https://platzi.com/clases/devops/concepto/manejo-de-servidores-desde-el-punto-de-vista-de-de/introduccion-a-configuration-management/material/" class="TimelineNav-material is-active" alt="platzi" data-reactid="11">19</a><a href="https://platzi.com/clases/devops/concepto/manejo-de-servidores-desde-el-punto-de-vista-de-de/creacion-de-imagenes-snapshots-en-digitalocean/material/" class="TimelineNav-material" alt="platzi" data-reactid="12">20</a><a href="https://platzi.com/clases/devops/concepto/manejo-de-servidores-desde-el-punto-de-vista-de-de/automatizando-el-proceso-de-clonacion-de-imagenes-/material/" class="TimelineNav-material" alt="platzi" data-reactid="13">21</a><a href="https://platzi.com/clases/devops/concepto/infrastructure-as-code-creando-infraestructura-a-p/que-es-infraestructure-as-code/material/" class="TimelineNav-material" alt="platzi" data-reactid="14">22</a><a href="https://platzi.com/clases/devops/concepto/infrastructure-as-code-creando-infraestructura-a-p/introduccion-de-terraforming/material/" class="TimelineNav-material" alt="platzi" data-reactid="15">23</a><a href="https://platzi.com/clases/devops/concepto/infrastructure-as-code-creando-infraestructura-a-p/automatizando-el-proceso-de-anadir-nuestras-instan/material/" class="TimelineNav-material" alt="platzi" data-reactid="16">24</a></div></section></aside></span></div><!-- HEADER  --><section class="DiscusionDetail-header material"><div class="DiscusionDetail-grayPart"><div class="u-wrapper"><!-- Breadcrumbs --><aside class="Breadcrumbs"><a class="Breadcrumbs-course" href="https://platzi.com/clases/devops/"><figure class="Breadcrumbs-courseBadge"><img height="30" width="30" src="./Introducción a Configuration Management en Curso Profesional de DevOps_files/badge-devops-curso.png" alt="Curso Profesional de DevOps"></figure><span>
+                        Curso Profesional de DevOps
+                      </span></a></aside><!-- End Breadcrumbs --></div></div><section class="Discussion level-1"><div class="DiscusionDetail-grayPart"><div class="u-wrapper"><!-- Discussion --><div class="Discussion-body material"><h1 class="Discussion-title"><small class="Discussion-titleType">Artículo</small> Introducción a Configuration Management
+                        </h1><!-- DiscussionInfo --><article class="DiscussionInfo level-1"><div class="DiscussionInfo-content"><div class="DiscussionInfo-user"><figure class="DiscussionInfo-avatar"><img height="40" width="40" src="./Introducción a Configuration Management en Curso Profesional de DevOps_files/yamilasusta_9c601eb5-a382-44d5-953a-03f253e95ade.jpg" alt="Curso Profesional de DevOps"></figure><a href="https://platzi.com/@yamilasusta" target="_blank">Yamil Asusta</a></div><p class="DiscussionInfo-score">
+                                  23 PlatziRank
+                                </p><p class="DiscussionInfo-time"><span class="icon-clock_A"></span>
+                                  Jul. 6, 2017
+                                </p></div></article><!-- End DiscussionInfo --></div><!-- End Discussion --></div></div><div class="u-wrapper"><article class="Discussion-content material" id="content"><div><h2>Qué es Configuration Management</h2>
+<p>En un principio el término Configuration Management hace referencia al proceso de sistemáticamente manejar los cambios de un sistema de tal forma que este mantiene su funcionalidad y rendimiento conforme pasa el tiempo, incluso cuando este proceso no nació en los círculos de DevOps y Administración de Servidores, este término es ampliamente usado para referirse a Server Configuration Management.</p>
+<p>Como veremos en este curso, la automatización es primordial, es el mecanismo que utilizamos para que el servidor alcance el estado deseable, previamente definido por Scripts de provisionamiento que nos provee el lenguaje específico a la herramienta que usemos en nuestro caso por medio de nuestro archivo YAML.</p>
+<p>Es importante mencionar que hay diversas herramientas de Configuration Management disponibles en el mercado: Puppet, Ansible, Chef y Salt, todas con la finalidad de asegurarse que el estado del sistema es igual al que tu describes en tus scripts de provisionamiento.</p>
+</div></article></div></section></section><div class="MaterialLecture-nav"><div class="MaterialNav u-clearfix is-fixed"><div class="MaterialNav-left u-left"><img class="MaterialNav-badge" src="./Introducción a Configuration Management en Curso Profesional de DevOps_files/badge-devops-curso.png" alt="Curso Profesional de DevOps" width="25" height="25"><a href="https://platzi.com/clases/devops/" class="MaterialNav-course">Curso Profesional de DevOps</a><!-- <span>- Jul. 6, 2017</span> --></div><div class="MaterialNav-right"><!-- <a href="/clases/devops/concepto/digitalocean-instancias-y-loadbalancers/que-sigue1394/material/" class="MaterialNav-buttonLeft icon-arrow-left_A">¿Qué sigue? </a> --><a href="https://platzi.com/clases/devops/concepto/manejo-de-servidores-desde-el-punto-de-vista-de-de/creacion-de-imagenes-snapshots-en-digitalocean/material/" class="MaterialNav-nextLink"><div class="MaterialNav-nextMaterial"><div class="MaterialNav-data">
+                    Sigue con:
+                    <div class="MaterialNav-title">
+                        Creación de Imágenes (Snapshots en DigitalOcean)
+                    </div></div><div class="MaterialNav-arrow"><div class="icon-arrow-right_A"></div></div></div></a><!-- <a href="/clases/devops/concepto/manejo-de-servidores-desde-el-punto-de-vista-de-de/creacion-de-imagenes-snapshots-en-digitalocean/material/" class="MaterialNav-buttonRight icon-arrow-right_A">Creación de Imágenes (Snapshots en DigitalOcean)</a> --></div></div></div><!-- END HEADER  --><div id="comments-container" class="u-wrapper"><section data-reactroot="" class="CommentApp"><!-- react-empty: 2 --><form><div class="PulseEditor false"><div class="PulseEditor-toolbar false"><div class="PulseEditor-toolbar-left"><div class="PulseEditor-buttonGroup"><button class="PulseEditor-button" name="bold" type="button"><span title="Negrita [CMD+B]" class="icon-bold"></span></button><button class="PulseEditor-button" name="italic" type="button"><span title="Cursiva [CMD+I]" class="icon-italic"></span></button><button class="PulseEditor-button" name="underline" type="button"><span title="Subrayado [CMD+U]" aria-label="Subrayado [CMD+U]" class="icon-underline"></span></button></div><div class="PulseEditor-buttonGroup"><button class="PulseEditor-button" name="code" type="button"><span title="Insertar código [CMD+SHIFT+K]"><i class="icon-code"></i><!-- react-text: 18 -->Insertar código<!-- /react-text --></span></button><button class="PulseEditor-button" name="link" type="button"><span title="Enlace [CMD+K]"><i class="icon-link"></i><!-- react-text: 22 -->Enlace<!-- /react-text --></span></button><button class="PulseEditor-button" name="image" type="button"><span title="Imagen [CMD+SHIFT+I]"><i class="icon-image"></i><!-- react-text: 26 -->Imagen<!-- /react-text --></span></button></div><div class="PulseEditor-buttonGroup"><button class="PulseEditor-button" name="list" type="button"><span title="Lista desordenada [CMD+L]" class="icon-list"></span></button><button class="PulseEditor-button" name="listOrdered" type="button"><span title="Lista ordenada" class="icon-list-ol"></span></button></div></div><div class="PulseEditor-toolbar-right"><div class="PulseEditor-buttonGroup"><button class="PulseEditor-button is-expand" name="expand" type="button"><span title="Expandir [CMD+E]" aria-label="Expandir [CMD+E]" class="icon-expand_A"></span></button></div></div></div><textarea class="PulseEditor-field" name="content" id="textarea-cj4yl31ai0000336sdrc57xwv" style="height: 51px;"></textarea></div><div class="PulseEditor-submit"><span><span><button class="btn-Sky" type="submit">Suma tu comentario</button></span></span></div></form></section></div></section><!-- <script src="https://live.platzi.com/socket.io/socket.io.js" type="text/javascript"></script> --><script type="text/javascript">
+            window.nodeServer = "https://live.platzi.com/";
+            window.publicaws = "https://static.platzi.com/";
+        </script><!-- <script src="https://static.platzi.com/static/js/libs/jquery-2.1.1.min.e40ec2161fe7.js"></script> --><script>
+    var lang = "es";
+    var NOTIFICATION_URL = "https://tinkerbell.platzi.com";
+  </script><script type="text/javascript">
+    setTimeout(function(){var a=document.createElement("script");
+    var b=document.getElementsByTagName("script")[0];
+    a.src=document.location.protocol+"//script.crazyegg.com/pages/scripts/0037/2642.js?"+Math.floor(new Date().getTime()/3600000);
+    a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+  </script><script>
+  var None = false;
+  window.user = {
+    'role': 'student' || 'student',
+  };
+  window.urlUpload = "/clases/upload-archives/";
+  window.data = {
+    files : {"type": "folder", "childNodes": {}, "zip_url": "", "id": "/", "name": "/"},
+    links : false,
+    sidebar_menu : {"slug":"devops","concepts":[{"materials":[{"index_material":1,"name":"Conoce a tu profesor del Curso Profesional de DevOps","is_active":false,"link":"/clases/devops/concepto/bienvenda-al-curso-profesional-de-devops/conoce-a-tu-profesor-del-curso-profesional-de-devo/material/","seen":true,"id":7662},{"index_material":2,"name":"Introducción y Requerimientos Para el Curso Profesional de DevOps  ","is_active":false,"link":"/clases/devops/concepto/bienvenda-al-curso-profesional-de-devops/que-necesitas-para-tomar-el-curso-profesional-de-d/material/","seen":true,"id":7779}],"id":1311,"title":"Bienvenda"},{"materials":[{"index_material":3,"name":"¿Qué es DevOps?","is_active":false,"link":"/clases/devops/concepto/entendiendo-que-es-devops/que-es-devops/material/","seen":true,"id":7663},{"index_material":4,"name":"Razones para aceptar DevOps","is_active":false,"link":"/clases/devops/concepto/entendiendo-que-es-devops/por-que-debemos-implementar-devops/material/","seen":true,"id":7664}],"id":1312,"title":"Entendiendo qué es DevOps"},{"materials":[{"index_material":5,"name":" Herramientas para crear Ambientes de Desarrollo","is_active":false,"link":"/clases/devops/concepto/ambientes-de-desarrollo/herramientas-para-crear-ambientes-de-desarrollo/material/","seen":true,"id":7669},{"index_material":6,"name":"Creando nuestra Aplicación y el Test Básico de la Misma ","is_active":false,"link":"/clases/devops/concepto/ambientes-de-desarrollo/creando-nuestro-ambiente-de-desarrollo-utilizando-/material/","seen":true,"id":7670},{"index_material":7,"name":"Terminando de Configurar nuestro Ambiente de Desarrollo utilizando Docker ","is_active":false,"link":"/clases/devops/concepto/ambientes-de-desarrollo/terminando-de-configurar-nuestro-ambiente-de-desar/material/","seen":true,"id":7671}],"id":1313,"title":"Ambientes de Desarrollo"},{"materials":[{"index_material":8,"name":"¿Qué es Integración Continua o Continuous Integration?","is_active":false,"link":"/clases/devops/concepto/entendiendo-e-implementando-integracion-continua-c/que-es-integracion-continua-o-continuous-integrati/material/","seen":true,"id":7672},{"index_material":9,"name":"Introducción a Circle CI","is_active":false,"link":"/clases/devops/concepto/entendiendo-e-implementando-integracion-continua-c/aprendiendo-como-hacer-integracion-continua-con-ci/material/","seen":true,"id":7673},{"index_material":10,"name":"Configurando nuestro proceso de Integración Continua","is_active":false,"link":"/clases/devops/concepto/entendiendo-e-implementando-integracion-continua-c/configurando-nuestro-proceso-de-integracion-contin/material/","seen":true,"id":7674}],"id":1314,"title":"Proceso de Integración Continua (Continuous Integration)"},{"materials":[{"index_material":11,"name":"¿Qué es Continuous Delivery?","is_active":false,"link":"/clases/devops/concepto/proceso-de-continuous-delivery/que-es-continuous-delivery/material/","seen":true,"id":7675},{"index_material":12,"name":"Entendiendo el Flujo de Continuous Delivery o Continuous Delivery Pipeline","is_active":false,"link":"/clases/devops/concepto/proceso-de-continuous-delivery/entendiendo-el-flujo-de-continuous-delivery-o-cont/material/","seen":true,"id":7677},{"index_material":13,"name":"Creando  Nuestro Ambiente de Control de Calidad (Quality Assurance) con Now.sh  ","is_active":false,"link":"/clases/devops/concepto/proceso-de-continuous-delivery/creando-nuestro-continuous-delivery-pipeline-con-n/material/","seen":true,"id":7678},{"index_material":14,"name":"Integrando nuestro Proceso de Integración Continua a nuestro Flujo de Entrega Continua (Continuous Delivery Pipeline)","is_active":false,"link":"/clases/devops/concepto/proceso-de-continuous-delivery/integrando-nuestro-proceso-de-integracion-continua/material/","seen":true,"id":7680}],"id":1315,"title":"Proceso de Continuous Delivery"},{"materials":[{"index_material":15,"name":"Introducción a DigitalOcean","is_active":false,"link":"/clases/devops/concepto/digitalocean-instancias-y-loadbalancers/introduccion-a-digitalocean/material/","seen":true,"id":7681},{"index_material":16,"name":"Instancias.","is_active":false,"link":"/clases/devops/concepto/digitalocean-instancias-y-loadbalancers/instancias/material/","seen":true,"id":7682},{"index_material":17,"name":"LoadBalancers","is_active":false,"link":"/clases/devops/concepto/digitalocean-instancias-y-loadbalancers/loadbalancers/material/","seen":true,"id":7683},{"index_material":18,"name":"¿Qué sigue?","is_active":false,"link":"/clases/devops/concepto/digitalocean-instancias-y-loadbalancers/que-sigue1394/material/","seen":true,"id":7684}],"id":1316,"title":"DigitalOcean, Instancias y LoadBalancers\t\t\t"},{"materials":[{"index_material":20,"name":"Introducción a Configuration Management","is_active":true,"link":"/clases/devops/concepto/manejo-de-servidores-desde-el-punto-de-vista-de-de/introduccion-a-configuration-management/material/","seen":true,"id":7780},{"index_material":21,"name":"Creación de Imágenes (Snapshots en DigitalOcean)","is_active":false,"link":"/clases/devops/concepto/manejo-de-servidores-desde-el-punto-de-vista-de-de/creacion-de-imagenes-snapshots-en-digitalocean/material/","seen":false,"id":7685},{"index_material":22,"name":"Automatizando el Proceso de Clonación de Imágenes o \"Baking\"","is_active":false,"link":"/clases/devops/concepto/manejo-de-servidores-desde-el-punto-de-vista-de-de/automatizando-el-proceso-de-clonacion-de-imagenes-/material/","seen":false,"id":7686}],"id":1317,"title":"Manejo de Servidores Desde el Punto de Vista de DevOps"},{"materials":[{"index_material":23,"name":"Qué es Infraestructure as Code","is_active":false,"link":"/clases/devops/concepto/infrastructure-as-code-creando-infraestructura-a-p/que-es-infraestructure-as-code/material/","seen":false,"id":7687},{"index_material":24,"name":"Introducción de Terraforming","is_active":false,"link":"/clases/devops/concepto/infrastructure-as-code-creando-infraestructura-a-p/introduccion-de-terraforming/material/","seen":false,"id":7688},{"index_material":25,"name":"Automatizando el Proceso de Añadir Nuestras Instancias al LoadBalancer","is_active":false,"link":"/clases/devops/concepto/infrastructure-as-code-creando-infraestructura-a-p/automatizando-el-proceso-de-anadir-nuestras-instan/material/","seen":false,"id":7689}],"id":1318,"title":"Infrastructure as Code, Creando Infraestructura a Partir de Código"},{"materials":[{"index_material":26,"name":"Preparándonos para Automatizar el Flujo Completo ","is_active":false,"link":"/clases/devops/concepto/montando-un-flujo-de-entrega-continua-completo/preparandonos-para-automatizar-el-flujo-completo/material/","seen":false,"id":7691},{"index_material":27,"name":"Automatizando la Creación de Imágenes","is_active":false,"link":"/clases/devops/concepto/montando-un-flujo-de-entrega-continua-completo/automatizando-la-creacion-de-imagenes/material/","seen":false,"id":7692},{"index_material":28,"name":"Haciendo un Despliegue Inmutable","is_active":false,"link":"/clases/devops/concepto/montando-un-flujo-de-entrega-continua-completo/haciendo-un-despliegue-inmutable/material/","seen":false,"id":7693},{"index_material":29,"name":"Finalizando nuestro Flujo de Entrega Continua","is_active":false,"link":"/clases/devops/concepto/montando-un-flujo-de-entrega-continua-completo/finalizando-nuestro-flujo-de-entrega-continua/material/","seen":false,"id":7694}],"id":1319,"title":"Automatizando nuestro Flujo de Entrega Continua Completo"},{"materials":[{"index_material":30,"name":"Conclusión","is_active":false,"link":"/clases/devops/concepto/conclusion7799/conclusion1745/material/","seen":false,"id":7695}],"id":1321,"title":"Conclusión "}],"id":1135,"title":"Curso Profesional de DevOps"},
+    total_materials: 29,
+    material_active_index: 19,
+    next_course: {"badge": "https://static.platzi.com/media/achievements/azure2x.png", "has_next_course": true, "link": "/clases/azure/", "title": "Curso de Azure"},
+    locales: 'es',
+    course : {
+      slug : 'devops',
+      url: "/clases/devops/",
+      id: '1135',
+      badge: 'https://static.platzi.com/media/achievements/badge-devops-curso.png',
+      name: 'Curso Profesional de DevOps'
+    },
+    react_data: {
+      course_badge: 'https://static.platzi.com/media/achievements/badge-devops-curso.png',
+      course_title: 'Curso Profesional de DevOps'
+    },
+    discussions : {
+      hash : '',
+    },
+    user : {
+      name : 'javialej',
+    },
+    intlURL: 'https://static.platzi.com/static/organizations/js/vendors/Intl.complete.d98a203c6328.js',
+    organization : {
+      slug : 'clases'
+    },
+    notes : false,
+  };
+  window.vzaar_id = '' || "401491";
+  window.folders = {"type": "folder", "childNodes": {}, "zip_url": "", "id": "/", "name": "/"};
+  window.fileType = 'drag_and_drop';
+  window.client_data = {"initialProps": {"features": {"discussions": true, "dm": true, "subscription": true}, "messages": {"form": {"buttons": {"cancel": "Cancelar", "sending": "Enviando", "send": "Enviar"}, "helpbar": {"preview": "Vista previa", "markdown": "Markdown"}, "placeholder": "Deja tu comentario", "editor": {"code": "Insertar c\u00f3digo", "bold": "Negrita", "edit": "Editar", "quote": "Cita", "image": "Imagen", "uploading": "Subiendo imagen", "youtube": "Youtube", "contract": "Contraer", "heading": "Encabezado", "unorderedList": "Lista desordenada", "link": "Enlace", "italic": "Cursiva", "preview": "Vista previa", "orderedList": "Lista ordenada", "underline": "Subrayado", "expand": "Expandir"}, "bottom": {"title": "T\u00edtulo"}}, "player.error.message": "Ups, ocurri\u00f3 un error muy extra\u00f1o y no podemos recuperarnos <strong>\u00bfPor qu\u00e9 no pruebas recargando?</strong> No te preocupes, <strong>guardamos tu progreso en el v\u00eddeo</strong> :)", "player.autoplay.timer": "La siguiente clase empieza en <time>{timer, plural, =0 {instantes} one {1 segundo} other {{timer} segundos}}</time>", "course": {"files": "Archivos", "description": "Descripci\u00f3n", "links": "Enlaces", "next": "Siguiente", "write_your_comment": "Escribe tu comentario", "downloadAll": "Descargar todo", "contributions": "Aportes"}, "modal.thanks.title": "\u00a1Genial!", "menuOptions": {"profile": "Mi Perfil", "notifications": "Notificaciones", "job": "Empleos", "dm": "Mensajes Directos", "logout": "Salir", "courses": "Mis Cursos", "notes": "Mis Notas", "support": "Contacta a soporte", "subscription": "Mi suscripci\u00f3n"}, "modal.thanks.button": "Seguir estudiando", "player.autoplay.cancel": "Volver a ver", "player.error.reload": "Recargar", "comments": {"getMore": "Ver todas las respuestas", "bestAnswer": "Mejor respuesta", "points": "Puntos", "viewMore": "Ver m\u00e1s", "replyDisabled": "Ocultar", "reply": "Responder", "top": "Top", "new": "Nuevas", "delete": "Eliminar"}, "modal.thanks.description": "Has aprendido un mont\u00f3n."}, "disabledComments": false, "objectData": {"objectId": 7780, "objectType": "material"}, "user": {"isOrganizer": false, "id": 374652, "name": "javialej"}, "locales": "es"}, "initialState": {"comments": {"data": {}, "pagination": {"current": 1, "total": []}, "list": [], "likes": []}, "authors": {}}};
+
+  window.material_data = {
+    castId: "54028100",
+    modalState: '',
+    header: {
+      title: "Curso Profesional de DevOps",
+      url: "/clases/",
+      logo: {
+        x1: 'https://static.platzi.com/media/organizations/platzilogo.png',
+        x2: 'https://static.platzi.com/media/organizations/platzilogox2.png',
+      },
+      badge: "https://static.platzi.com/media/achievements/badge-devops-curso.png",
+      courseUrl: "/clases/devops/",
+    },
+    description: {
+      teacher: {
+        name: "Yamil Asusta",
+        avatar: "https://static.platzi.com/media/avatars/yamilasusta_9c601eb5-a382-44d5-953a-03f253e95ade.jpg",
+        twitter: '',
+        position: '',
+      },
+      title: "Introducción a Configuration Management",
+      description: "<h2>Qué es Configuration Management</h2><p>En un principio el término Configuration Management hace referencia al proceso de sistemáticamente manejar los cambios de un sistema de tal forma que este mantiene su funcionalidad y rendimiento conforme pasa el tiempo, incluso cuando este proceso no nació en los círculos de DevOps y Administración de Servidores, este término es ampliamente usado para referirse a Server Configuration Management.</p><p>Como veremos en este curso, la automatización es primordial, es el mecanismo que utilizamos para que el servidor alcance el estado deseable, previamente definido por Scripts de provisionamiento que nos provee el lenguaje específico a la herramienta que usemos en nuestro caso por medio de nuestro archivo YAML.</p><p>Es importante mencionar que hay diversas herramientas de Configuration Management disponibles en el mercado: Puppet, Ansible, Chef y Salt, todas con la finalidad de asegurarse que el estado del sistema es igual al que tu describes en tus scripts de provisionamiento.</p>  ",
+    },
+    concept:"Manejo de Servidores Desde el Punto de Vista de DevOps",
+    files: {"type": "folder", "childNodes": {}, "zip_url": "", "id": "/", "name": "/"},
+    links: false,
+    iframes: [],
+    videos: {},
+    subtitles: JSON.stringify({}) === '{}'
+      ? []
+      : {},
+    movin: {
+      player: false,
+      
+      dash: "",
+      drm: {},
+      textTracks: {},
+    },
+    nextMaterial: {
+      url: "/clases/devops/concepto/manejo-de-servidores-desde-el-punto-de-vista-de-de/creacion-de-imagenes-snapshots-en-digitalocean/material/",
+      name: "Creación de Imágenes (Snapshots en DigitalOcean)"
+    },
+    prevMaterial: {
+      url: "/clases/devops/concepto/digitalocean-instancias-y-loadbalancers/que-sigue1394/material/"
+    },
+    user_avatar: "https://static.platzi.com/media/avatars/MrTomCat_5d7a8f9b-c6eb-4c78-b60f-eecc98d17f22.jpg",
+    is_organizer: false,
+    material_id: 7780,
+    currency: '$76.900',
+    user_type: 'subscription',
+    locales: 'es',
+    isLast: false,
+    skills: {},
+  };
+  
+    window.dropdown = {
+      'username': 'javialej',
+      'usertype': 'monthly_subscription',
+      'avatar': 'https://static.platzi.com/media/avatars/MrTomCat_5d7a8f9b-c6eb-4c78-b60f-eecc98d17f22.jpg',
+      'jobboardUrl': "/empleos/",
+      'notesUrl': "/clases/notas/",
+      'coursesUrl': "/clases/",
+      'lang': 'es',
+      'notificationsUrl': "/clases/notifications/" ,
+      'profileUrl': "/@javialej/",
+      'dmUrl': "/direct-messages/",
+      'supportUrl': "/direct-messages/u/soporte-platzi",
+      'subscriptionUrl': "/mi-suscripcion/",
+      'logoutUrl': "/logout/",
+    };
+  
+</script><script defer="" src="./Introducción a Configuration Management en Curso Profesional de DevOps_files/client.js" type="text/javascript"></script><script>
+content_html = document.getElementById('content');
+content_html.innerHTML = '<div>' + JSON.parse(atob('IjxoMj5RdVx1MDBlOSBlcyBDb25maWd1cmF0aW9uIE1hbmFnZW1lbnQ8L2gyPlxyXG48cD5FbiB1biBwcmluY2lwaW8gZWwgdFx1MDBlOXJtaW5vIENvbmZpZ3VyYXRpb24gTWFuYWdlbWVudCBoYWNlIHJlZmVyZW5jaWEgYWwgcHJvY2VzbyBkZSBzaXN0ZW1cdTAwZTF0aWNhbWVudGUgbWFuZWphciBsb3MgY2FtYmlvcyBkZSB1biBzaXN0ZW1hIGRlIHRhbCBmb3JtYSBxdWUgZXN0ZSBtYW50aWVuZSBzdSBmdW5jaW9uYWxpZGFkIHkgcmVuZGltaWVudG8gY29uZm9ybWUgcGFzYSBlbCB0aWVtcG8sIGluY2x1c28gY3VhbmRvIGVzdGUgcHJvY2VzbyBubyBuYWNpXHUwMGYzIGVuIGxvcyBjXHUwMGVkcmN1bG9zIGRlIERldk9wcyB5IEFkbWluaXN0cmFjaVx1MDBmM24gZGUgU2Vydmlkb3JlcywgZXN0ZSB0XHUwMGU5cm1pbm8gZXMgYW1wbGlhbWVudGUgdXNhZG8gcGFyYSByZWZlcmlyc2UgYSBTZXJ2ZXIgQ29uZmlndXJhdGlvbiBNYW5hZ2VtZW50LjwvcD5cclxuPHA+Q29tbyB2ZXJlbW9zIGVuIGVzdGUgY3Vyc28sIGxhIGF1dG9tYXRpemFjaVx1MDBmM24gZXMgcHJpbW9yZGlhbCwgZXMgZWwgbWVjYW5pc21vIHF1ZSB1dGlsaXphbW9zIHBhcmEgcXVlIGVsIHNlcnZpZG9yIGFsY2FuY2UgZWwgZXN0YWRvIGRlc2VhYmxlLCBwcmV2aWFtZW50ZSBkZWZpbmlkbyBwb3IgU2NyaXB0cyBkZSBwcm92aXNpb25hbWllbnRvIHF1ZSBub3MgcHJvdmVlIGVsIGxlbmd1YWplIGVzcGVjXHUwMGVkZmljbyBhIGxhIGhlcnJhbWllbnRhIHF1ZSB1c2Vtb3MgZW4gbnVlc3RybyBjYXNvIHBvciBtZWRpbyBkZSBudWVzdHJvIGFyY2hpdm8gWUFNTC48L3A+XHJcbjxwPkVzIGltcG9ydGFudGUgbWVuY2lvbmFyIHF1ZSBoYXkgZGl2ZXJzYXMgaGVycmFtaWVudGFzIGRlIENvbmZpZ3VyYXRpb24gTWFuYWdlbWVudCBkaXNwb25pYmxlcyBlbiBlbCBtZXJjYWRvOiBQdXBwZXQsIEFuc2libGUsIENoZWYgeSBTYWx0LCB0b2RhcyBjb24gbGEgZmluYWxpZGFkIGRlIGFzZWd1cmFyc2UgcXVlIGVsIGVzdGFkbyBkZWwgc2lzdGVtYSBlcyBpZ3VhbCBhbCBxdWUgdHUgZGVzY3JpYmVzIGVuIHR1cyBzY3JpcHRzIGRlIHByb3Zpc2lvbmFtaWVudG8uPC9wPlxyXG4i')) + '</div>';
+</script><script type="text/javascript" src="./Introducción a Configuration Management en Curso Profesional de DevOps_files/modules.465753edf1623e8e518b.js"></script><script type="text/javascript" src="./Introducción a Configuration Management en Curso Profesional de DevOps_files/vendor.6782d69427d36780bf4c.js"></script><script type="text/javascript" src="./Introducción a Configuration Management en Curso Profesional de DevOps_files/materials.6782d69427d36780bf4c.js"></script><script type="text/javascript" src="./Introducción a Configuration Management en Curso Profesional de DevOps_files/comments.c7c169686e4a87f2fd47.js"></script><textarea style="letter-spacing:normal;line-height:21px;padding-top:14px;padding-bottom:14px;font-family:Arial;font-weight:normal;font-size:14px;text-rendering:auto;text-transform:none;width:820px;text-indent:0px;padding-left:14px;padding-right:14px;border-width:1px;box-sizing:border-box;
+  min-height:0 !important;
+  max-height:none !important;
+  height:0 !important;
+  visibility:hidden !important;
+  overflow:hidden !important;
+  position:absolute !important;
+  z-index:-1000 !important;
+  top:0 !important;
+  right:0 !important
+"></textarea><script async="" src="./Introducción a Configuration Management en Curso Profesional de DevOps_files/2370170429.js"></script><!-- Hotjar Tracking Code for www.platzi.com --><script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:430680,hjsv:5};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+  </script><!-- Google Rich Card --><script type="application/ld+json">
+            {
+                "@context": "http://schema.org",
+                "@type": "Organization",
+                "name": "Platzi",
+                "url": "https://platzi.com/",
+                "description": "Aprende de expertos en programación, diseño, marketing, startups, video y web. Suscríbete hoy.",
+                "foundingDate": "2013-01-01",
+                "founders": [
+                    {
+                        "@type": "Person",
+                        "name": "John Freddy Vega"
+                    },
+                    {
+                        "@type": "Person",
+                        "name": "Christian Van Der Henst"
+                    }
+                ],
+                "sameAs": [
+                    "https://www.facebook.com/platzi/",
+                    "https://twitter.com/Platzi",
+                    "https://www.youtube.com/channel/UC55-mxUj5Nj3niXFReG44OQ",
+                    "https://www.linkedin.com/school/2822346"
+                ]
+            }
+        </script><!-- Google Tag Manager --><noscript>&lt;iframe src="//www.googletagmanager.com/ns.html?id=GTM-KFRRSV" height="0" width="0" style="display:none;visibility:hidden"&gt;&lt;/iframe&gt;</noscript><script>
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-KFRRSV');
+        </script><!-- End Google Tag Manager -->
+<script type="text/javascript" id="" src="https://platform.twitter.com/oct.js"></script><iframe name="_hjRemoteVarsFrame" title="_hjRemoteVarsFrame" id="_hjRemoteVarsFrame" src="./Introducción a Configuration Management en Curso Profesional de DevOps_files/rcj-99d43ead6bdf30da8ed5ffcb4f17100c.html" style="display: none !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important;"></iframe><div id="ads"></div></body></html>

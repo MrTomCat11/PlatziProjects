@@ -16,7 +16,159 @@ El movimiento de DevOps promueve las siguientes iniciativas:
 Cultura - el deseo en ambos equipos en colaborar.
 Automatización - poder reproducir infraestructura como reproducimos bugs.
 Medidas - saber cuánto tomaron nuestras metas en común.
-Sharing - mejores herramientas internas compartidas por todos los equipos.
+Sharing - mejores herramientas internas compartidas por
+ todos los equipos.
 Como resultado de aprovechar las iniciativas de DevOps, muchos equipos han reportado que ven menos errores en producción, y cuando ven errores críticos logran revertir el daño con velocidad. Eso se convierte en Operadores que pueden dormir tranquilos, Developers que pueden seguir mejorando el producto y armonía entre todos en la empresa.
 
 ## Razones para aceptar DevOps
+
+Este es el flujo que deberia tener un equipo que acpeta DevOps:
+
+Desarrollo->Prueba->{Artefacto ó Package}->Deploy(QA)->Prueba(TA)->Deploy(Prod)  (Monitor(repeat) in QA & Prod)
+  ^----------´--------------------------------´----------´
+
+Cada equipo es diferente, pero la base serial relativamente igual.
+
+Este proceso tiene muchos beneficios para equipos. Como los deploys son frecuentes, los cambios son pequeños.
+Las pruebas disminuyen la posibilidad de errores. Si se nos escapa un deployment que contiene errores, el tiempo de recuperarnos es mucho mas corto. bug fixes salen en periodos mas cortos.
+Lanzar nuevos features toma menos tiempo, lo que permite ajustes agiles.
+
+## Herramientas para crear Ambientes de Desarrollo
+
+Los cambios empiezan desde el ambiente de desarrollo. Queremos que cuando nuestro código vaya a producción, tenga la mayor similitud al ambiente de QA y de desarrollo.
+Por ejemplo:
+Un compilador diferente podría no tener las mismas optimizaciones que otro, con esto podría parecer que el código es correcto localmente, per en producción actúa diferente.
+En caso de que el código tenga dependencia de un paquete local, pero en el OS de producción no lo tiene, habrá un grave problema.
+Cuando los operadores reciben el código, lo corren en el ambiente que se usa en común para otros servicios, etc.
+¿Qué herramientas pueden ayudar con esto?
+La más común seria Vagrant.
+Configurando un Vagrantfile podemos definir que version de OS tener. Instalar dependencias y configurar el sistema.
+Recientemente Docker ha recibido muchísimo auge. Podríamos decir que es el “happy medium” entre Developers y Operators. Los developers pueden montar desde una “imagen” que los operadores consideren segura y solamente preocuparse porque el código corra adecuadamente en el docker container. Así, no hay que preocuparse por dependencias de OS, compilación, etc. Si funciona en tu contenedor local, la probabilidad que funcione en el contenedor de production es muy alta. Para el operador, recibir un container, es muy similar a recibir un binario ejecutable.
+Como efecto secundario de tener un ambiente de desarrollo reproducible, traer gente nueva al equipo se hace mucho más fácil ya que su ambiente ya está configurado idéntico al los del resto del equipo.
+
+## Creando nuestra Aplicacion y el Test Basico de la Misma
+
+Dockerfile este file es un manifiesto de comandos que se deben correr para construir nuestro environment correctamente cada vez.
+-El FROM. Designa una imagen que queremos usar como base.
+-COPY. Mueve files desde nuestra máquina local al container. Con esto podemos mover nuestro código al container.
+-RUN. Permite correr comandos arbitrarios.
+-CMD. Le indica a Docker que éste es el default command con el que se va a correr el container.
+-Add. Copia un archivo desde el host en el contenedor.
+-CMD. Configura comandos por defecto para ser ejecutados o se pasa al punto de entrada.
+-ENTRYPOINT. Ajusta el punto de entrada por defecto de la aplicación desde el contenedor.
+-ENV. Inicializa variables de entorno (por ejemplo, “clave=valor”)
+-EXPOSE. Expone un puerto al exterior.
+-MAINTAINER. Establece los datos de autor/propietario del archivo Dockerfile
+-USER. Establece el usuario para ejecutar los contenedores de la imagen.
+-VOLUMEN. Monta un directorio desde el host al contenedor.
+-WORKDIR. Establece el directorio para las directivas de CMD que se ejecutarán.
+
+## Terminando de Configurar nuestro Ambiente de Desarrollo utilizando Docker
+
+## ¿Qué es un CI?
+
+Las siglas significan Continuous Integration (Integración Continua).
+CI como proceso significa que cada cambio subido a nuestro sistema de control de versiones ha sido puesto a prueba y que los cambios han sido validados y aceptados. CI como herramienta usualmente se refiere a la herramienta que facilita el proceso de CI. Esto puede causar confusión si no se entiende el contexto en el que se está hablando. En este curso nos referiremos a CI como la herramienta.
+Cuando integramos con un CI le podemos dar ciertas responsabilidades. Correr las pruebas, trigger/package el código y hasta hacer el deployment. La herramienta ayuda, pero no lo es todo. Cuando cambios van a ser sometidos, el hecho de que las pruebas pasen es bueno. Pero si los nuevos cambios están fuera del scope de las pruebas, más pruebas deben ser añadidas. Aquí entra el concepto de “code reviews” donde otros developers verifican el código siendo propuesto, ofrecen feedback y aprueban el código. Tu CI es solo tan efectivo como la efectividad de las pruebas siendo ejercidas. Además, hacer “code reviews” ayuda a tener consenso y evitar silos de conocimiento.
+Algunos de los CIs más comunes son Travis, Circle, Codeship y Jenkins. De estos, Jenkins es el más común para correr internamente. Los demás ofrecen servicios y no hay que correrlos nosotros.
+
+## ¿Qué es Continuous Delivery?
+
+Cuando incluimos CI en nuestro proceso, nos aseguramos que nuestro código siempre esté bien probado y sea posible enviarlo a producción con pocas preocupaciones. Este estado es la definición de Continuous Delivery. El código no necesariamente tiene que terminar en producción, pero el hecho de que podamos deploy con confianza basado
+en nuestro proceso de CI, nos pone en una posición muy cómoda. En el caso que veamos un problema en producción, podemos escoger una versión anterior con certeza de que no traerá problemas.
+Lanzar el código directo a producción después que los cambios fueron aceptados por el proceso de CI es conocido como Continuous Deployment. Para llegar a este nivel, los niveles de prueba deben ser excelentes. Tener un ambiente de QA con pruebas de aceptación sería crucial para prevenir errores en las partes más críticas del servicio.
+
+## Entendiendo el Flujo de Continuous Delivery o Continuous Delivery Pipeline
+
+Pruebas de aceptación: Éstas son un nivel más arriba de pruebas de integración. Buscan emular usuarios o consumidores de nuestro servicio a través de las interfaces expuestas. En el caso de nuestro servicio, que cualquier persona pueda recibir el HTML que el mismo sirve. Si nuestra prueba llegara a fallar, deberíamos abortar el deployment a producción e inmediatamente alertar a los developers que el último código ha introducido un error crítico y ningún otro deployment va a poderse llevar a cabo.
+
+## Creando Nuestro Ambiente de Control de Calidad (Quality Assurance) con Now.sh
+
+now --docker
+
+## Integrando nuestro Proceso de Integración Continua a nuestro Flujo de Entrega Continua (Continuous Delivery Pipeline)
+
+CirleCI necesita que le demos credenciales para que pueda hacer deploys por nosotros. La manera más sencilla es obteniendo un token visitando el dashboard de now. Cuando lo tenemos, debemos ir a la configuración de nuestro repositorio en la consola de CircleCI.
+
+## Introducción a DigitalOcean
+
+La infraestructura corre en máquinas virtuales hoy en día. Con DigitalOcean podemos crear máquinas virtuales para correr nuestra infraestructura.
+
+## Instancias.
+VM o Droplet
+
+para crear llave SSH
+
+>>  pbcopy < ~/.ssh/id_rsa.pub
+
+La infraestructura hoy en día corre en maquinas virtuales y se son llamadas instancias, en el caso de Digital Ocean las llaman droplets.
+
+Es importante generar la llave ssh o copiar nuestra llave que ya tenemos creada para poder acceder en la instancia, en el caso de AWS ellos generan un archivo .pem el cual hay que guardar.
+
+En CoreOS el usuario por defecto para entrar via ssh es core
+
+## LoadBalancers
+
+Con LoadBalancer el tráfico estará balanceando entre ambas VMs y si por alguna razón una de ellas muere o hay que darle mantenimiento, la otra puede seguir corriendo.
+
+High Availability(HA): Alta Disponibilidad, mi sitio web o aplicación siempre este disponible para el usuario
+Scaling: Escalabilidad, poder crear mas maquinas para cubrir la demanda de trafico.
+
+## Qué es Configuration Management
+
+En un principio el término Configuration Management hace referencia al proceso de sistemáticamente manejar los cambios de un sistema de tal forma que este mantiene su funcionalidad y rendimiento conforme pasa el tiempo, incluso cuando este proceso no nació en los círculos de DevOps y Administración de Servidores, este término es ampliamente usado para referirse a Server Configuration Management.
+
+Como veremos en este curso, la automatización es primordial, es el mecanismo que utilizamos para que el servidor alcance el estado deseable, previamente definido por Scripts de provisionamiento que nos provee el lenguaje específico a la herramienta que usemos en nuestro caso por medio de nuestro archivo YAML.
+
+Es importante mencionar que hay diversas herramientas de Configuration Management disponibles en el mercado: Puppet, Ansible, Chef y Salt, todas con la finalidad de asegurarse que el estado del sistema es igual al que tu describes en tus scripts de provisionamiento.
+
+## Creación de Imágenes (Snapshots en DigitalOcean)
+
+Cuando compras 2 computadoras esperas que ambas se comporten igual en el momento que las prendes, básicamente idénticas en software. En términos de development environment también es muy común tratar de mantener un ambiente de desarrollo muy similar a ese de producción. Previamente mostramos cómo usar Docker para resolver esto a nivel de development y de servicios.
+Podemos llevar este concepto de “igualdad” a nuestras máquinas de producción. Podemos garantizar que nuestros software correrá en el mismo OS, paquetes de seguridad, y nuestro propio software. Esto es comúnmente llamado “images”.
+Estaremos usando DigitalOcean para jugar con su versión de “images” llamadas “snapshots”.
+Podemos visitar una de las VMs que lanzamos en el vídeo anterior en la consola de DO. En el menú de la izquierda podemos ver “snapshots”. Aquí podemos tomar un “Live Snapshot”. Cuando esté listo el mismo aparecerá en el menú de lanzar Droplets.
+Protip:
+Un snapshot podría causar un reboot, asegúrate que tus máquinas no estén en el LB en el momento que lo hagas.
+Gracias a las “images”, podemos tener el concepto de “forking” donde podemos crear una “image” usando otra como base. Muchas compañías generan una “base-image” la cual es “forked” para ser modificada con servicios específicos. Pero la “base image” contiene las cosas comunes como paquetes de seguridad, llaves de SSH de otros compañeros etc.
+Para automatizar el proceso existen herramientas como Packer y Aminator entre otras, que su propósito es simplificar la creación de dichas imágenes.
+
+Los snapshots o imágenes permiten replicar nuestras maquinas virtuales de una manera más automatizada.
+
+Los snapshots son copias de nuestra primera instancia pero solo copian el file system (sistema de archivos) no copian los procesos activos por lo tanto es necesario iniciarlos.
+
+## Automatizando el Proceso de Clonación de Imágenes o "Baking"
+
+Existen herramientas que nos ayudan a automatizar nuestro proceso, y se llama Packer.
+Esta herramienta nos permite crear imágenes en diferentes proveedores usando un file en común. Mirando la documentación podemos ver que hay dos partes fundamentales.
+Los “builders” donde podemos indicar los proveedores cloud donde queremos crear nuestras imágenes. Luego tenemos los “provisiones” los cuales ejecutan comandos contra la imagen siendo creada. Esta herramienta es muy poderosa ya que nos permite automatizar un proceso en múltiples proveedores con tan solo un poco de configuración.
+
+Para asignar un nombre al snapshot se usa la variable snapshot_name dentro de builders
+
+"builders": [
+    {
+      "type": "digitalocean",
+      "image": "coreos-stable",
+      "region": "nyc3",
+      "size": "512mb",
+      "snapshot_name": "platzi-demo-snapshot",
+      "ssh_username": "core"
+    }
+  ],
+El nombre de del snapshot debe cambiar para cada deploy y con esto poder regresar a un snapshot anterior si hay algún error.
+
+## Qué es Infraestructure as Code
+
+Previamente definimos a través de código como el CI debe comportarse, como nuestros servicios deben configurarse y la creación de una imagen, nuestra infraestructura no es nada diferente.
+Queremos poder reproducirla en cualquier momento y entender cómo todo está conectado. Poder manipular y mutar el estado de infraestructura de una manera segura es crucial. Cualquier error en estas operaciones puede costar horas en arreglar.
+En el evento de un catástrofe en nuestro proveedor, este nivel de automatización podría salvar muchas horas de trabajo.
+En este nivel de automatización podemos usar una herramienta llamada Terraform. La misma puede usarse con múltiples proveedores. Su sintaxis es muy sencilla y poderosa la cual permite crear y conectar recursos de una manera intuitiva. Nos permite tener un plan preliminar de las operaciones que ejecutaran y la dependencia entre los recursos.
+
+## Introducción de Terraforming
+
+cloud-config implementa una sintaxis para las configuraciones comunes del sistema, haciendo sencillo el completar tareas como iniciar servicios, también permite correr comandos fuera de los predefinidos.
+
+--> terraform plan: sirve para verificar los cambios que se van a hacer a la infraestructura.
+--> terraform apply: aplica los cambios en la infraestructura
+
+## Automatizando el Proceso de Añadir Nuestras Instancias al LoadBalancer
