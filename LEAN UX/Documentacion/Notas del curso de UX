@@ -1,0 +1,41 @@
+Con Lean UX aprendemos a:
+   >>> pensar/tener cultura Lean
+   >>> a trabajar mejor, más rápido, ágil, eficiente, divirtiéndonos y con menos costos.
+   >>> a validar el producto pensando en el usuario
+   >>> conocer procesos y todo el flujo  de creación  y negocio
+   >>> distinguir innovación de lo que no lo es
+
+Objetivo del Scope Canvas:
+    Alinear las necesidades del usuario con los objetivos del negocio y poder lograr metas comunes.
+    Ambas cosas suelen estar muy desconectadas.
+    Parece muy básico pero es mucho más difícil de lograr de lo que parece.
+    Por eso tener una herramienta de apoyo como el Scope Canvas es muy útil.
+
+UX:
+  Es la disciplina que se preocupa por todos los factores que afectan a la experiencia de uso de un
+  producto o servicio. Combina diversas áreas de estudio como negocios, interfaces de usuario, tecnología,
+  innovación, psicología, comunicación, arquitectura de la información, etnografía.
+
+Los objetivos de la UX son:
+  entender el comportamiento de las personas que utilizan nuestro producto o servicio y lograr atender
+  sus necesidades mejor.
+
+UI:
+  Es sólo la interfaz de un producto. Está íntimamente relacionada con la UX pero es sólo una parte de esa
+  experiencia.
+
+Lean: 
+  Metodología de fabricación de productos nacida en la línea de producción automotriz de Toyota,
+  cuyo objetivo es reducir al máximo el desperdicio. Sus características principales son:
+
+    - Ciclos de producción mucho más cortos
+    - Comunicación en tiempo real
+    - Capacidad de respuesta rápida
+
+
+Agile:
+  Es una metodología que busca aplicar Lean al desarrollo de software. Sus características centrales son:
+
+   - Equipos de trabajo pequeños y autónomos para reducir el papeleo y los costos de gestionarlos
+   - Trabajo en base a sprints (ciclos cortos de desarrollo y de velocidad predecible)
+   - Retrospectivas (aprendizaje y feedback rápido para poder incorporar mejoras en el siguiente sprint)
