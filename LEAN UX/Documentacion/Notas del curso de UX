@@ -11,6 +11,8 @@ Objetivo del Scope Canvas:
     Parece muy básico pero es mucho más difícil de lograr de lo que parece.
     Por eso tener una herramienta de apoyo como el Scope Canvas es muy útil.
 
+## GLOSARIO
+
 UX:
   Es la disciplina que se preocupa por todos los factores que afectan a la experiencia de uso de un
   producto o servicio. Combina diversas áreas de estudio como negocios, interfaces de usuario, tecnología,
@@ -24,7 +26,7 @@ UI:
   Es sólo la interfaz de un producto. Está íntimamente relacionada con la UX pero es sólo una parte de esa
   experiencia.
 
-Lean: 
+Lean:
   Metodología de fabricación de productos nacida en la línea de producción automotriz de Toyota,
   cuyo objetivo es reducir al máximo el desperdicio. Sus características principales son:
 
@@ -32,10 +34,32 @@ Lean:
     - Comunicación en tiempo real
     - Capacidad de respuesta rápida
 
-
 Agile:
   Es una metodología que busca aplicar Lean al desarrollo de software. Sus características centrales son:
 
    - Equipos de trabajo pequeños y autónomos para reducir el papeleo y los costos de gestionarlos
    - Trabajo en base a sprints (ciclos cortos de desarrollo y de velocidad predecible)
    - Retrospectivas (aprendizaje y feedback rápido para poder incorporar mejoras en el siguiente sprint)
+
+## INTRODUCCIÓN A LEAN UX
+
+- ¿Qué es UX?
+Cuando hablamos de UX, hablamos de Experiencia de Usuario, y normalmente, lo que suelen pensar las personas es que se refiere solo a la interfaz de una aplicación, pero en realidad la experiencia de usuario es mucho más que eso, es todo lo que rodea una experiencia para un usuario al usar nuestro producto.
+En UX nos preocupamos por todos los factores que afectan la experiencia de un producto o servicio, por esto mismo, el enfoque de UX es un enfoque multidisciplinario. Una persona que quiere entrar a trabajar con la experiencia de nuestros usuarios debe saber y/o tener contexto de negocios, diseño, tecnología, psicología, comunicación y etnografía.
+Con esto, todo lo que vamos a hacer en UX lo vamos a hacer para entender a las personas que usan nuestro producto y darles una mejor experiencia. Si queremos lograr esto tenemos que tener en cuenta la necesidad del usuario, el contexto donde puede usar tu producto, el performance (que ande fluido, no se rompa, funcione), entre otras cosas.
+Lo importante para hacer este trabajo es entender que la experiencia de un usuario es impredecible, aun así, lo que sí podemos hacer es ayudar a que sea mejor a partir de diversos factores, y uno de los más importantes es satisfacer una necesidad en concreto.
+UX implica convertir a tus usuarios en seres humanos, con historias, limitaciones, sueños y necesidades
+Diferencia entre UI y UX
+Mucha gente piensa que UI y UX son sinónimos, pero son dos cosas totalmente distintas que están relacionadas, pero son totalmente distintas. UI se refiere a la interfaz del usuario, el punto de contacto entre una herramienta y las personas. Como decíamos hace un momento, la interfaz es solo una parte de la experiencia del usuario.
+- Y … ¿Qué es Lean?
+Lean, viene de Lean Manufacturing, una metodología que Toyota implementó a su flujo de trabajo y permitió mejorar sus automóviles.
+Con Lean, Toyota tenía la capacidad de tener ciclos de producción más cortos, lo cual les daba una comunicación y feedback con sus usuarios sobre cada ciclo, y debido a esto, una capacidad de respuesta y mejora mucho más rápida que su competencia.
+Agile es el concepto que incorpora los principios de Lean al desarrollo de software, en donde producimos y optimizamos sitios a medida en que se desarrolla. Con Agile, la idea es trabajar con equipos pequeños y autónomos, bajando los costos de manejo entre equipos. Con esto trabajar en ciclos desarrollo pequeños y rápidos con capacidad de lanzar resultados funcionales a los usuarios, llamados sprints.
+Por último, con Agile, recibimos feedback de cada ciclo de desarrollo, que al igual que Toyota, nos permite tener una respuesta y mejora mucho más rápida para nuestros clientes.
+Con los mismos principios de Lean, nace Lean Startup, cuya idea es maximizar el aprendizaje y aumentar la capacidad de lanzar mínimos productos viables al mercado con la mayor rapidez posible y no perder (tanto) dinero en el camino.
+- Entonces.. ¿Qué es Lean UX?
+Lean UX lo que intenta es aprender lo antes posible lo necesario para hacer mejor la experiencia de nuestros usuario. Para ello, necesitamos tener muy cerca a nuestros clientes, aprender de ellos y a partir de esto, hacer mejoras a nuestro producto.
+La mayor ventaja de Lean UX es disminuir el riesgo de tu proyecto, tener certeza de cuánto va a durar y cuanto te va a costar un producto del cual ya tienes un indicio de que puede ser un éxito.
+Lean UX también te ayuda a tener un equipo alineado. Las motivaciones, los valores, los objetivos y las decisiones están explícitas en el producto. Esto ayuda mucho a reducir la fricción y las luchas de ego entre el equipo, todos tienen la misma camiseta puesta y la mira por cumplir el mismo objetivo.
+
+##

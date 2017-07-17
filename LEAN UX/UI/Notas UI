@@ -1,0 +1,14 @@
+5 estados de una interfaz (The UI Stack).
+
+Estado Ideal.
+Estado Vacío (empty state).
+Estado de error (amigables y comprensibles).
+Estado parcial (momentos intermedios, representación de progreso).
+Estado “cargando…” (dar a entender qué está pasando).
+
+Debemos entender que nuestros productos no siempre
+van a funcinar de la misma forma, ni las condiciones
+van a ser siempre las mismas e ideales. Hay que tener
+presente cada uno de estos estados para brindar una
+propuesta al usuario que se adapte a cada situación,
+afectando de manera positiva en una buena experiencia.

@@ -1,0 +1,191 @@
+## Configuración y guía básica usando Virtualbox
+
+Vamos a configurar nuestra maquina virtual con virtualbox, utilizaremos la versión 16.04 de Ubuntu.
+Recuerda debes tener instalado VirtualBox y dentro del programa debes darle la opción file/import y seleccionar la imagen de Ubuntu que descargaste.
+Los datos para iniciar sesión son:
+Usuario: ubuntu  Password: ubuntu123
+Configurando las interfaces de red
+Para poder conectarnos a la maquina virtual, dentro de los settings en la sección de network debes seleccionar bridge adapter y la interface de red que vas a usar.
+Podemos primero crear una nueva interface en preferencias/network y creamos una red vboxnet0
+Una vez tengas conexión entre las dos máquinas, podemos configurar para poder conectarnos con ssh
+Autenticarse
+Una opción es iniciar con el usuario ubuntu usando el comando ssh ubuntu@192.168.56.101recuerda que debes usar la ip que se le asigne al server.
+Pero usar usuario y contraseña no es una forma correcta de conectarse a un servidor.
+Crear llaves
+Dentro del host debemos crear una llave para podernos conectar, lo hacemos con el comando ssh-keygen -b 4096
+Al crear esto se crean dos imágenes, una pública y una privada, nunca compartas la privada.
+Ahora debemos subir la imagen publica al servidor, esto lo podemos hacer con ssh-copy-id -i .ssh/id_rsa.pub ubuntu@192.168.56.101
+Es hora de volver a conectarte al servidor.
+Desactivar opción con contraseña
+Para poder desactivar el entrar el sistema remoto con contraseña debemos abrir el archivo /etc/ssh/sshd_config, recuerda que requieres permisos de super usuario.
+Buscamos la opción PasswordAuthentication y le configuramos el valor no.
+Reiniciamos el servicio de ssh con sudo /etc/init.d/ssh restart
+
+## Iniciar un servidor Linux con AWS
+
+Usando plataformas como AWS podemos tener servidores de forma fácil, permitiendo iniciar un servidor en cuestión de minutos.
+Para iniciar con Amazon debes entrar a su sitio web y realizar el proceso de registro.
+Iniciar una instancia
+Una vez dentro del dashboard, encontrarás en el menú izquierdo una sección llamada Instances, al ingresar en esta opción seleccionamos Crear una nueva instancia
+Seleccionamos el sistema operativo, en este caso Ubuntu Server 16.04
+Dejamos seleccionada la instancia por defecto, igual que la configuración de los detalles.
+El disco duro lo dejamos de 8GB, usando un disco SSD.
+Al configurar el security group, debes crear un nuevo grupo, seleccionando los puertos que vas a utilizar, en este caso serán el puerto 22, 80, 443, 8080.
+Al tener definida toda la configuración, lanzamos la instancia.
+Conectarse a la instancia
+Las llaves nos permiten conectarnos al servidor, al lanzar la isntancia nos da la opción de crear una nueva llave y descargarla al computador.
+Es muy mala practica compartir la misma llave en varias instancias.
+Para conectarnos al servidor podemos utilizar el comando:
+// ssh -i [Nombre de la llave] [usuario]@[ip del servidor]    ssh -i woakas.pem ubuntu@54.196.172.97
+Recuerda que en el dashboard de AWS puedes ver la dirección IP asignada a la instancia que acabas de crear.
+Al conectarte por primera vez te va a pedir aceptar una verificación y mostrará una alerta de seguridad relacionada con los permisos de la llave.
+Para solucionar la alerta debemos buscar la llave y cambiar sus permisos con el archivo.
+chmod 600 woakas.pem
+Intenta conectarte de nuevo y vas a estar dentro de tu nuevo servidor.
+
+
+## Manejo de sesiones remotas con tmux y SSH
+
+Las llaves SSH son lo más importante para un administrador de servidores, estas nos permiten conectarnos a un servidor para poder ejecutar procesos de forma remota.
+
+- Dónde guardar las llaves SSH
+Existe una carpeta en el sistema llamada .ssh/ donde debemos guardar todas las llaves que tengamos.
+Recuerda colocarle un nombre al archivo de la llave que sea representativo.
+
+- Crear archivo de configuración
+Podemos crear un archivo para no tener que recordar todos los datos de ingreso al servidor, para esto debemos crear un archivo .ssh/config y colocar el contenido.
+Host platzi  HostName 54.196.172.97  Port 22Userubuntu  IdentityFile 		~/.ssh/platzi.pem
+
+- Manejar conexiones con tmux.
+Podemos utilizar tmux para poder tener varias terminales bajo la misma conexión, para esto debemos instalarlo dentro del servidor con:
+  sudo apt-get install tmux
+Usamos el comando tmux para iniciarlo
+Una vez iniciado podemos usar el comando CTRL + B y la opción que queramos,
+CTRL + B y c abre una nueva terminal
+CTRL + B y n avanza a la siguiente terminal
+CTRL + B y d Desconecta la sesión
+tmux attach Conectarse a la sesión de tmux
+Recuerda: En Linux todas las carpetas que inician con . son carpetas ocultas.
+-------------------------------------------
+Una conexión ssh:
+
+ssh -i [llave local] [usuario]@[ip]
+
+Por ejemplo:
+
+ssh -i ~/.ssh/platzi.pem ubuntu@54.196.172.97
+
+**Para crear una configuración de conexión ssh para acceder más rápido:
+**
+1- Crear archivo config en ruta ~/.ssh/ que debe contener lo siguiente por cada conexión que se quiera tener:
+
+Host [nombre para identificar después]
+HostName [ip]
+User [nombre de usuario que se va a usar]
+IdentityFile [ruta a la llave local]
+
+**Ejemplo:
+**
+Host platzi
+HostName 54.196.172.97
+User ubuntu
+IdentityFile ~/.ssh/platzi.pem
+
+**Se usa de esta forma posteriormente:
+**
+
+ssh plazi
+
+Mucho más corto y simple para usar, sin tener que acordarse de los datos de conexión.
+----------------------------------------------------------
+
+## Editar archivos con VIM
+
+Vim es un editor de texto que viene instalado por defecto en muchos servidores y con el vamos a modificar muchos archivos a lo largo del curso.
+- Uso básico
+Para abrir archivos podemos usar el comando vim seguido del nombre del archivo.
+Para salir de vim luego de modificar, usamos :wq para guardar los cambios y salir.
+Para no guardar los cambios usamos :q!
+Si deseas deshacer algo puedes usar la tecla u dentro del modo de comandos.
+- Modos de vim
+Vim funciona con modos, en cada modo vas a poder realizar diferentes acciones, los tres modos principales son:
+esc modo de comandos
+i modo insertar
+v modo visual
+-------------------------------------
+Comandos para desplazarse en VIM de forma eficiente.
+Usar ESC para cambiar de modos como insertar y visual.
+
+Comandos para desplazarse por un archivo
+
+h - Se desplaza un espacio a la izquierda.
+l - Se desplaza un espacio a la derecha.
+k - Se desplaza una línea hacía arriba.
+j - Se desplaza una línea hacía abajo.
+-------------------------------------
+
+## Añadir y administrar repositorios
+
+Los repositorios son una lista de paquetes, que pueden ser oficiales de la distribución.
+En el archivo /etc/apt/source.list se guardan las fuentes de los repositorios que va a consultar el sistema. cada fuente contienen una URL, configuración y una versión del paquete.
+Actualizar la lista de paquetes
+Con el comando apt-get update actualizamos la información de las fuentes listados en source.list
+Las llaves añaden una capa de seguridad a los repositorios.
+
+## Instalar, actualizar y remover programas en Linux
+
+instalar un programa
+aptitude es un programa que nos permite administrar e instalar componentes en Linux.
++ marcar paquete para instalar
+- marcar para no instalar/desinstalar
+g para instalar paquetes marcados
+= Dejar como estaban los paquetes
+Desinstalar
+apt-get remove [nombre], desinstalar un paquete.
+
+## Empaquetar y comprimir archivos en Linux
+
+Empaquetar y comprimir son cosas diferentes:
+Empaquetar: reunir varios archivos en uno solo.
+Comprimir: reducir el tamaño de un archivo, generando una versión comprimida sin perder información.
+
+Empaquetar
+  tar cvf [directorio de salida] [carpeta a empaquetar]
+Comprimir
+  gzip -9r [archivo a comprimir]
+Comprimir, descomprimir
+  tar cvfz archivo.tar.gz [carpeta para comprimir], permite comprimir un archivo
+  tar xvfz archivo.tar.gz, permite descomprimir y desempaquetar un archivo.
+
+## Compilar un programa en Linux
+
+Muchas veces tenemos que compilar paquetes en Linux, en Debian y Ubuntu bajamos paquetes ya precompilados
+Proceso de compilar
+1. Instalar asistente para compilación:
+      sudo apt-get install module-assistant
+2. Preparar el sistema, instalando los paquetes requeridos:
+      sudo m-a prepare
+3. Agregar fuente de datos habilitando fuentes deb-src:
+      sudo vim /etc/apt/source.list,
+4. Instalar dependencias del paquete
+      sudo apt-get build-dep [nombre del paquete]
+5. Compilar
+      sudo apt-get source -b [nombre del paquete]
+
+## Dónde encontrar la documentación de los programas
+
+Cada distribución tiene un lugar donde guarda la documentación de los paquetes.
+En ubuntu encuentras la documentación en /usr/share/doc
+man y info son programas que muestran la documentación del programa que consultes.
+
+Documentación:
+
+  Todas las documentaciones de aplicaciones quedan en /usr/share/doc/
+  Cada aplicación tiene ahí su propia carpeta con la documentación.
+  Con el comando “man” se puede ver la documentación de una aplicación: man [aplicación] (ej: man git)
+  Al abrir un manual con el comando “man”, se puede buscar una palabra escribiendo “/” y luego la palabra a encontrar,
+  luego enter. Con la tecla “n” se puede ir avanzando.
+
+Extra:
+
+  Para ver el contenido de un archivo comprimido en gz: zless [archivo] (ej: zless archivo.gz)
