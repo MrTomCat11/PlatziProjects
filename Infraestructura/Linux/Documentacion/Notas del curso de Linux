@@ -189,3 +189,48 @@ Documentación:
 Extra:
 
   Para ver el contenido de un archivo comprimido en gz: zless [archivo] (ej: zless archivo.gz)
+
+## Estructura de archivos en Linux
+
+Linux es un sistema operativo, desarrollado por Linus Torvals.
+
+Arquitectura
+Una de las cosas más importantes que debemos entender es la estructura de archivos, el directorio raíz es '/' :
+
+Directorios importantes
+  /home, se almacenan los archivos de cada usuario.
+  /lib, almacenas las librerías del sistema.
+  /mnt, cuando montamos en el sistema dispositivos, los podemos ver en esta carpeta.
+  /opt, almacenas los programas instalados de terceros.
+  /root, almacena los archivos del super usuario Root.
+  /sbin, archivos binarios del administrador.
+  /usr, programas instalados por defecto.
+  /var, se utiliza para guardar archivos de logs, backups, servidor web.
+  /etc, archivos de configuración del sistema.
+  /boot, guarda los archivos del arranque del sistema.
+Recuerda: Todo en Linux es un archivo.
+
+----------------------------------------
+
+Sistema de archivo en debian:
+
+/bin, archivos binarios de los usuarios del sistema.
+/boot, guarda los archivos del arranque del sistema.
+/dev, guarda las definiciones de todos los dispositivos.
+/etc, archivos de configuración del sistema.
+/home, se almacenan los archivos de cada usuario.
+/lib, almacena las librerías del sistema.
+/lib64, almacena las librerias del sistema de 64 bits.
+/lost+found, espacio temporal donde se guardan datos que se recuperan despues de la caida del sistema.
+/media, cuando montamos en el sistema dispositivos, los podemos ver en esta carpeta.
+/mnt, cuando montamos en el sistema dispositivos, los podemos ver en esta carpeta.
+/opt, almacenas los programas instalados de terceros.
+/proc, sistema de archivo virtual que lo crea y destruye el sistema. Contiene informacion del mismo. (forma anarquica)
+/root, almacena los archivos del super usuario Root.
+/run, datos variables en tiempo de ejecucion. Informacion del sistema desde el ultimo booteo.
+/sbin, archivos binarios del administrador.
+/srv, archivos de datos especificos para cada servicio instalado en el sistema.
+/sys, evolucion de /proc pero localizado de forma jerarquica.
+/tmp, almacenamiento de archivos temporales .
+/usr, programas instalados por defecto.
+/var, se utiliza para guardar archivos de logs, backups, servidor web.
